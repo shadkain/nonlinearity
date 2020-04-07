@@ -7,48 +7,34 @@
 //
 
 import UIKit
+import PinLayout
 
 class MessageView: UIView {
-    var messageLabel = UILabel()
-    var timeLabel = UILabel()
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setup()
-    }
-
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        setup()
-    }
-
-    private func setup() {
-        layer.backgroundColor = UIColor.hex(rgb: 454647).cgColor
-        layer.cornerRadius = 17.0
-
-        messageLabel.translatesAutoresizingMaskIntoConstraints = false
-        messageLabel.textAlignment = .left
+    let messageLabel = UILabel()
+    let timeLabel = UILabel()
+    
+    convenience init(g: Int) {
+        self.init(frame: .init(x: 50, y: 50, width: 200, height: 50))
+        layer.cornerRadius = 17
+        layer.backgroundColor = UIColor.hex(rgb: 0x454545).cgColor
+        messageLabel.text = "Hello FUCKING WORLD!"
         messageLabel.font = .systemFont(ofSize: 17)
-        messageLabel.textColor = .hex(rgb: 0xE1E3E6)
-        addSubview(messageLabel)
-
-        timeLabel.translatesAutoresizingMaskIntoConstraints = false
-        timeLabel.textAlignment = .right
-        timeLabel.font = .systemFont(ofSize: 11)
-        timeLabel.textColor = .hex(rgb: 0xABAEB2)
-        addSubview(timeLabel)
+        messageLabel.textColor = .hex(rgb: 0x000000)
+        messageLabel.textAlignment = .left
+        messageLabel.numberOfLines = 0
         
-        setupLayout()
+        addSubview(messageLabel)
     }
     
-    private func setupLayout() {
-        NSLayoutConstraint.activate([
-            messageLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
-            messageLabel.topAnchor.constraint(equalTo: topAnchor, constant: 7),
-            messageLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -7),
-            timeLabel.leadingAnchor.constraint(equalTo: messageLabel.trailingAnchor, constant: 11),
-            timeLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -14),
-            timeLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -6),
-        ])
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        messageLabel.pin.maxWidth(100).sizeToFit(.width)
+        
+        pin.wrapContent()
+        
+        messageLabel.pin
+            .left(12)
+            .top(7)
     }
 }
