@@ -39,27 +39,29 @@ class StoryCardView: UIViewComponent {
     override func setup() {
         
         imageView.layer.cornerRadius = 17.0
-        //imageView.frame.size = CGSize(width: 100, height: imageView.frame.width * 4 / 3)
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         
         nameLable.textAlignment = .left
-        nameLable.font = .systemFont(ofSize: 17)
-        nameLable.textColor = .red
+        nameLable.textColor = .hex(rgb: 0xE1E3E6)
         nameLable.numberOfLines = 2
         
         [imageView, nameLable].forEach { addSubview($0) }
-       
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
         imageView.pin
-            .top(5)
-            .horizontally(5)
-            .height(100)
+            .left()
+            .width(100%)
+            .aspectRatio(3/4)
         
         nameLable.pin
             .below(of: imageView)
-            .margin(10)
-            .horizontally(5)
-            .bottom(5)
+            .horizontally()
+            .bottom()
+        
+        nameLable.font = .systemFont(ofSize: frame.width/9)
     }
 }
-

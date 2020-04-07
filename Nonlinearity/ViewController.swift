@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .white
+        view.backgroundColor = .hex(rgb: 0x191919)
         
         let sv = StoryCardView(frame: .zero)
         
@@ -26,7 +26,7 @@ class ViewController: UIViewController {
         sv.pin
             .top(100)
             .horizontally(150)
-            .height(300)
+            .aspectRatio(0.6)
     }
 
 
