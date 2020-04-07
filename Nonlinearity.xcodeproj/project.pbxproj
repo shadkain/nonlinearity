@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5ABB0CAF2A09B3444192ECDE /* Pods_Nonlinearity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34B1D1D1EE7E9F4DE5428D17 /* Pods_Nonlinearity.framework */; };
 		9626697A243CCB1D00B65416 /* UIViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96266979243CCB1D00B65416 /* UIViewComponent.swift */; };
+		9626697D243CD39800B65416 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9626697C243CD39800B65416 /* String.swift */; };
 		96CDD1AB24351B7000A7D2FF /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDD1AA24351B7000A7D2FF /* UIColor.swift */; };
 		96CDD1B0243520FE00A7D2FF /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDD1AF243520FE00A7D2FF /* MessageView.swift */; };
 		96CDD1B224361D1C00A7D2FF /* Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDD1B124361D1C00A7D2FF /* Empty.swift */; };
@@ -24,6 +25,7 @@
 		34B1D1D1EE7E9F4DE5428D17 /* Pods_Nonlinearity.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Nonlinearity.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		878E0202A69DEC95C225B237 /* Pods-Nonlinearity.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nonlinearity.release.xcconfig"; path = "Target Support Files/Pods-Nonlinearity/Pods-Nonlinearity.release.xcconfig"; sourceTree = "<group>"; };
 		96266979243CCB1D00B65416 /* UIViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewComponent.swift; sourceTree = "<group>"; };
+		9626697C243CD39800B65416 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		96CDD1AA24351B7000A7D2FF /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		96CDD1AF243520FE00A7D2FF /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		96CDD1B124361D1C00A7D2FF /* Empty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Empty.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				96CDD1AA24351B7000A7D2FF /* UIColor.swift */,
+				9626697C243CD39800B65416 /* String.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 				CAD59A372435151600974C2D /* AppDelegate.swift in Sources */,
 				CAD59A392435151600974C2D /* SceneDelegate.swift in Sources */,
 				96CDD1B0243520FE00A7D2FF /* MessageView.swift in Sources */,
+				9626697D243CD39800B65416 /* String.swift in Sources */,
 				96CDD1B224361D1C00A7D2FF /* Empty.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
