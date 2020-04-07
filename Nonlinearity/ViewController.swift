@@ -9,7 +9,14 @@
 import UIKit
 
 class ViewController: UIViewController {
+<<<<<<< HEAD
     var mv: MessageView!
+=======
+    
+    override func loadView() {
+        //
+    }
+>>>>>>> 148cbd376523e1f0e7b249cc1378a6b62b4f4954
 
     override func viewDidLoad() {
         super.viewDidLoad()
