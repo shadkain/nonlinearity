@@ -10,8 +10,10 @@
 		5ABB0CAF2A09B3444192ECDE /* Pods_Nonlinearity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34B1D1D1EE7E9F4DE5428D17 /* Pods_Nonlinearity.framework */; };
 		9626697A243CCB1D00B65416 /* UIViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96266979243CCB1D00B65416 /* UIViewComponent.swift */; };
 		9626697D243CD39800B65416 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9626697C243CD39800B65416 /* String.swift */; };
+		96266980243CD60500B65416 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9626697F243CD60500B65416 /* Constants.swift */; };
+		96266982243DF90A00B65416 /* ModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96266981243DF90A00B65416 /* ModelView.swift */; };
 		96CDD1AB24351B7000A7D2FF /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDD1AA24351B7000A7D2FF /* UIColor.swift */; };
-		96CDD1B0243520FE00A7D2FF /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDD1AF243520FE00A7D2FF /* MessageView.swift */; };
+		96CDD1B0243520FE00A7D2FF /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDD1AF243520FE00A7D2FF /* View.swift */; };
 		96CDD1B224361D1C00A7D2FF /* Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDD1B124361D1C00A7D2FF /* Empty.swift */; };
 		CAD59A372435151600974C2D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD59A362435151600974C2D /* AppDelegate.swift */; };
 		CAD59A392435151600974C2D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD59A382435151600974C2D /* SceneDelegate.swift */; };
@@ -26,8 +28,10 @@
 		878E0202A69DEC95C225B237 /* Pods-Nonlinearity.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nonlinearity.release.xcconfig"; path = "Target Support Files/Pods-Nonlinearity/Pods-Nonlinearity.release.xcconfig"; sourceTree = "<group>"; };
 		96266979243CCB1D00B65416 /* UIViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewComponent.swift; sourceTree = "<group>"; };
 		9626697C243CD39800B65416 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		9626697F243CD60500B65416 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		96266981243DF90A00B65416 /* ModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelView.swift; sourceTree = "<group>"; };
 		96CDD1AA24351B7000A7D2FF /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
-		96CDD1AF243520FE00A7D2FF /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
+		96CDD1AF243520FE00A7D2FF /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		96CDD1B124361D1C00A7D2FF /* Empty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Empty.swift; sourceTree = "<group>"; };
 		CAD59A332435151600974C2D /* Nonlinearity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nonlinearity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAD59A362435151600974C2D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -68,6 +72,16 @@
 			path = Framework;
 			sourceTree = "<group>";
 		};
+		9626697E243CD5EF00B65416 /* MessageView */ = {
+			isa = PBXGroup;
+			children = (
+				96CDD1AF243520FE00A7D2FF /* View.swift */,
+				9626697F243CD60500B65416 /* Constants.swift */,
+				96266981243DF90A00B65416 /* ModelView.swift */,
+			);
+			path = MessageView;
+			sourceTree = "<group>";
+		};
 		96CDD1A824351B2700A7D2FF /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -89,7 +103,7 @@
 		96CDD1AD2435202300A7D2FF /* Game */ = {
 			isa = PBXGroup;
 			children = (
-				96CDD1AF243520FE00A7D2FF /* MessageView.swift */,
+				9626697E243CD5EF00B65416 /* MessageView */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -265,10 +279,12 @@
 				9626697A243CCB1D00B65416 /* UIViewComponent.swift in Sources */,
 				96CDD1AB24351B7000A7D2FF /* UIColor.swift in Sources */,
 				CAD59A372435151600974C2D /* AppDelegate.swift in Sources */,
+				96266982243DF90A00B65416 /* ModelView.swift in Sources */,
 				CAD59A392435151600974C2D /* SceneDelegate.swift in Sources */,
-				96CDD1B0243520FE00A7D2FF /* MessageView.swift in Sources */,
+				96CDD1B0243520FE00A7D2FF /* View.swift in Sources */,
 				9626697D243CD39800B65416 /* String.swift in Sources */,
 				96CDD1B224361D1C00A7D2FF /* Empty.swift in Sources */,
+				96266980243CD60500B65416 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

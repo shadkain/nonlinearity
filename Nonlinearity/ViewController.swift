@@ -9,23 +9,24 @@
 import UIKit
 
 class ViewController: UIViewController {
-<<<<<<< HEAD
     var mv: MessageView!
-=======
-    
-    override func loadView() {
-        //
-    }
->>>>>>> 148cbd376523e1f0e7b249cc1378a6b62b4f4954
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        mv = MessageView(g: 7)
+        mv = .init(fromModel: .init(
+            sender: .companion,
+            message: "Hello, kitty! I'm your fan! Really!",
+            time: .init(hours: 23, minutes: 14)
+            ), withMaxWidth: 290)
         view.addSubview(mv)
     }
-
-
+    
+    override func viewDidLayoutSubviews() {
+        mv.pin
+            .left(8)
+            .top(view.pin.safeArea.top + 100)
+    }
+    
 }
-
