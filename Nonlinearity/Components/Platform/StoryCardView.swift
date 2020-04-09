@@ -38,7 +38,7 @@ class StoryCardView: UIViewComponent {
     
     override func setup() {
         
-        imageView.layer.cornerRadius = 17.0
+        imageView.layer.cornerRadius = 17
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         

@@ -14,19 +14,30 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .hex(rgb: 0x191919)
+        view.backgroundColor = .hex(rgb: 0x252525)
         
-        let sv = StoryCardView(frame: .zero)
+/*StoryCargdView setup*/
+//        let sv = StoryCardView(frame: .zero)
+//
+//        sv.image = UIImage(named: "book")
+//        sv.nameLable.text = "Захватывающий дух"
+//
+//        view.addSubview(sv)
+//
+//        sv.pin
+//            .top(100)
+//            .horizontally(150)
+//            .aspectRatio(0.6)
         
-        sv.image = UIImage(named: "book")
-        sv.nameLable.text = "Захватывающий дух"
+/*BubbleView setup*/
+        let bv = BubbleView(frame: .zero)
         
-        view.addSubview(sv)
+        bv.image = UIImage(named: "drama-face")
+        bv.titleLable.text = "Драма"
         
-        sv.pin
-            .top(100)
-            .horizontally(150)
-            .aspectRatio(0.6)
+        view.addSubview(bv)
+        
+        bv.pin.top(100).hCenter()
     }
 
 
