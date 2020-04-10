@@ -12,6 +12,8 @@
 		9626697D243CD39800B65416 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9626697C243CD39800B65416 /* String.swift */; };
 		96266980243CD60500B65416 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9626697F243CD60500B65416 /* Constants.swift */; };
 		96266982243DF90A00B65416 /* ModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96266981243DF90A00B65416 /* ModelView.swift */; };
+		968F0C75243E71D40052768E /* ChatPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968F0C74243E71D40052768E /* ChatPageView.swift */; };
+		968F0C77243FCDD80052768E /* MessageScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968F0C76243FCDD80052768E /* MessageScrollView.swift */; };
 		96CDD1AB24351B7000A7D2FF /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDD1AA24351B7000A7D2FF /* UIColor.swift */; };
 		96CDD1B0243520FE00A7D2FF /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDD1AF243520FE00A7D2FF /* View.swift */; };
 		96CDD1B224361D1C00A7D2FF /* Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDD1B124361D1C00A7D2FF /* Empty.swift */; };
@@ -30,6 +32,8 @@
 		9626697C243CD39800B65416 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		9626697F243CD60500B65416 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		96266981243DF90A00B65416 /* ModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelView.swift; sourceTree = "<group>"; };
+		968F0C74243E71D40052768E /* ChatPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatPageView.swift; sourceTree = "<group>"; };
+		968F0C76243FCDD80052768E /* MessageScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageScrollView.swift; sourceTree = "<group>"; };
 		96CDD1AA24351B7000A7D2FF /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		96CDD1AF243520FE00A7D2FF /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		96CDD1B124361D1C00A7D2FF /* Empty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Empty.swift; sourceTree = "<group>"; };
@@ -82,6 +86,22 @@
 			path = MessageView;
 			sourceTree = "<group>";
 		};
+		968F0C72243E71A70052768E /* Pages */ = {
+			isa = PBXGroup;
+			children = (
+				968F0C73243E71B40052768E /* Game */,
+			);
+			path = Pages;
+			sourceTree = "<group>";
+		};
+		968F0C73243E71B40052768E /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				968F0C74243E71D40052768E /* ChatPageView.swift */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
 		96CDD1A824351B2700A7D2FF /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				9626697E243CD5EF00B65416 /* MessageView */,
+				968F0C76243FCDD80052768E /* MessageScrollView.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -146,6 +167,7 @@
 		CAD59A352435151600974C2D /* Nonlinearity */ = {
 			isa = PBXGroup;
 			children = (
+				968F0C72243E71A70052768E /* Pages */,
 				9626697B243CCCD100B65416 /* Framework */,
 				96CDD1AC2435201800A7D2FF /* Components */,
 				96CDD1A824351B2700A7D2FF /* Utils */,
@@ -275,10 +297,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				968F0C75243E71D40052768E /* ChatPageView.swift in Sources */,
 				CAD59A3B2435151600974C2D /* ViewController.swift in Sources */,
 				9626697A243CCB1D00B65416 /* UIViewComponent.swift in Sources */,
 				96CDD1AB24351B7000A7D2FF /* UIColor.swift in Sources */,
 				CAD59A372435151600974C2D /* AppDelegate.swift in Sources */,
+				968F0C77243FCDD80052768E /* MessageScrollView.swift in Sources */,
 				96266982243DF90A00B65416 /* ModelView.swift in Sources */,
 				CAD59A392435151600974C2D /* SceneDelegate.swift in Sources */,
 				96CDD1B0243520FE00A7D2FF /* View.swift in Sources */,
