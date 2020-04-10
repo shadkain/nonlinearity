@@ -32,9 +32,14 @@ class StoryCardView: UIViewComponent {
             imageView.image
         }
     }
+    var isRated: Bool = false
+    var isFirstRated: Bool = false
     
     private let imageView = UIImageView()
     
+    private let starMainView = UIImageView()
+    private let starLeftView = UIImageView()
+    private let starRightView = UIImageView()
     
     override func setup() {
         
@@ -47,6 +52,20 @@ class StoryCardView: UIViewComponent {
         nameLable.numberOfLines = 2
         
         [imageView, nameLable].forEach { addSubview($0) }
+        
+        starMainView.bounds = CGRect(x: 0, y: 0, width: 40.09, height: 38.18)
+        starLeftView.bounds = CGRect(x: 0, y: 0, width: 19.09, height: 18.18)
+        starRightView.bounds = CGRect(x: 0, y: 0, width: 26.81, height: 25.53)
+        
+        starMainView.image = UIImage(named: "star-main")
+        starLeftView.image = UIImage(named: "star-left")
+        starRightView.image = UIImage(named: "star-right")
+        starRightView.clipsToBounds = false
+        
+        [starMainView, starLeftView, starRightView].forEach {
+            addSubview($0)
+            $0.isHidden = true
+        }
     }
     
     override func layoutSubviews() {
@@ -63,5 +82,28 @@ class StoryCardView: UIViewComponent {
             .bottom()
         
         nameLable.font = .systemFont(ofSize: frame.width/9)
+        
+        if isRated || isFirstRated {
+            starMainView.isHidden = false
+            
+            starMainView.pin
+            .above(of: nameLable)
+            .right()
+            
+            if isFirstRated {
+                starLeftView.isHidden = false
+                starLeftView.pin
+                    .above(of: nameLable)
+                    .before(of: starMainView)
+                    .marginRight(-10)
+                
+                starRightView.isHidden = false
+                starRightView.pin
+                    .above(of: starMainView)
+                    .marginBottom(-12)
+                    .right()
+                    .marginRight(-10)
+            }
+        }
     }
 }
