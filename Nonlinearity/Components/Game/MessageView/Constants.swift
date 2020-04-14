@@ -8,8 +8,8 @@
 
 import UIKit
 
-extension MessageView {
-    final class const {
+extension Message.View {
+    struct const {
         static let cornerRadius: CGFloat = 17
         
         struct color {
@@ -29,6 +29,11 @@ extension MessageView {
             static let messageToVBounds: CGFloat = 7
             static let timeToMessageV: CGFloat = 4
             static let timeToBottom: CGFloat = 6
+            static let timeNoExtraH: CGFloat = size.timeWidth + space.commonH
+        }
+        
+        struct size {
+            static let timeWidth: CGFloat = "00:00".width(usingFont: font.time)
         }
     }
 }

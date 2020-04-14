@@ -7,13 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5ABB0CAF2A09B3444192ECDE /* Pods_Nonlinearity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34B1D1D1EE7E9F4DE5428D17 /* Pods_Nonlinearity.framework */; };
 		9626697A243CCB1D00B65416 /* UIViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96266979243CCB1D00B65416 /* UIViewComponent.swift */; };
 		9626697D243CD39800B65416 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9626697C243CD39800B65416 /* String.swift */; };
 		96266980243CD60500B65416 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9626697F243CD60500B65416 /* Constants.swift */; };
 		96266982243DF90A00B65416 /* ModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96266981243DF90A00B65416 /* ModelView.swift */; };
 		968F0C75243E71D40052768E /* ChatPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968F0C74243E71D40052768E /* ChatPageView.swift */; };
-		968F0C77243FCDD80052768E /* MessageScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968F0C76243FCDD80052768E /* MessageScrollView.swift */; };
+		968F0C792440AE850052768E /* RSequnceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968F0C782440AE850052768E /* RSequnceView.swift */; };
+		968F0C7C24423A950052768E /* LSequenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968F0C7B24423A950052768E /* LSequenceView.swift */; };
+		968F0C7E24423B2B0052768E /* BaseSequenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968F0C7D24423B2B0052768E /* BaseSequenceView.swift */; };
+		968F0C80244251760052768E /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968F0C7F244251760052768E /* Queue.swift */; };
+		968F0C842443798B0052768E /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968F0C832443798B0052768E /* UILabel.swift */; };
+		968F0C8C2444D1E80052768E /* Pods_Nonlinearity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34B1D1D1EE7E9F4DE5428D17 /* Pods_Nonlinearity.framework */; };
 		96CDD1AB24351B7000A7D2FF /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDD1AA24351B7000A7D2FF /* UIColor.swift */; };
 		96CDD1B0243520FE00A7D2FF /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDD1AF243520FE00A7D2FF /* View.swift */; };
 		96CDD1B224361D1C00A7D2FF /* Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDD1B124361D1C00A7D2FF /* Empty.swift */; };
@@ -33,7 +37,12 @@
 		9626697F243CD60500B65416 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		96266981243DF90A00B65416 /* ModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelView.swift; sourceTree = "<group>"; };
 		968F0C74243E71D40052768E /* ChatPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatPageView.swift; sourceTree = "<group>"; };
-		968F0C76243FCDD80052768E /* MessageScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageScrollView.swift; sourceTree = "<group>"; };
+		968F0C782440AE850052768E /* RSequnceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSequnceView.swift; sourceTree = "<group>"; };
+		968F0C7B24423A950052768E /* LSequenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSequenceView.swift; sourceTree = "<group>"; };
+		968F0C7D24423B2B0052768E /* BaseSequenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSequenceView.swift; sourceTree = "<group>"; };
+		968F0C7F244251760052768E /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
+		968F0C832443798B0052768E /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
+		968F0C882444D0EA0052768E /* PinLayout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PinLayout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		96CDD1AA24351B7000A7D2FF /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		96CDD1AF243520FE00A7D2FF /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		96CDD1B124361D1C00A7D2FF /* Empty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Empty.swift; sourceTree = "<group>"; };
@@ -53,7 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5ABB0CAF2A09B3444192ECDE /* Pods_Nonlinearity.framework in Frameworks */,
+				968F0C8C2444D1E80052768E /* Pods_Nonlinearity.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +72,7 @@
 		885BF90D05FEFBBC7BC3E863 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				968F0C882444D0EA0052768E /* PinLayout.framework */,
 				34B1D1D1EE7E9F4DE5428D17 /* Pods_Nonlinearity.framework */,
 			);
 			name = Frameworks;
@@ -102,11 +112,23 @@
 			path = Game;
 			sourceTree = "<group>";
 		};
+		968F0C7A2440AF1C0052768E /* Sequence */ = {
+			isa = PBXGroup;
+			children = (
+				968F0C782440AE850052768E /* RSequnceView.swift */,
+				968F0C7B24423A950052768E /* LSequenceView.swift */,
+				968F0C7D24423B2B0052768E /* BaseSequenceView.swift */,
+			);
+			path = Sequence;
+			sourceTree = "<group>";
+		};
 		96CDD1A824351B2700A7D2FF /* Utils */ = {
 			isa = PBXGroup;
 			children = (
 				96CDD1AA24351B7000A7D2FF /* UIColor.swift */,
 				9626697C243CD39800B65416 /* String.swift */,
+				968F0C7F244251760052768E /* Queue.swift */,
+				968F0C832443798B0052768E /* UILabel.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -123,8 +145,8 @@
 		96CDD1AD2435202300A7D2FF /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				968F0C7A2440AF1C0052768E /* Sequence */,
 				9626697E243CD5EF00B65416 /* MessageView */,
-				968F0C76243FCDD80052768E /* MessageScrollView.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -301,11 +323,15 @@
 				CAD59A3B2435151600974C2D /* ViewController.swift in Sources */,
 				9626697A243CCB1D00B65416 /* UIViewComponent.swift in Sources */,
 				96CDD1AB24351B7000A7D2FF /* UIColor.swift in Sources */,
+				968F0C792440AE850052768E /* RSequnceView.swift in Sources */,
+				968F0C7E24423B2B0052768E /* BaseSequenceView.swift in Sources */,
+				968F0C842443798B0052768E /* UILabel.swift in Sources */,
 				CAD59A372435151600974C2D /* AppDelegate.swift in Sources */,
-				968F0C77243FCDD80052768E /* MessageScrollView.swift in Sources */,
 				96266982243DF90A00B65416 /* ModelView.swift in Sources */,
 				CAD59A392435151600974C2D /* SceneDelegate.swift in Sources */,
 				96CDD1B0243520FE00A7D2FF /* View.swift in Sources */,
+				968F0C80244251760052768E /* Queue.swift in Sources */,
+				968F0C7C24423A950052768E /* LSequenceView.swift in Sources */,
 				9626697D243CD39800B65416 /* String.swift in Sources */,
 				96CDD1B224361D1C00A7D2FF /* Empty.swift in Sources */,
 				96266980243CD60500B65416 /* Constants.swift in Sources */,
@@ -454,12 +480,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = VXUJ9UWYJ7;
 				INFOPLIST_FILE = Nonlinearity/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Nonlinearity.Nonlinearity;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Nonlinearity.Nonlinearit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -472,12 +501,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = VXUJ9UWYJ7;
 				INFOPLIST_FILE = Nonlinearity/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Nonlinearity.Nonlinearity;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Nonlinearity.Nonlinearit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
