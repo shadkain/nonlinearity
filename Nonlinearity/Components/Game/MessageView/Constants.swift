@@ -1,5 +1,5 @@
 //
-//  Const.swift
+//  Constansts.swift
 //  Nonlinearity
 //
 //  Created by Святослав Кряжев on 07.04.2020.
@@ -31,6 +31,7 @@ extension Message {
             static let timeToMessageV: CGFloat = 4
             static let timeToBottom: CGFloat = 6
             static let timeSameLineH: CGFloat = size.timeWidth + space.commonH
+            static let nameToMessageV: CGFloat = 2
         }
         
         struct size {

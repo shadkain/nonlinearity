@@ -136,7 +136,7 @@ extension Message {
         override func layout() {
             nameLabel.pin
                 .above(of: messageLabel, aligned: .left)
-                .marginBottom(2)
+                .marginBottom(const.space.nameToMessageV)
                 .sizeToFit(.content)
 
             super.layout()
