@@ -20,4 +20,11 @@ class UIViewComponent: UIView {
     }
     
     func setup() {}
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        layout()
+    }
+    
+    func layout() {}
 }

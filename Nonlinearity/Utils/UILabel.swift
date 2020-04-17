@@ -40,4 +40,13 @@ extension UILabel {
         
         return linesArray
     }
+    
+    var lastLineWidth: CGFloat {
+        guard let lines = breakLineUsingWordWrapping(),
+            let lastLine = lines.last else {
+                return .greatestFiniteMagnitude
+        }
+        
+        return lastLine.width(usingFont: self.font)
+    }
 }

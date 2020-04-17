@@ -9,50 +9,24 @@
 import UIKit
 import PinLayout
 
-struct Message {
-    enum Sender {
-        case me
-        case companion
-    }
-    struct Time {
-        var hours: Int8
-        var minutes: Int8
-        
-        func toString() -> String {
-            return (hours < 10 ? "0" : "") + "\(hours):" + (minutes < 10 ? "0" : "") + "\(minutes)"
-        }
-    }
-    
-    var sender: Sender
-    var message: String
-    var time: Time
+protocol MessageView: UIView {
+    func configure(with message: Message, location: Message.Location)
 }
 
 extension Message {
-    final class View: UIViewComponent {
-        private let messageLabel = UILabel()
+    class UnnamedView: UIViewComponent, MessageView {
+        fileprivate let messageLabel = UILabel()
         private let timeLabel = UILabel()
-        private var maxWidth: CGFloat!
-        
-        init(from model: Message) {
-            super.init(frame: .zero)
-            
-            messageLabel.text = model.message
-            timeLabel.text = model.time.toString()
-            switch model.sender {
-            case .me:
-                backgroundColor = const.color.meBg
-            case .companion:
-                backgroundColor = const.color.companionBg
-            }
-        }
+        var maxWidth: CGFloat!
         
         override func setup() {
+            maxWidth = frame.width
             layer.cornerRadius = 17
             
             messageLabel.font = const.font.message
             messageLabel.textAlignment = .left
             messageLabel.textColor = const.color.messageText
+            messageLabel.lineBreakMode = .byWordWrapping
             messageLabel.numberOfLines = 0
             
             timeLabel.font = const.font.time
@@ -63,14 +37,29 @@ extension Message {
             [messageLabel, timeLabel].forEach { self.addSubview($0) }
         }
         
-        func layout(withMaxWidth maxWidth: CGFloat) {
-            self.maxWidth = maxWidth
-            let messageTextBreakpoint = maxWidth - (2*const.space.commonH + const.size.timeWidth)
-            if messageLabel.textWidth > messageTextBreakpoint {
-                multiLineLayout()
-            } else {
-                singleLineLayout()
+        func configure(with message: Message, location: Message.Location) {
+            messageLabel.text = message.text
+            timeLabel.text = message.time.toString()
+            
+            switch location {
+            case .right:
+                backgroundColor = const.color.bgRightLoc
+            case .left:
+                backgroundColor = const.color.bgLeftLoc
             }
+        }
+        
+        override func sizeThatFits(_ size: CGSize) -> CGSize {
+            maxWidth = size.width
+            
+            layout()
+            
+            return bounds.size
+        }
+        
+        override func layout() {
+            let messageTextBreakpoint = maxWidth - (2*const.space.commonH + const.size.timeWidth)
+            messageLabel.textWidth > messageTextBreakpoint ? multiLineLayout() : singleLineLayout()
         }
         
         private func singleLineLayout() {
@@ -85,6 +74,8 @@ extension Message {
                 .sizeToFit(.content)
             
             self.pin.wrapContent(.horizontally, padding: const.space.commonH)
+            
+            timeLabel.pin.right(const.space.commonH)
         }
         
         private func multiLineLayout() {
@@ -92,15 +83,11 @@ extension Message {
                 .maxWidth(maxWidth - 2*const.space.commonH)
                 .sizeToFit(.widthFlexible)
             
-            guard let lastLineWidth = messageLabel.breakLineUsingWordWrapping()?.last?.width(usingFont: messageLabel.font),
-                lastLineWidth < messageLabel.frame.width - const.space.timeNoExtraH else {
-                return timeExtraLineLayout()
-            }
-            
-            timeNoExtraLineLayout()
+            messageLabel.lastLineWidth < messageLabel.frame.width - const.space.timeSameLineH ?
+                sameLineTimeLayout() : separateLineTimeLayout()
         }
         
-        private func timeNoExtraLineLayout() {
+        private func sameLineTimeLayout() {
             self.pin.wrapContent(.vertically, padding: const.space.messageToVBounds)
             
             timeLabel.pin
@@ -111,7 +98,7 @@ extension Message {
             self.pin.wrapContent(.horizontally, padding: const.space.commonH)
         }
         
-        private func timeExtraLineLayout() {
+        private func separateLineTimeLayout() {
             timeLabel.pin
                 .below(of: messageLabel, aligned: .right)
                 .marginTop(const.space.timeToMessageV)
@@ -123,6 +110,36 @@ extension Message {
                 bottom: const.space.timeToBottom,
                 right: const.space.commonH)
             )
+        }
+    }
+    
+    final class NamedView: UnnamedView {
+        private let nameLabel = UILabel()
+        
+        override func setup() {
+            super.setup()
+            
+            nameLabel.font = const.font.name
+            nameLabel.textAlignment = .left
+            nameLabel.textColor = .hex(rgb: 0xC35EB9)
+            nameLabel.numberOfLines = 1
+            
+            addSubview(nameLabel)
+        }
+        
+        override func configure(with message: Message, location: Message.Location) {
+            nameLabel.text = message.author.nameString()
+            
+            super.configure(with: message, location: location)
+        }
+        
+        override func layout() {
+            nameLabel.pin
+                .above(of: messageLabel, aligned: .left)
+                .marginBottom(2)
+                .sizeToFit(.content)
+
+            super.layout()
         }
     }
 }

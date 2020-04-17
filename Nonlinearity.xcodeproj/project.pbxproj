@@ -10,16 +10,15 @@
 		9626697A243CCB1D00B65416 /* UIViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96266979243CCB1D00B65416 /* UIViewComponent.swift */; };
 		9626697D243CD39800B65416 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9626697C243CD39800B65416 /* String.swift */; };
 		96266980243CD60500B65416 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9626697F243CD60500B65416 /* Constants.swift */; };
-		96266982243DF90A00B65416 /* ModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96266981243DF90A00B65416 /* ModelView.swift */; };
 		968F0C75243E71D40052768E /* ChatPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968F0C74243E71D40052768E /* ChatPageView.swift */; };
-		968F0C792440AE850052768E /* RSequnceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968F0C782440AE850052768E /* RSequnceView.swift */; };
-		968F0C7C24423A950052768E /* LSequenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968F0C7B24423A950052768E /* LSequenceView.swift */; };
-		968F0C7E24423B2B0052768E /* BaseSequenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968F0C7D24423B2B0052768E /* BaseSequenceView.swift */; };
 		968F0C80244251760052768E /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968F0C7F244251760052768E /* Queue.swift */; };
 		968F0C842443798B0052768E /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968F0C832443798B0052768E /* UILabel.swift */; };
 		968F0C8C2444D1E80052768E /* Pods_Nonlinearity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34B1D1D1EE7E9F4DE5428D17 /* Pods_Nonlinearity.framework */; };
+		968F0CB3244616AE0052768E /* UITableViewCellComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968F0CB2244616AE0052768E /* UITableViewCellComponent.swift */; };
+		968F0CB52446E8180052768E /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968F0CB42446E8180052768E /* MessageCell.swift */; };
+		968F0CB7244729190052768E /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968F0CB6244729190052768E /* Chat.swift */; };
 		96CDD1AB24351B7000A7D2FF /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDD1AA24351B7000A7D2FF /* UIColor.swift */; };
-		96CDD1B0243520FE00A7D2FF /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDD1AF243520FE00A7D2FF /* View.swift */; };
+		96CDD1B0243520FE00A7D2FF /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDD1AF243520FE00A7D2FF /* MessageView.swift */; };
 		96CDD1B224361D1C00A7D2FF /* Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDD1B124361D1C00A7D2FF /* Empty.swift */; };
 		CAD59A372435151600974C2D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD59A362435151600974C2D /* AppDelegate.swift */; };
 		CAD59A392435151600974C2D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD59A382435151600974C2D /* SceneDelegate.swift */; };
@@ -35,16 +34,15 @@
 		96266979243CCB1D00B65416 /* UIViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewComponent.swift; sourceTree = "<group>"; };
 		9626697C243CD39800B65416 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		9626697F243CD60500B65416 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		96266981243DF90A00B65416 /* ModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelView.swift; sourceTree = "<group>"; };
 		968F0C74243E71D40052768E /* ChatPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatPageView.swift; sourceTree = "<group>"; };
-		968F0C782440AE850052768E /* RSequnceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSequnceView.swift; sourceTree = "<group>"; };
-		968F0C7B24423A950052768E /* LSequenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSequenceView.swift; sourceTree = "<group>"; };
-		968F0C7D24423B2B0052768E /* BaseSequenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSequenceView.swift; sourceTree = "<group>"; };
 		968F0C7F244251760052768E /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		968F0C832443798B0052768E /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 		968F0C882444D0EA0052768E /* PinLayout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PinLayout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		968F0CB2244616AE0052768E /* UITableViewCellComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCellComponent.swift; sourceTree = "<group>"; };
+		968F0CB42446E8180052768E /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
+		968F0CB6244729190052768E /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		96CDD1AA24351B7000A7D2FF /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
-		96CDD1AF243520FE00A7D2FF /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		96CDD1AF243520FE00A7D2FF /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		96CDD1B124361D1C00A7D2FF /* Empty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Empty.swift; sourceTree = "<group>"; };
 		CAD59A332435151600974C2D /* Nonlinearity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nonlinearity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAD59A362435151600974C2D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				96266979243CCB1D00B65416 /* UIViewComponent.swift */,
+				968F0CB2244616AE0052768E /* UITableViewCellComponent.swift */,
 			);
 			path = Framework;
 			sourceTree = "<group>";
@@ -89,9 +88,8 @@
 		9626697E243CD5EF00B65416 /* MessageView */ = {
 			isa = PBXGroup;
 			children = (
-				96CDD1AF243520FE00A7D2FF /* View.swift */,
+				96CDD1AF243520FE00A7D2FF /* MessageView.swift */,
 				9626697F243CD60500B65416 /* Constants.swift */,
-				96266981243DF90A00B65416 /* ModelView.swift */,
 			);
 			path = MessageView;
 			sourceTree = "<group>";
@@ -108,18 +106,10 @@
 			isa = PBXGroup;
 			children = (
 				968F0C74243E71D40052768E /* ChatPageView.swift */,
+				968F0CB42446E8180052768E /* MessageCell.swift */,
+				968F0CB6244729190052768E /* Chat.swift */,
 			);
 			path = Game;
-			sourceTree = "<group>";
-		};
-		968F0C7A2440AF1C0052768E /* Sequence */ = {
-			isa = PBXGroup;
-			children = (
-				968F0C782440AE850052768E /* RSequnceView.swift */,
-				968F0C7B24423A950052768E /* LSequenceView.swift */,
-				968F0C7D24423B2B0052768E /* BaseSequenceView.swift */,
-			);
-			path = Sequence;
 			sourceTree = "<group>";
 		};
 		96CDD1A824351B2700A7D2FF /* Utils */ = {
@@ -145,7 +135,6 @@
 		96CDD1AD2435202300A7D2FF /* Game */ = {
 			isa = PBXGroup;
 			children = (
-				968F0C7A2440AF1C0052768E /* Sequence */,
 				9626697E243CD5EF00B65416 /* MessageView */,
 			);
 			path = Game;
@@ -321,20 +310,19 @@
 			files = (
 				968F0C75243E71D40052768E /* ChatPageView.swift in Sources */,
 				CAD59A3B2435151600974C2D /* ViewController.swift in Sources */,
+				968F0CB7244729190052768E /* Chat.swift in Sources */,
 				9626697A243CCB1D00B65416 /* UIViewComponent.swift in Sources */,
 				96CDD1AB24351B7000A7D2FF /* UIColor.swift in Sources */,
-				968F0C792440AE850052768E /* RSequnceView.swift in Sources */,
-				968F0C7E24423B2B0052768E /* BaseSequenceView.swift in Sources */,
 				968F0C842443798B0052768E /* UILabel.swift in Sources */,
 				CAD59A372435151600974C2D /* AppDelegate.swift in Sources */,
-				96266982243DF90A00B65416 /* ModelView.swift in Sources */,
+				968F0CB3244616AE0052768E /* UITableViewCellComponent.swift in Sources */,
 				CAD59A392435151600974C2D /* SceneDelegate.swift in Sources */,
-				96CDD1B0243520FE00A7D2FF /* View.swift in Sources */,
+				96CDD1B0243520FE00A7D2FF /* MessageView.swift in Sources */,
 				968F0C80244251760052768E /* Queue.swift in Sources */,
-				968F0C7C24423A950052768E /* LSequenceView.swift in Sources */,
 				9626697D243CD39800B65416 /* String.swift in Sources */,
 				96CDD1B224361D1C00A7D2FF /* Empty.swift in Sources */,
 				96266980243CD60500B65416 /* Constants.swift in Sources */,
+				968F0CB52446E8180052768E /* MessageCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

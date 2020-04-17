@@ -10,85 +10,81 @@ import UIKit
 import PinLayout
 
 class ChatPageView: UIViewController {
-    let headerView = UIView()
-    var msgVstack: Message.RSequnceView!
-    var msgVstack2: Message.LSequenceView!
+    private let headerView = UIView()
+    private let tableView = UITableView()
+    var msg = Message.NamedView()
+    
+    var messages = ["Hello", "Pop", "Lol"]
     
     override var preferredStatusBarStyle: UIStatusBarStyle { .lightContent }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         view.backgroundColor = .hex(rgb: 0x191919)
-
+        
+        setupHeaderView()
+        setupTableView()
+        
+        msg.configure(with: .init(
+            author: .init(name: "Аня", surname: "Самсонова"),
+            text: "Me",
+            time: .init(hours: 22, minutes: 18)
+            ), location: .right)
+        msg.maxWidth = 290
+        
+        [headerView, tableView, msg].forEach { view.addSubview($0) }
+    }
+    
+    private func setupHeaderView() {
         headerView.backgroundColor = .hex(rgb: 0x252525)
+    }
+    
+    private func setupTableView() {
+        tableView.backgroundColor = .none
+//        tableView.separatorStyle = .none
+        tableView.dataSource = self
+        tableView.delegate = self
         
-        msgVstack = .init(withMaxMessageWidth: 290)
-        msgVstack.viewModel = .init()
-        msgVstack.viewModel.push(messages: [
-            .init(sender: .me,
-                  message: "Нравилась она мне, да.",
-                  time: .init(hours: 22, minutes: 54)),
-            .init(sender: .me,
-                  message: "А что поцеловать нельзя было ее?",
-                  time: .init(hours: 22, minutes: 56)),
-        ])
-        
-        msgVstack2 = .init(withMaxMessageWidth: 290)
-        msgVstack2.viewModel = .init()
-        msgVstack2.viewModel.push(messages: [
-            .init(sender: .companion,
-                  message: "Ммм.. Но я говорила не про нее, а про себя..",
-                  time: .init(hours: 22, minutes: 56)),
-            .init(sender: .companion,
-                  message: "Просто.. Ты сам себе противоречишь",
-                  time: .init(hours: 22, minutes: 57)),
-        ])
-        
-        [headerView, msgVstack, msgVstack2].forEach { view.addSubview($0) }
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
-            self.msgVstack2.viewModel.push(message:
-                .init(sender: .companion,
-                      message: "Если слово \"люблю\" священно, почему целуешь каждого, кому симпатизируешь?",
-                      time: .init(hours: 22, minutes: 57)))
-            self.msgVstack2.layout()
-        })
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: {
-            self.msgVstack2.viewModel.push(message:
-                .init(sender: .companion,
-                      message: "Мне насрать на машу.. Кто ей нравится, с кем она целовалась и тд..",
-                      time: .init(hours: 22, minutes: 59)))
-            self.msgVstack2.layout()
-        })
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 6, execute: {
-            self.msgVstack2.viewModel.push(message:
-                .init(sender: .companion,
-                      message: "Я про себя говорю",
-                      time: .init(hours: 23, minutes: 00)))
-            self.msgVstack2.layout()
-        })
+        tableView.register(MessageCell.self, forCellReuseIdentifier: "cell")
     }
     
     override func viewDidLayoutSubviews() {
-        print("view DID")
+        print("view did layout")
         headerView.pin
             .top()
             .horizontally()
             .height(88)
         
-        msgVstack.layout()
-        msgVstack.pin
-            .below(of: headerView, aligned: .right)
+        msg.pin
+            .right(8)
+            .below(of: headerView)
             .marginTop(8)
-            .marginRight(8)
         
-        msgVstack2.layout()
-        msgVstack2.pin
-            .left(8)
-            .below(of: msgVstack)
-            .marginTop(8)
+//        tableView.pin
+//            .horizontally()
+//            .below(of: headerView)
+//            .bottom(400)
+    }
+}
+
+extension ChatPageView: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return messages.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.textLabel?.text = messages[indexPath.row]
+        
+        return cell
+    }
+}
+
+extension ChatPageView: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     }
 }

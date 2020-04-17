@@ -8,18 +8,19 @@
 
 import UIKit
 
-extension Message.View {
+extension Message {
     struct const {
         static let cornerRadius: CGFloat = 17
         
         struct color {
-            static let meBg: UIColor = .hex(rgb: 0x454647)
-            static let companionBg: UIColor = .hex(rgb: 0x2C2D2E)
+            static let bgRightLoc: UIColor = .hex(rgb: 0x454647)
+            static let bgLeftLoc: UIColor = .hex(rgb: 0x2C2D2E)
             static let messageText: UIColor = .hex(rgb: 0xE1E3E6)
             static let timeText: UIColor = .hex(rgb: 0xABAEB2)
         }
         
         struct font {
+            static let name: UIFont = .systemFont(ofSize: 13, weight: .regular)
             static let message: UIFont = .systemFont(ofSize: 17, weight: .regular)
             static let time: UIFont = .systemFont(ofSize: 11, weight: .regular)
         }
@@ -29,7 +30,7 @@ extension Message.View {
             static let messageToVBounds: CGFloat = 7
             static let timeToMessageV: CGFloat = 4
             static let timeToBottom: CGFloat = 6
-            static let timeNoExtraH: CGFloat = size.timeWidth + space.commonH
+            static let timeSameLineH: CGFloat = size.timeWidth + space.commonH
         }
         
         struct size {
