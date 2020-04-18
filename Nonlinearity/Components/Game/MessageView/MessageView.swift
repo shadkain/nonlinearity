@@ -18,11 +18,12 @@ extension Message {
     class UnnamedView: UIViewComponent, MessageView {
         fileprivate let messageLabel = UILabel()
         private let timeLabel = UILabel()
-        var maxWidth: CGFloat
+        private var widthConstraint: NSLayoutConstraint!
+        private var changingConstraints: [NSLayoutConstraint] = []
         
-        override init(frame: CGRect) {
-            maxWidth = frame.width
-            super.init(frame: frame)
+        var maxWidth: CGFloat {
+            get { widthConstraint.constant }
+            set { widthConstraint.constant = newValue }
         }
         
         override func setup() {
@@ -39,7 +40,11 @@ extension Message {
             timeLabel.textColor = const.color.timeText
             timeLabel.numberOfLines = 1
             
-            [messageLabel, timeLabel].forEach { self.addSubview($0) }
+            widthConstraint = widthAnchor.constraint(lessThanOrEqualToConstant: frame.width)
+            [messageLabel, timeLabel].forEach {
+                $0.translatesAutoresizingMaskIntoConstraints = false
+                self.addSubview($0)
+            }
         }
         
         func configure(with message: Message, location: Message.Location) {
@@ -52,72 +57,73 @@ extension Message {
             case .left:
                 backgroundColor = const.color.bgLeftLoc
             }
+            
+            update()
         }
         
-        override func sizeThatFits(_ size: CGSize) -> CGSize {
-            maxWidth = size.width
+        override func constraint() {
+            constraintMessageLabel()
             
-            layout()
-            
-            return bounds.size
+            NSLayoutConstraint.activate([
+                timeLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -const.space.commonH),
+                timeLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -const.space.timeToBottom),
+                widthConstraint,
+            ])
         }
         
-        override func layout() {
-//            print("layout called")
+        fileprivate func constraintMessageLabel() {
+            NSLayoutConstraint.activate([
+                messageLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: const.space.commonH),
+                messageLabel.topAnchor.constraint(equalTo: topAnchor, constant: const.space.messageToVBounds),
+            ])
+        }
+        
+        func update() {
+            deactivateChangingConstraints()
+            
             let messageTextBreakpoint = maxWidth - (2*const.space.commonH + const.size.timeWidth)
-            messageLabel.textWidth > messageTextBreakpoint ? multiLineLayout() : singleLineLayout()
+            messageLabel.textWidth < messageTextBreakpoint ?
+                constraintSingleLine() : constraintMultiLine()
+
+            activateChangingConstraints()
         }
         
-        private func singleLineLayout() {
-            messageLabel.pin.sizeToFit(.content)
-            
-            self.pin.height(messageLabel.frame.height + 2*const.space.messageToVBounds)
-            messageLabel.pin.top(const.space.messageToVBounds)
-            
-            timeLabel.pin
-                .after(of: messageLabel)
-                .marginLeft(const.space.commonH)
-                .bottom(const.space.timeToBottom)
-                .sizeToFit(.content)
-            
-            self.pin.wrapContent(.horizontally, padding: const.space.commonH)
-            
-            timeLabel.pin.right(const.space.commonH)
+        private func constraintSingleLine() {
+            changingConstraints.append(contentsOf: [
+                messageLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -const.space.messageToVBounds),
+                timeLabel.leadingAnchor.constraint(equalTo: messageLabel.trailingAnchor, constant: const.space.commonH),
+            ])
         }
         
-        private func multiLineLayout() {
-            messageLabel.pin
-                .maxWidth(maxWidth - 2*const.space.commonH)
-                .sizeToFit(.widthFlexible)
+        private func constraintMultiLine() {
+            changingConstraints.append(contentsOf: [
+                messageLabel.trailingAnchor.constraint(equalTo: timeLabel.trailingAnchor)
+            ])
             
-            messageLabel.lastLineWidth < messageLabel.frame.width - const.space.timeSameLineH ?
-                sameLineTimeLayout() : separateLineTimeLayout()
+            let lastLineWidth = messageLabel.lastLineWidth(withMaxWidth: maxWidth - 2*const.space.commonH)
+            lastLineWidth < messageLabel.bounds.width - const.space.timeSameLineH ?
+                constraintTimeSameLine() : constraintTimeSeparateLine()
         }
         
-        private func sameLineTimeLayout() {
-            self.pin.height(messageLabel.frame.height + 2*const.space.messageToVBounds)
-            messageLabel.pin.top(const.space.messageToVBounds)
-            
-            timeLabel.pin
-                .bottom(const.space.timeToBottom)
-                .right(to: messageLabel.edge.right)
-                .sizeToFit(.content)
-            
-            self.pin.wrapContent(.horizontally, padding: const.space.commonH)
+        private func constraintTimeSameLine() {
+            changingConstraints.append(contentsOf: [
+                messageLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -const.space.messageToVBounds),
+            ])
         }
         
-        private func separateLineTimeLayout() {
-            timeLabel.pin
-                .below(of: messageLabel, aligned: .right)
-                .marginTop(const.space.timeToMessageV)
-                .sizeToFit(.content)
-            
-            self.pin.wrapContent(padding: .init(
-                top: const.space.messageToVBounds,
-                left: const.space.commonH,
-                bottom: const.space.timeToBottom,
-                right: const.space.commonH)
-            )
+        private func constraintTimeSeparateLine() {
+            changingConstraints.append(contentsOf: [
+                timeLabel.topAnchor.constraint(equalTo: messageLabel.bottomAnchor, constant: const.space.timeToMessageV)
+            ])
+        }
+        
+        private func activateChangingConstraints() {
+            NSLayoutConstraint.activate(changingConstraints)
+        }
+        
+        private func deactivateChangingConstraints() {
+            NSLayoutConstraint.deactivate(changingConstraints)
+            changingConstraints.removeAll()
         }
     }
     

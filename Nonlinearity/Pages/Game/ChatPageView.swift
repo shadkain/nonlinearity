@@ -12,8 +12,8 @@ import PinLayout
 class ChatPageView: UIViewController {
     private let headerView = UIView()
     private let tableView = UITableView()
-    let rightCellTemplate = RightMessageCell()
     let chat = Chat()
+    let msg = Message.UnnamedView()
     
     override var preferredStatusBarStyle: UIStatusBarStyle { .lightContent }
     
@@ -24,7 +24,22 @@ class ChatPageView: UIViewController {
         setupHeaderView()
         setupTableView()
         
-        [headerView, tableView].forEach { view.addSubview($0) }
+        msg.configure(with: .init(
+            author: .init(name: "Пума", surname: "Тимончик"),
+            text: "Иди в попу, ты меня уже задолбал!!! Реально!",
+            time: .init(hours: 22, minutes: 20)
+            ), location: .right)
+        msg.maxWidth = 290
+        msg.translatesAutoresizingMaskIntoConstraints = false
+        
+
+        
+        [headerView, tableView, msg].forEach { view.addSubview($0) }
+        
+        NSLayoutConstraint.activate([
+            msg.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8),
+            msg.topAnchor.constraint(equalTo: view.topAnchor, constant: 90)
+        ])
     }
     
     private func setupHeaderView() {
@@ -47,37 +62,23 @@ class ChatPageView: UIViewController {
             .horizontally()
             .height(88)
         
-        tableView.pin
-            .horizontally()
-            .below(of: headerView)
-            .bottom(400)
+//        tableView.pin
+//            .horizontally()
+//            .below(of: headerView)
+//            .bottom(400)
     }
 }
 
 extension ChatPageView: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        .init()
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return chat.messages.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "rcell", for: indexPath) as! RightMessageCell
-        
-        cell.messageView.configure(with: chat.messages[indexPath.row], location: .right)
-        cell.messageView.maxWidth = view.frame.width - 85
-        
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        rightCellTemplate.messageView.configure(with: chat.messages[indexPath.row], location: .right)
-        
-        let g = rightCellTemplate.sizeThatFits(.init(width: view.frame.width - 85, height: .greatestFiniteMagnitude))
-        print("estimate for \(indexPath.row): \(g)")
-        
-        return g.height
+        return 0
     }
 }

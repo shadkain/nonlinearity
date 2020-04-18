@@ -17,9 +17,11 @@ class UIViewComponent: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
+        constraint()
     }
     
     func setup() {}
+    func constraint() {}
     
     override func layoutSubviews() {
         super.layoutSubviews()
