@@ -20,4 +20,11 @@ class UITableViewCellComponent: UITableViewCell {
     }
     
     func setup() {}
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        layout()
+    }
+    
+    func layout() {}
 }

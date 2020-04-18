@@ -10,6 +10,7 @@ import UIKit
 import PinLayout
 
 protocol MessageView: UIView {
+    var maxWidth: CGFloat { get set }
     func configure(with message: Message, location: Message.Location)
 }
 
@@ -17,10 +18,14 @@ extension Message {
     class UnnamedView: UIViewComponent, MessageView {
         fileprivate let messageLabel = UILabel()
         private let timeLabel = UILabel()
-        var maxWidth: CGFloat!
+        var maxWidth: CGFloat
+        
+        override init(frame: CGRect) {
+            maxWidth = frame.width
+            super.init(frame: frame)
+        }
         
         override func setup() {
-            maxWidth = frame.width
             layer.cornerRadius = 17
             
             messageLabel.font = const.font.message
@@ -58,6 +63,7 @@ extension Message {
         }
         
         override func layout() {
+//            print("layout called")
             let messageTextBreakpoint = maxWidth - (2*const.space.commonH + const.size.timeWidth)
             messageLabel.textWidth > messageTextBreakpoint ? multiLineLayout() : singleLineLayout()
         }
@@ -65,7 +71,8 @@ extension Message {
         private func singleLineLayout() {
             messageLabel.pin.sizeToFit(.content)
             
-            self.pin.wrapContent(.vertically, padding: const.space.messageToVBounds)
+            self.pin.height(messageLabel.frame.height + 2*const.space.messageToVBounds)
+            messageLabel.pin.top(const.space.messageToVBounds)
             
             timeLabel.pin
                 .after(of: messageLabel)
@@ -88,7 +95,8 @@ extension Message {
         }
         
         private func sameLineTimeLayout() {
-            self.pin.wrapContent(.vertically, padding: const.space.messageToVBounds)
+            self.pin.height(messageLabel.frame.height + 2*const.space.messageToVBounds)
+            messageLabel.pin.top(const.space.messageToVBounds)
             
             timeLabel.pin
                 .bottom(const.space.timeToBottom)

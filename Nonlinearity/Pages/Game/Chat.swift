@@ -52,6 +52,21 @@ class Chat {
     var authors: [Author] = []
     var messages: [Message] = []
     
+    init() {
+        messages.append(contentsOf: [
+            .init(
+                author: .init(name: "Аня", surname: "Самсонова"),
+                text: "Задолбал!",
+                time: .init(hours: 22, minutes: 18)
+            ),
+            .init(
+                author: .init(name: "Пума", surname: "Тимончик"),
+                text: "Иди в попу, ты меня уже задолбал!!! Реально!",
+                time: .init(hours: 22, minutes: 20)
+            )
+        ])
+    }
+    
     enum MessageType {
         case left, right
     }

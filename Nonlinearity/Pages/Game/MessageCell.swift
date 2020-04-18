@@ -8,13 +8,23 @@
 
 import UIKit
 
-class MessageCell: UITableViewCellComponent {
+final class RightMessageCell: UITableViewCellComponent {
+    let messageView: MessageView = Message.UnnamedView()
+    
     override func setup() {
         backgroundColor = .none
         selectionStyle = .none
+        
+        contentView.addSubview(messageView)
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
+    override func layout() {
+        contentView.pin
+            .right(8)
+            .wrapContent(.all)
+    }
+    
+    override func sizeThatFits(_ size: CGSize) -> CGSize {
+        return messageView.sizeThatFits(size)
     }
 }
