@@ -13,12 +13,16 @@ extension UILabel {
         text?.width(usingFont: font) ?? 0
     }
     
+    func estimatedRect(withMaxWidth maxWidth: CGFloat) -> CGRect {
+        return text?.boundingRect(usingFont: font, maxWidth: maxWidth) ?? .zero
+    }
+    
     func breakLineUsingWordWrapping() -> [String]? {
         return breakLineUsingWordWrapping(withMaxWidth: bounds.width)
     }
     
     func breakLineUsingWordWrapping(withMaxWidth maxWidth: CGFloat) -> [String]? {
-        return self.text?.breakLineUsingWordWrapping(usingFont: font, maxWidth: bounds.width)
+        return self.text?.breakLineUsingWordWrapping(usingFont: font, maxWidth: maxWidth)
     }
     
     func lastLineWidth(withMaxWidth maxWidth: CGFloat) -> CGFloat {

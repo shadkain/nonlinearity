@@ -58,7 +58,7 @@ extension Message {
                 backgroundColor = const.color.bgLeftLoc
             }
             
-            update()
+            updateChangingConstraints()
         }
         
         override func constraint() {
@@ -78,7 +78,7 @@ extension Message {
             ])
         }
         
-        func update() {
+        private func updateChangingConstraints() {
             deactivateChangingConstraints()
             
             let messageTextBreakpoint = maxWidth - (2*const.space.commonH + const.size.timeWidth)
@@ -91,28 +91,29 @@ extension Message {
         private func constraintSingleLine() {
             changingConstraints.append(contentsOf: [
                 messageLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -const.space.messageToVBounds),
-                timeLabel.leadingAnchor.constraint(equalTo: messageLabel.trailingAnchor, constant: const.space.commonH),
+                messageLabel.trailingAnchor.constraint(equalTo: timeLabel.leadingAnchor, constant: -const.space.commonH),
             ])
         }
         
         private func constraintMultiLine() {
-            changingConstraints.append(contentsOf: [
-                messageLabel.trailingAnchor.constraint(equalTo: timeLabel.trailingAnchor)
-            ])
-            
+            let size = messageLabel.estimatedRect(withMaxWidth: maxWidth).size
             let lastLineWidth = messageLabel.lastLineWidth(withMaxWidth: maxWidth - 2*const.space.commonH)
-            lastLineWidth < messageLabel.bounds.width - const.space.timeSameLineH ?
-                constraintTimeSameLine() : constraintTimeSeparateLine()
+            lastLineWidth < maxWidth - (timeLabel.textWidth + 3*const.space.commonH) ?
+                constraintTimeSameLine(messageWidth: size.width, lastLineWidth: lastLineWidth) : constraintTimeSeparateLine()
         }
         
-        private func constraintTimeSameLine() {
+        private func constraintTimeSameLine(messageWidth: CGFloat, lastLineWidth: CGFloat) {
+            let freeSpace = messageWidth - lastLineWidth
             changingConstraints.append(contentsOf: [
+                messageLabel.trailingAnchor.constraint(equalTo: timeLabel.leadingAnchor, constant: freeSpace - const.space.commonH),
+                messageLabel.widthAnchor.constraint(equalToConstant: messageWidth),
                 messageLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -const.space.messageToVBounds),
             ])
         }
         
         private func constraintTimeSeparateLine() {
             changingConstraints.append(contentsOf: [
+                messageLabel.trailingAnchor.constraint(equalTo: timeLabel.trailingAnchor),
                 timeLabel.topAnchor.constraint(equalTo: messageLabel.bottomAnchor, constant: const.space.timeToMessageV)
             ])
         }
@@ -135,25 +136,26 @@ extension Message {
             
             nameLabel.font = const.font.name
             nameLabel.textAlignment = .left
-            nameLabel.textColor = .hex(rgb: 0xC35EB9)
+            nameLabel.textColor = .hex(rgb: 0xCE7272)
             nameLabel.numberOfLines = 1
+            nameLabel.translatesAutoresizingMaskIntoConstraints = false
             
             addSubview(nameLabel)
+        }
+        
+        override func constraintMessageLabel() {
+            NSLayoutConstraint.activate([
+                messageLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: const.space.commonH),
+                messageLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: const.space.nameToMessageV),
+                nameLabel.leadingAnchor.constraint(equalTo: messageLabel.leadingAnchor),
+                nameLabel.topAnchor.constraint(equalTo: topAnchor, constant: const.space.messageToVBounds),
+            ])
         }
         
         override func configure(with message: Message, location: Message.Location) {
             nameLabel.text = message.author.nameString()
             
             super.configure(with: message, location: location)
-        }
-        
-        override func layout() {
-            nameLabel.pin
-                .above(of: messageLabel, aligned: .left)
-                .marginBottom(const.space.nameToMessageV)
-                .sizeToFit(.content)
-
-            super.layout()
         }
     }
 }
