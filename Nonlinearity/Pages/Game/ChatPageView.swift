@@ -13,7 +13,6 @@ class ChatPageView: UIViewController {
     private let headerView = UIView()
     private let tableView = UITableView()
     let chat = Chat()
-    let msg = Message.UnnamedView()
     
     override var preferredStatusBarStyle: UIStatusBarStyle { .lightContent }
     
@@ -24,21 +23,19 @@ class ChatPageView: UIViewController {
         setupHeaderView()
         setupTableView()
         
-        msg.configure(with: .init(
-            author: .init(name: "Пума", surname: "Тимончик"),
-            text: "Иди в попу, ты меня уже задолбал!!! Реально!",
-            time: .init(hours: 22, minutes: 20)
-            ), location: .right)
-        msg.maxWidth = 290
-        msg.translatesAutoresizingMaskIntoConstraints = false
-        
-
-        
-        [headerView, tableView, msg].forEach { view.addSubview($0) }
-        
+        [headerView, tableView].forEach {
+            $0.translatesAutoresizingMaskIntoConstraints = false
+            view.addSubview($0)
+        }
+        constraint()
+    }
+    
+    private func constraint() {
         NSLayoutConstraint.activate([
-            msg.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8),
-            msg.topAnchor.constraint(equalTo: view.topAnchor, constant: 90)
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.topAnchor.constraint(equalTo:  view.topAnchor, constant: 88),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20)
         ])
     }
     
@@ -49,6 +46,8 @@ class ChatPageView: UIViewController {
     private func setupTableView() {
         tableView.backgroundColor = .none
         tableView.separatorStyle = .none
+        tableView.rowHeight = UITableView.automaticDimension
+        
         tableView.dataSource = self
         tableView.delegate = self
         
@@ -71,7 +70,12 @@ class ChatPageView: UIViewController {
 
 extension ChatPageView: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        .init()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "rcell") as! RightMessageCell
+        
+        cell.maxWidth = view.bounds.width - 85
+        cell.configure(with: chat.messages[indexPath.row])
+        
+        return cell
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -79,6 +83,6 @@ extension ChatPageView: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return chat.messages.count
     }
 }

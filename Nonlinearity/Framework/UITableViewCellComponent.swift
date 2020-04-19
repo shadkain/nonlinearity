@@ -17,9 +17,11 @@ class UITableViewCellComponent: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setup()
+        constraint()
     }
     
     func setup() {}
+    func constraint() {}
     
     override func layoutSubviews() {
         super.layoutSubviews()
