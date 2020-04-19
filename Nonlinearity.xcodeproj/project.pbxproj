@@ -7,9 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5ABB0CAF2A09B3444192ECDE /* Pods_Nonlinearity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34B1D1D1EE7E9F4DE5428D17 /* Pods_Nonlinearity.framework */; };
 		9626697A243CCB1D00B65416 /* UIViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96266979243CCB1D00B65416 /* UIViewComponent.swift */; };
 		9626697D243CD39800B65416 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9626697C243CD39800B65416 /* String.swift */; };
+		96266980243CD60500B65416 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9626697F243CD60500B65416 /* Constants.swift */; };
+		968F0C75243E71D40052768E /* ChatPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968F0C74243E71D40052768E /* ChatPageView.swift */; };
+		968F0C80244251760052768E /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968F0C7F244251760052768E /* Queue.swift */; };
+		968F0C842443798B0052768E /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968F0C832443798B0052768E /* UILabel.swift */; };
+		968F0C8C2444D1E80052768E /* Pods_Nonlinearity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34B1D1D1EE7E9F4DE5428D17 /* Pods_Nonlinearity.framework */; };
+		968F0CB3244616AE0052768E /* UITableViewCellComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968F0CB2244616AE0052768E /* UITableViewCellComponent.swift */; };
+		968F0CB52446E8180052768E /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968F0CB42446E8180052768E /* MessageCell.swift */; };
+		968F0CB7244729190052768E /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968F0CB6244729190052768E /* Chat.swift */; };
 		96CDD1AB24351B7000A7D2FF /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDD1AA24351B7000A7D2FF /* UIColor.swift */; };
 		96CDD1B0243520FE00A7D2FF /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDD1AF243520FE00A7D2FF /* MessageView.swift */; };
 		96CDD1B224361D1C00A7D2FF /* StoryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDD1B124361D1C00A7D2FF /* StoryCardView.swift */; };
@@ -28,6 +35,14 @@
 		878E0202A69DEC95C225B237 /* Pods-Nonlinearity.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nonlinearity.release.xcconfig"; path = "Target Support Files/Pods-Nonlinearity/Pods-Nonlinearity.release.xcconfig"; sourceTree = "<group>"; };
 		96266979243CCB1D00B65416 /* UIViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewComponent.swift; sourceTree = "<group>"; };
 		9626697C243CD39800B65416 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		9626697F243CD60500B65416 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		968F0C74243E71D40052768E /* ChatPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatPageView.swift; sourceTree = "<group>"; };
+		968F0C7F244251760052768E /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
+		968F0C832443798B0052768E /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
+		968F0C882444D0EA0052768E /* PinLayout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PinLayout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		968F0CB2244616AE0052768E /* UITableViewCellComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCellComponent.swift; sourceTree = "<group>"; };
+		968F0CB42446E8180052768E /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
+		968F0CB6244729190052768E /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		96CDD1AA24351B7000A7D2FF /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		96CDD1AF243520FE00A7D2FF /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		96CDD1B124361D1C00A7D2FF /* StoryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCardView.swift; sourceTree = "<group>"; };
@@ -49,7 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5ABB0CAF2A09B3444192ECDE /* Pods_Nonlinearity.framework in Frameworks */,
+				968F0C8C2444D1E80052768E /* Pods_Nonlinearity.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +74,7 @@
 		885BF90D05FEFBBC7BC3E863 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				968F0C882444D0EA0052768E /* PinLayout.framework */,
 				34B1D1D1EE7E9F4DE5428D17 /* Pods_Nonlinearity.framework */,
 			);
 			name = Frameworks;
@@ -68,8 +84,36 @@
 			isa = PBXGroup;
 			children = (
 				96266979243CCB1D00B65416 /* UIViewComponent.swift */,
+				968F0CB2244616AE0052768E /* UITableViewCellComponent.swift */,
 			);
 			path = Framework;
+			sourceTree = "<group>";
+		};
+		9626697E243CD5EF00B65416 /* MessageView */ = {
+			isa = PBXGroup;
+			children = (
+				96CDD1AF243520FE00A7D2FF /* MessageView.swift */,
+				9626697F243CD60500B65416 /* Constants.swift */,
+			);
+			path = MessageView;
+			sourceTree = "<group>";
+		};
+		968F0C72243E71A70052768E /* Pages */ = {
+			isa = PBXGroup;
+			children = (
+				968F0C73243E71B40052768E /* Game */,
+			);
+			path = Pages;
+			sourceTree = "<group>";
+		};
+		968F0C73243E71B40052768E /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				968F0C74243E71D40052768E /* ChatPageView.swift */,
+				968F0CB42446E8180052768E /* MessageCell.swift */,
+				968F0CB6244729190052768E /* Chat.swift */,
+			);
+			path = Game;
 			sourceTree = "<group>";
 		};
 		96CDD1A824351B2700A7D2FF /* Utils */ = {
@@ -77,6 +121,8 @@
 			children = (
 				96CDD1AA24351B7000A7D2FF /* UIColor.swift */,
 				9626697C243CD39800B65416 /* String.swift */,
+				968F0C7F244251760052768E /* Queue.swift */,
+				968F0C832443798B0052768E /* UILabel.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -93,7 +139,7 @@
 		96CDD1AD2435202300A7D2FF /* Game */ = {
 			isa = PBXGroup;
 			children = (
-				96CDD1AF243520FE00A7D2FF /* MessageView.swift */,
+				9626697E243CD5EF00B65416 /* MessageView */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -138,6 +184,7 @@
 		CAD59A352435151600974C2D /* Nonlinearity */ = {
 			isa = PBXGroup;
 			children = (
+				968F0C72243E71A70052768E /* Pages */,
 				9626697B243CCCD100B65416 /* Framework */,
 				96CDD1AC2435201800A7D2FF /* Components */,
 				96CDD1A824351B2700A7D2FF /* Utils */,
@@ -267,17 +314,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				968F0C75243E71D40052768E /* ChatPageView.swift in Sources */,
 				CAD59A3B2435151600974C2D /* ViewController.swift in Sources */,
+				968F0CB7244729190052768E /* Chat.swift in Sources */,
 				9626697A243CCB1D00B65416 /* UIViewComponent.swift in Sources */,
 				CA0D4D97243F0DB300376CC7 /* BubbleView.swift in Sources */,
 				96CDD1AB24351B7000A7D2FF /* UIColor.swift in Sources */,
+				968F0C842443798B0052768E /* UILabel.swift in Sources */,
 				CAD59A372435151600974C2D /* AppDelegate.swift in Sources */,
+				968F0CB3244616AE0052768E /* UITableViewCellComponent.swift in Sources */,
 				CAD59A392435151600974C2D /* SceneDelegate.swift in Sources */,
 				CA920C7C244C66C600BBC461 /* CollectionView.swift in Sources */,
 				96CDD1B0243520FE00A7D2FF /* MessageView.swift in Sources */,
+				968F0C80244251760052768E /* Queue.swift in Sources */,
 				9626697D243CD39800B65416 /* String.swift in Sources */,
 				96CDD1B224361D1C00A7D2FF /* Empty.swift in Sources */,
 				96CDD1B224361D1C00A7D2FF /* StoryCardView.swift in Sources */,
+				96266980243CD60500B65416 /* Constants.swift in Sources */,
+				968F0CB52446E8180052768E /* MessageCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -423,12 +477,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = VXUJ9UWYJ7;
 				INFOPLIST_FILE = Nonlinearity/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Nonlinearity.Nonlinearity;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Nonlinearity.Nonlinearit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -441,12 +498,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = VXUJ9UWYJ7;
 				INFOPLIST_FILE = Nonlinearity/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Nonlinearity.Nonlinearity;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Nonlinearity.Nonlinearit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
