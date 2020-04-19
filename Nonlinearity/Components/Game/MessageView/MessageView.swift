@@ -81,7 +81,7 @@ extension Message {
         private func updateChangingConstraints() {
             deactivateChangingConstraints()
             
-            let messageTextBreakpoint = maxWidth - (2*const.space.commonH + const.size.timeWidth)
+            let messageTextBreakpoint = maxWidth - (2*const.space.commonH + timeLabel.textWidth)
             messageLabel.textWidth < messageTextBreakpoint ?
                 constraintSingleLine() : constraintMultiLine()
 

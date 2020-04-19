@@ -30,12 +30,7 @@ extension Message {
             static let messageToVBounds: CGFloat = 7
             static let timeToMessageV: CGFloat = 4
             static let timeToBottom: CGFloat = 6
-            static let timeSameLineH: CGFloat = size.timeWidth + space.commonH
             static let nameToMessageV: CGFloat = 2
-        }
-        
-        struct size {
-            static let timeWidth: CGFloat = "00:00".width(usingFont: font.time)
         }
     }
 }
