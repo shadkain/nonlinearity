@@ -109,7 +109,6 @@ extension Message {
                 
             changingConstraints.append(contentsOf: [
                 messageAndTimeConstraint,
-                messageLabel.widthAnchor.constraint(equalToConstant: messageWidth),
                 messageLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -const.space.messageToVBounds),
             ])
         }

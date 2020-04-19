@@ -52,6 +52,7 @@ class ChatPageView: UIViewController {
         tableView.delegate = self
         
         tableView.register(RightMessageCell.self, forCellReuseIdentifier: "rcell")
+        tableView.register(LeftMessageCell.self, forCellReuseIdentifier: "lcell")
     }
     
     override func viewDidLayoutSubviews() {
@@ -61,23 +62,46 @@ class ChatPageView: UIViewController {
             .horizontally()
             .height(88)
         
-//        tableView.pin
-//            .horizontally()
-//            .below(of: headerView)
-//            .bottom(400)
     }
 }
 
 extension ChatPageView: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "rcell") as! RightMessageCell
+        var cell: MessageCell
+        
+        switch chat.messageLocation(forIndex: indexPath.row) {
+        case .left:
+            cell = prepareLeftCell(tableView, for: indexPath)
+        case .right:
+            cell = prepareRightCell(tableView, for: indexPath)
+        }
         
         cell.maxWidth = view.bounds.width - 85
         cell.configure(with: chat.messages[indexPath.row])
+        cell.marginBottom = chat.authorWillChange(afterIndex: indexPath.row) ? 8 : 5
+
+        if indexPath.row == 0 {
+            cell.marginTop = 8
+        }
         
         return cell
     }
     
+    func prepareLeftCell(_ tableView: UITableView, for indexPath: IndexPath) -> LeftMessageCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "lcell", for: indexPath) as! LeftMessageCell
+        
+        if !chat.authorWillChange(afterIndex: indexPath.row) {
+            cell.showAvatar = false
+        }
+        
+        return cell
+    }
+    
+    func prepareRightCell(_ tableView: UITableView, for indexPath: IndexPath) -> RightMessageCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "rcell", for: indexPath) as! RightMessageCell
+        return cell
+    }
+
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }

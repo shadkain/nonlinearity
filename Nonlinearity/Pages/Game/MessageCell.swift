@@ -8,10 +8,10 @@
 
 import UIKit
 
-protocol MessageCell {
+protocol MessageCell: UITableViewCell {
     var maxWidth: CGFloat { get set }
-    var topMargin: CGFloat { get set }
-    var bottomMargin: CGFloat { get set }
+    var marginTop: CGFloat { get set }
+    var marginBottom: CGFloat { get set }
     
     func configure(with message: Message)
 }
@@ -25,11 +25,11 @@ class BaseMessageCell: UITableViewCellComponent {
         get { messageView.maxWidth }
         set { messageView.maxWidth = newValue }
     }
-    var topMargin: CGFloat {
+    var marginTop: CGFloat {
         get { topConstraint.constant }
         set { topConstraint.constant = newValue }
     }
-    var bottomMargin: CGFloat {
+    var marginBottom: CGFloat {
         get { -bottomConstraint.constant }
         set { bottomConstraint.constant = -newValue }
     }
@@ -44,6 +44,13 @@ class BaseMessageCell: UITableViewCellComponent {
         bottomConstraint = messageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         
         NSLayoutConstraint.activate([topConstraint, bottomConstraint])
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        marginTop = 0
+        marginBottom = 0
     }
 }
 
@@ -74,7 +81,7 @@ final class LeftMessageCell: BaseMessageCell, MessageCell {
     
     var showAvatar: Bool {
         get { avatarView.isHidden }
-        set { avatarView.isHidden = newValue }
+        set { avatarView.isHidden = !newValue }
     }
     
     func configure(with message: Message) {
@@ -104,5 +111,11 @@ final class LeftMessageCell: BaseMessageCell, MessageCell {
             avatarView.heightAnchor.constraint(equalToConstant: 34),
             messageView.leadingAnchor.constraint(equalTo: avatarView.trailingAnchor, constant: 8)
         ])
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        showAvatar = true
     }
 }

@@ -53,17 +53,60 @@ class Chat {
     var messages: [Message] = []
     
     init() {
+        let me: Author = .init(name: "Ясон", surname: "Великий")
+        let she: Author = .init(name: "Ксения", surname: "Безбашенная")
+        
+        protagonist = me
+        
         messages.append(contentsOf: [
-            .init(
-                author: .init(name: "Аня", surname: "Самсонова"),
-                text: "Задолбал!",
-                time: .init(hours: 22, minutes: 18)
-            ),
-            .init(
-                author: .init(name: "Пума", surname: "Тимончик"),
-                text: "Иди в попу, ты меня уже задолбал!!! Реально!",
-                time: .init(hours: 22, minutes: 20)
-            )
+            .init(author: she,
+                text: "Привет",
+                time: .init(hours: 22, minutes: 18)),
+            .init(author: she,
+                text: "Можешь сегодня к 6 ко мне приехать? Остаться можешь у меня, а завтра с утра уедешь.. С братом я поговорю.. Ну или завтра утром приехать..",
+                time: .init(hours: 15, minutes: 22)),
+            .init(author: she,
+                text: "Можешь?",
+                time: .init(hours: 15, minutes: 22)),
+            .init(author: me,
+                text: "Это зачем?",
+                time: .init(hours: 15, minutes: 23)),
+            .init(author: she,
+                text: "Просто",
+                time: .init(hours: 15, minutes: 23)),
+            .init(author: me,
+                text: "Нет, ты мне объясни. Я то могу приехать",
+                time: .init(hours: 15, minutes: 25)),
+            .init(author: she,
+                text: "Просто.. Погуляем.. Так будет проще понять, насколько мы нужны друг другу.. По крайней мере мне..",
+                time: .init(hours: 15, minutes: 26)),
+            .init(author: me,
+                text: "Лан. Я еду. Ок",
+                time: .init(hours: 15, minutes: 29)),
+            .init(author: she,
+                text: "Когда? К скольким?",
+                time: .init(hours: 15, minutes: 29)),
+            .init(author: me,
+                text: "Только без Наташи",
+                time: .init(hours: 15, minutes: 30)),
+            .init(author: she,
+                text: "Вдвоем",
+                time: .init(hours: 15, minutes: 29)),
+            .init(author: me,
+                text: "К 18:00",
+                time: .init(hours: 15, minutes: 31)),
+            .init(author: she,
+                text: "На ночь, да?",
+                time: .init(hours: 15, minutes: 31)),
+            .init(author: she,
+                text: "Только утром родители приедут.. К 12 надо будет полюбому смотаться",
+                time: .init(hours: 15, minutes: 32)),
+            .init(author: she,
+                text: "Ок?",
+                time: .init(hours: 15, minutes: 33)),
+            .init(author: me,
+                text: "Так точно",
+                time: .init(hours: 15, minutes: 33)),
         ])
     }
     
@@ -73,6 +116,14 @@ class Chat {
     
     func messageLocation(forIndex index: Int) -> Message.Location {
         return messages[index].author === protagonist ? .right : .left
+    }
+    
+    func authorWillChange(afterIndex index: Int) -> Bool {
+        if index >= messages.count - 1 {
+            return true
+        }
+        
+        return messages[index].author !== messages[index+1].author
     }
 }
 
