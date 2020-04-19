@@ -9,20 +9,6 @@
 import UIKit
 import PinLayout
 
-
-struct BubbleModel {
-    var title: String?
-    var image: UIImage?
-}
-
-class BubbleViewModel {
-    var model: BubbleModel
-
-    init(model: BubbleModel) {
-        self.model = model
-    }
-}
-
 class BubbleView: UIViewComponent {
     var titleLable = UILabel()
     var image: UIImage? {

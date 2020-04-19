@@ -9,19 +9,6 @@
 import UIKit
 import PinLayout
 
-struct StoryCardModel {
-    var name: String?
-    var image: UIImage?
-}
-
-class StoryCardViewModel {
-    var model: StoryCardModel
-
-    init(model: StoryCardModel) {
-        self.model = model
-    }
-}
-
 class StoryCardView: UIViewComponent {
     var nameLable = UILabel()
     var image: UIImage? {
