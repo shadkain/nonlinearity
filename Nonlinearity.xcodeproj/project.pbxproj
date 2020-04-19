@@ -328,7 +328,7 @@
 				96CDD1B0243520FE00A7D2FF /* MessageView.swift in Sources */,
 				968F0C80244251760052768E /* Queue.swift in Sources */,
 				9626697D243CD39800B65416 /* String.swift in Sources */,
-				96CDD1B224361D1C00A7D2FF /* Empty.swift in Sources */,
+				96CDD1B224361D1C00A7D2FF /* StoryCardView.swift in Sources */,
 				96CDD1B224361D1C00A7D2FF /* StoryCardView.swift in Sources */,
 				96266980243CD60500B65416 /* Constants.swift in Sources */,
 				968F0CB52446E8180052768E /* MessageCell.swift in Sources */,

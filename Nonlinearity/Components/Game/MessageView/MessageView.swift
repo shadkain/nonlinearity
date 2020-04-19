@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import PinLayout
 
 protocol MessageView: UIView {
     var maxWidth: CGFloat { get set }
@@ -104,8 +103,12 @@ extension Message {
         
         private func constraintTimeSameLine(messageWidth: CGFloat, lastLineWidth: CGFloat) {
             let freeSpace = messageWidth - lastLineWidth
+            let messageAndTimeConstraint = freeSpace < (timeLabel.textWidth + const.space.commonH) ?
+                messageLabel.trailingAnchor.constraint(equalTo: timeLabel.leadingAnchor, constant: freeSpace - const.space.commonH) :
+                messageLabel.trailingAnchor.constraint(equalTo: timeLabel.trailingAnchor)
+                
             changingConstraints.append(contentsOf: [
-                messageLabel.trailingAnchor.constraint(equalTo: timeLabel.leadingAnchor, constant: freeSpace - const.space.commonH),
+                messageAndTimeConstraint,
                 messageLabel.widthAnchor.constraint(equalToConstant: messageWidth),
                 messageLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -const.space.messageToVBounds),
             ])
