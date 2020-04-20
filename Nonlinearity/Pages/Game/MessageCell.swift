@@ -78,6 +78,7 @@ final class RightMessageCell: BaseMessageCell, MessageCell {
 
 final class LeftMessageCell: BaseMessageCell, MessageCell {
     private let avatarView = UIView()
+    private let avatarLetters = UILabel()
     
     var showAvatar: Bool {
         get { avatarView.isHidden }
@@ -86,6 +87,7 @@ final class LeftMessageCell: BaseMessageCell, MessageCell {
     
     func configure(with message: Message) {
         messageView.configure(with: message, location: .left)
+        avatarLetters.text = message.author.lettersString()
     }
     
     override func setup() {
@@ -95,10 +97,16 @@ final class LeftMessageCell: BaseMessageCell, MessageCell {
         messageView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(messageView)
         
-        avatarView.backgroundColor = .hex(rgb: 0x303030)
+        avatarView.backgroundColor = .hex(rgb: 0xCE7272)
         avatarView.layer.cornerRadius = 17
         avatarView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(avatarView)
+        
+        avatarLetters.font = .systemFont(ofSize: 14, weight: .semibold)
+        avatarLetters.textAlignment = .center
+        avatarLetters.textColor = .hex(rgb: 0xFFFBFB)
+        avatarLetters.translatesAutoresizingMaskIntoConstraints = false
+        avatarView.addSubview(avatarLetters)
     }
     
     override func constraint() {
@@ -109,7 +117,9 @@ final class LeftMessageCell: BaseMessageCell, MessageCell {
             avatarView.bottomAnchor.constraint(equalTo: messageView.bottomAnchor),
             avatarView.widthAnchor.constraint(equalToConstant: 34),
             avatarView.heightAnchor.constraint(equalToConstant: 34),
-            messageView.leadingAnchor.constraint(equalTo: avatarView.trailingAnchor, constant: 8)
+            avatarLetters.centerXAnchor.constraint(equalTo: avatarView.centerXAnchor),
+            avatarLetters.centerYAnchor.constraint(equalTo: avatarView.centerYAnchor),
+            messageView.leadingAnchor.constraint(equalTo: avatarView.trailingAnchor, constant: 8),
         ])
     }
     

@@ -12,7 +12,10 @@ import PinLayout
 class ChatPageView: UIViewController {
     private let headerView = UIView()
     private let tableView = UITableView()
-    let chat = Chat()
+    private let companionLabel = UILabel()
+    private let onlineLabel = UILabel()
+    private let backArrowView = UIImageView()
+    private var chat: Chat!
     
     override var preferredStatusBarStyle: UIStatusBarStyle { .lightContent }
     
@@ -22,31 +25,40 @@ class ChatPageView: UIViewController {
         
         setupHeaderView()
         setupTableView()
+        configure(with: .init())
         
         [headerView, tableView].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
             view.addSubview($0)
         }
+        
         constraint()
-    }
-    
-    private func constraint() {
-        NSLayoutConstraint.activate([
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            tableView.topAnchor.constraint(equalTo:  view.topAnchor, constant: 88),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20)
-        ])
     }
     
     private func setupHeaderView() {
         headerView.backgroundColor = .hex(rgb: 0x252525)
+        
+        companionLabel.font = .systemFont(ofSize: 16, weight: .semibold)
+        companionLabel.textAlignment = .center
+        companionLabel.textColor = .hex(rgb: 0xE1E3E6)
+        
+        onlineLabel.font = .systemFont(ofSize: 13, weight: .regular)
+        onlineLabel.textAlignment = .center
+        onlineLabel.textColor = .hex(rgb: 0xAEAEAE)
+        
+        backArrowView.image = .init(imageLiteralResourceName: "back-arrow")
+        
+        [companionLabel, backArrowView, onlineLabel].forEach {
+            $0.translatesAutoresizingMaskIntoConstraints = false
+            headerView.addSubview($0)
+        }
     }
     
     private func setupTableView() {
         tableView.backgroundColor = .none
         tableView.separatorStyle = .none
         tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 35
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -55,13 +67,35 @@ class ChatPageView: UIViewController {
         tableView.register(LeftMessageCell.self, forCellReuseIdentifier: "lcell")
     }
     
-    override func viewDidLayoutSubviews() {
-        print("view did layout")
-        headerView.pin
-            .top()
-            .horizontally()
-            .height(88)
+    private func constraint() {
+        NSLayoutConstraint.activate([
+            // headerView
+            headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            headerView.topAnchor.constraint(equalTo: view.topAnchor),
+            headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            headerView.heightAnchor.constraint(equalToConstant: 88),
+            // tableView
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.topAnchor.constraint(equalTo: headerView.bottomAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20),
+            backArrowView.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 12),
+            backArrowView.bottomAnchor.constraint(equalTo: headerView.bottomAnchor, constant: -12),
+            onlineLabel.centerXAnchor.constraint(equalTo: companionLabel.centerXAnchor),
+            onlineLabel.bottomAnchor.constraint(equalTo: headerView.bottomAnchor, constant: -6),
+            companionLabel.bottomAnchor.constraint(equalTo: onlineLabel.topAnchor, constant: -1),
+            companionLabel.centerXAnchor.constraint(equalTo: headerView.centerXAnchor),
+        ])
+    }
+    
+    func configure(with chat: Chat) {
+        self.chat = chat
         
+        if !chat.isGroup {
+            companionLabel.text = chat.companions[0].nameString()
+        }
+        
+        onlineLabel.text = "в сети"
     }
 }
 

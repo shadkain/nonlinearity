@@ -24,6 +24,14 @@ class Author {
         
         return "\(name) \(surname)"
     }
+    
+    func lettersString() -> String {
+        guard let surname = surname else {
+            return "\(name.first!)"
+        }
+        
+        return "\(name.first!)\(surname.first!)"
+    }
 }
 
 struct Message {
@@ -49,7 +57,7 @@ extension Message {
 
 class Chat {
     var protagonist: Author!
-    var authors: [Author] = []
+    var companions: [Author] = []
     var messages: [Message] = []
     
     init() {
@@ -57,6 +65,7 @@ class Chat {
         let she: Author = .init(name: "Ксения", surname: "Безбашенная")
         
         protagonist = me
+        companions.append(she)
         
         messages.append(contentsOf: [
             .init(author: she,
@@ -108,7 +117,7 @@ class Chat {
                 text: "Ну что?",
                 time: .init(hours: 9, minutes: 34)),
             .init(author: she,
-                text: "Я тогда расплакалась, обнимая тебя. Я держалась всю дорогу. Наташу просила говорить, что у меня живот болит, хотя на самом деле, болела душа. Я потому я уже не смогла сдержаться. И поцеловав тебя, знаешь, как горько мне было? Этот горький горький вкус перебивал твой. Хотя я все таки и твой распробовала",
+                text: "Я тогда расплакалась, обнимая тебя. Я держалась всю дорогу. Наташу просила говорить, что у меня живот болит, хотя на самом деле, болела душа. А потом я уже не смогла сдержаться. И поцеловав тебя, знаешь, как горько мне было? Этот горький горький вкус перебивал твой. Хотя я все таки и твой распробовала",
                 time: .init(hours: 9, minutes: 34)),
             .init(author: me,
                 text: "И какой мой?",
@@ -126,6 +135,10 @@ class Chat {
                 text: "Скажи прямо",
                 time: .init(hours: 9, minutes: 35)),
         ])
+    }
+    
+    var isGroup: Bool {
+        companions.count > 1
     }
     
     func messageLocation(forIndex index: Int) -> Message.Location {
