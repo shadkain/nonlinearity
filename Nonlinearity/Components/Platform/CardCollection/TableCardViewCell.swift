@@ -6,13 +6,12 @@
 //  Copyright © 2020 Святослав Кряжев. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 class TableCardViewCell: UITableViewCell {
     private var labelView = UILabel()
     var storyCard: StoryCard?
-    var collectionView: UICollectionView?
+    private var collectionView: UICollectionView?
     
     private var flowLayout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
     
@@ -61,15 +60,13 @@ class TableCardViewCell: UITableViewCell {
 extension TableCardViewCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-
-        return storyCard!.GetCountItemsInSection(section: tag)
-
+        return storyCard!.GetItemsInSectionCount(section: tag)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellWithCollectionView", for: indexPath)
         
-        let sv = storyCard!.GetCardBySectionAndIndex(
+        let sv = storyCard!.GetCardViewBySectionAndIndex(
             section: tag,
             index: indexPath.item)
          sv.translatesAutoresizingMaskIntoConstraints = false

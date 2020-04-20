@@ -6,7 +6,6 @@
 //  Copyright © 2020 Святослав Кряжев. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 class TableCardView: UIViewController {
@@ -70,6 +69,6 @@ extension TableCardView: UITableViewDataSource {
     
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return storyCard.GetCountSections()
+        return storyCard.GetSectionsCount()
     }
 }

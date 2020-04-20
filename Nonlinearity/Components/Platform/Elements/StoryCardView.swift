@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import PinLayout
 
 class StoryCardView: UIViewComponent {
     var nameLable = UILabel()

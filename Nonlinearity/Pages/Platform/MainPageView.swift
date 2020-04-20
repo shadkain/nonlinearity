@@ -14,7 +14,7 @@ class MainPageView: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         
-        let child = TableCardView()
+        let child = BubbleViewCollection()
         view.addSubview(child.view)
         addChild(child)
         child.didMove(toParent: parent)

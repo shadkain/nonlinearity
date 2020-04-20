@@ -20,21 +20,24 @@ class StoryCard {
         setStoryCards()
     }
     
-    func GetCountItemsInSection(section: Int) -> Int{
+    func GetItemsInSectionCount(section: Int) -> Int{
         return storyCards[section].cardsInSection.count
     }
     
-    func GetCountSections() -> Int {
+    func GetSectionsCount() -> Int {
         return storyCards.count
     }
     
-    func GetCardBySectionAndIndex(section: Int, index: Int) -> StoryCardView {
+    func GetCardViewBySectionAndIndex(section: Int, index: Int) -> StoryCardView {
         return storyCards[section].cardsInSection[index]
     }
     
     func GetTitle(section: Int) -> String {
         return storyCards[section].title
     }
+}
+
+extension StoryCard {
     private func setStoryCards() {
         let sv = StoryCardView(frame: .zero)
 
@@ -77,27 +80,27 @@ class StoryCard {
         
         let svFirstRated2 = StoryCardView(frame: .zero)
 
-       svFirstRated2.image = UIImage(named: "wolf")
-       svFirstRated2.nameLable.text = "Сказки об оборотнях"
-       svFirstRated2.SetFirstRate()
-        
+        svFirstRated2.image = UIImage(named: "wolf")
+        svFirstRated2.nameLable.text = "Сказки об оборотнях"
+        svFirstRated2.SetFirstRate()
+
         storyCards.append(contentsOf: [
-           .init(
-               title: "Сейчас популярно",
-               cardsInSection: [sv, svRated, sv3, svFirstRated2]
-           ),
-           .init(
-               title: "Короткие истории",
-               cardsInSection: [svFirstRated]
-           ),
-           .init(
-               title: "Новинки",
-               cardsInSection: [svRated1]
-           ),
-           .init(
-               title: "Еще одна секция",
-               cardsInSection: [sv2, svRated2]
-           )
-       ])
+            .init(
+                title: "Сейчас популярно",
+                cardsInSection: [sv, svRated, sv3, svFirstRated2]
+            ),
+            .init(
+                title: "Короткие истории",
+                cardsInSection: [svFirstRated]
+                ),
+            .init(
+                title: "Новинки",
+                cardsInSection: [svRated1]
+            ),
+            .init(
+                title: "Еще одна секция",
+                cardsInSection: [sv2, svRated2]
+            )
+        ])
     }
 }

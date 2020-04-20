@@ -59,14 +59,14 @@ class ViewController: UIViewController {
 //                    .aspectRatio(0.6)
 //
 
-        /*BubbleView setup*/
-        //        let bv = BubbleView(frame: .zero)
-        //
-        //        bv.image = UIImage(named: "face-drama")
-        //        bv.titleLable.text = "Драма"
-        //
-        //        view.addSubview(bv)
-        //
-        //        bv.pin.top(100).hCenter()
+        //BubbleView setup
+                let bv = BubbleView(frame: .zero)
+        
+                bv.image = UIImage(named: "face-drama")
+                bv.titleLable.text = "Драма"
+        
+                view.addSubview(bv)
+        
+                bv.pin.top(100).hCenter()
     }
 }
