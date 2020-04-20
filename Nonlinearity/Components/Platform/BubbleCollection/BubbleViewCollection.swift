@@ -10,8 +10,7 @@ import UIKit
 
 class BubbleViewCollection: UIViewController {
     private var bubbles = Bubbles()
-    
-    private var collectionView: UICollectionView?
+    var collectionView: UICollectionView?
     private var flowLayout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
     
     override func viewDidLoad() {
@@ -20,10 +19,10 @@ class BubbleViewCollection: UIViewController {
         flowLayout.itemSize = CGSize(width: 85, height: 100)
         flowLayout.scrollDirection = .horizontal
         
-        var collectionViewFrame = self.self.view.frame
+        var collectionViewFrame = view.frame
         
         collectionViewFrame.size.height = 125
-        collectionViewFrame.origin.y = 50
+        collectionViewFrame.origin.y = 100
         collectionView = UICollectionView(
             frame: collectionViewFrame,
             collectionViewLayout: flowLayout)
@@ -35,7 +34,7 @@ class BubbleViewCollection: UIViewController {
         collectionView!.setContentOffset(CGPoint(x: 0,y: 0), animated: true)
         
         collectionView!.dataSource = self
-        collectionView!.delegate = self
+        //collectionView!.delegate = delegate
         
         collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cellId")
         view.addSubview(collectionView!)
@@ -68,10 +67,9 @@ extension BubbleViewCollection: UICollectionViewDataSource {
     }
 }
 
-extension BubbleViewCollection: UICollectionViewDelegate {
- 
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-       print("User tapped on item \(indexPath.item)")
-    }
-}
-
+//extension BubbleViewCollection: UICollectionViewDelegate {
+//
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//       print("User tapped on item \(indexPath.item)")
+//    }
+//}

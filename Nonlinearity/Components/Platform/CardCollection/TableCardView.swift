@@ -17,31 +17,36 @@ class TableCardView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView = UITableView(frame: .zero)
+        var tableViewFrame = view.frame
+        
+        tableViewFrame.size.height = 600
+        tableViewFrame.origin.y = 225
+        
+        tableView = UITableView(frame: tableViewFrame)
         tableView!.backgroundColor = .white
         
         tableView!.backgroundColor = .hex(rgb: 0x191919)
         tableView!.separatorStyle = .none
         
         tableView!.dataSource = self
-        tableView!.delegate = self
+       // tableView!.delegate = self
         tableView!.register(TableCardViewCell.self, forCellReuseIdentifier: customIdentifier)
         
         view.addSubview(tableView!)
         
-        self.updateLayout(with: self.view.frame.size)
+        //self.updateLayout(with: self.view.frame.size)
     }
     
-    private func updateLayout(with size: CGSize) {
-       tableView!.frame = CGRect.init(origin: .zero, size: size)
-    }
+//    private func updateLayout(with size: CGSize) {
+//       tableView!.frame = CGRect.init(origin: .zero, size: size)
+//    }
     
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-       super.viewWillTransition(to: size, with: coordinator)
-       coordinator.animate(alongsideTransition: { (contex) in
-        self.updateLayout(with: size)
-       }, completion: nil)
-    }
+//    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+//       super.viewWillTransition(to: size, with: coordinator)
+//       coordinator.animate(alongsideTransition: { (contex) in
+//        self.updateLayout(with: size)
+//       }, completion: nil)
+//    }
 }
 
 extension TableCardView: UITableViewDelegate {

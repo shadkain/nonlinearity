@@ -11,7 +11,7 @@ import UIKit
 class TableCardViewCell: UITableViewCell {
     private var labelView = UILabel()
     var storyCard: StoryCard?
-    private var collectionView: UICollectionView?
+    var collectionView: UICollectionView?
     
     private var flowLayout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
     
@@ -20,7 +20,7 @@ class TableCardViewCell: UITableViewCell {
         
         flowLayout.scrollDirection = .horizontal
         flowLayout.itemSize = CGSize(width: 114, height: 190)
-        flowLayout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 0)
+        flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 10, right: 0)
         
         var collectionViewBounds = self.bounds
         collectionViewBounds.size.height = 220
@@ -81,16 +81,16 @@ extension TableCardViewCell: UICollectionViewDataSource {
 
          return myCell
     }
-    
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize
-    {
-        return CGSize(width: 115, height: collectionView.frame.height)
-    }
-    
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat
-    {
-        return 10
-    }
+//
+//    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize
+//    {
+//        return CGSize(width: 115, height: collectionView.frame.height)
+//    }
+//
+//    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat
+//    {
+//        return 10
+//    }
     
 }
 
