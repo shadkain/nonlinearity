@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import PinLayout
 
 class BubbleView: UIViewComponent {
     var titleLable = UILabel()
@@ -21,8 +20,7 @@ class BubbleView: UIViewComponent {
     }
     
     private let imageView = UIImageView()
-    private let imageViewContainer =
-        UIView(frame: CGRect(x: 0, y: 0, width: 64, height: 64))
+    private let imageViewContainer = UIView(frame: .zero)
     
     override func setup() {
         frame.size = CGSize(width: 85, height: 100)
@@ -40,24 +38,32 @@ class BubbleView: UIViewComponent {
         titleLable.textColor = .hex(rgb: 0xAEAEAE)
         titleLable.numberOfLines = 1
         
-        [imageViewContainer, titleLable].forEach { addSubview($0) }
+        [imageViewContainer, titleLable].forEach {
+            $0.translatesAutoresizingMaskIntoConstraints = false
+            addSubview($0)
+            
+        }
         
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         imageViewContainer.addSubview(imageView)
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        imageViewContainer.pin
-            .top(10)
-            .hCenter()
-        
-        imageView.pin.all(8)
-        
-        titleLable.pin
-            .below(of: imageView)
-            .horizontally()
-            .bottom()
-        
+    override func constraint() {
+        NSLayoutConstraint.activate([
+            imageViewContainer.topAnchor.constraint(equalTo: topAnchor, constant: 10),
+            imageViewContainer.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10.5),
+            imageViewContainer.widthAnchor.constraint(equalToConstant: 64),
+            imageViewContainer.heightAnchor.constraint(equalToConstant: 64),
+            
+            imageView.topAnchor.constraint(equalTo: imageViewContainer.topAnchor, constant: 8),
+            imageView.leadingAnchor.constraint(equalTo: imageViewContainer.leadingAnchor, constant: 8),
+            imageView.widthAnchor.constraint(equalToConstant: 48),
+            imageView.heightAnchor.constraint(equalToConstant: 48),
+
+            titleLable.topAnchor.constraint(equalTo: imageViewContainer.bottomAnchor),
+            titleLable.bottomAnchor.constraint(equalTo: bottomAnchor),
+            titleLable.leadingAnchor.constraint(equalTo: leadingAnchor),
+            titleLable.trailingAnchor.constraint(equalTo: trailingAnchor),
+       ])
     }
 }
