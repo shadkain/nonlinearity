@@ -3,10 +3,25 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9626697A243CCB1D00B65416 /* UIViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96266979243CCB1D00B65416 /* UIViewComponent.swift */; };
+		9626697D243CD39800B65416 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9626697C243CD39800B65416 /* String.swift */; };
+		96266980243CD60500B65416 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9626697F243CD60500B65416 /* Constants.swift */; };
+		968F0C75243E71D40052768E /* ChatPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968F0C74243E71D40052768E /* ChatPageView.swift */; };
+		968F0C80244251760052768E /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968F0C7F244251760052768E /* Queue.swift */; };
+		968F0C842443798B0052768E /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968F0C832443798B0052768E /* UILabel.swift */; };
+		968F0C8C2444D1E80052768E /* Pods_Nonlinearity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34B1D1D1EE7E9F4DE5428D17 /* Pods_Nonlinearity.framework */; };
+		968F0CB3244616AE0052768E /* UITableViewCellComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968F0CB2244616AE0052768E /* UITableViewCellComponent.swift */; };
+		968F0CB52446E8180052768E /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968F0CB42446E8180052768E /* MessageCell.swift */; };
+		968F0CB7244729190052768E /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968F0CB6244729190052768E /* Chat.swift */; };
+		96CDD1AB24351B7000A7D2FF /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDD1AA24351B7000A7D2FF /* UIColor.swift */; };
+		96CDD1B0243520FE00A7D2FF /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDD1AF243520FE00A7D2FF /* MessageView.swift */; };
+		96CDD1B224361D1C00A7D2FF /* StoryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDD1B124361D1C00A7D2FF /* StoryCardView.swift */; };
+		CA0D4D97243F0DB300376CC7 /* BubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0D4D96243F0DB300376CC7 /* BubbleView.swift */; };
+		CA920C7C244C66C600BBC461 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA920C7B244C66C600BBC461 /* CollectionView.swift */; };
 		CAD59A372435151600974C2D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD59A362435151600974C2D /* AppDelegate.swift */; };
 		CAD59A392435151600974C2D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD59A382435151600974C2D /* SceneDelegate.swift */; };
 		CAD59A3B2435151600974C2D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD59A3A2435151600974C2D /* ViewController.swift */; };
@@ -16,6 +31,23 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		34B1D1D1EE7E9F4DE5428D17 /* Pods_Nonlinearity.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Nonlinearity.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		878E0202A69DEC95C225B237 /* Pods-Nonlinearity.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nonlinearity.release.xcconfig"; path = "Target Support Files/Pods-Nonlinearity/Pods-Nonlinearity.release.xcconfig"; sourceTree = "<group>"; };
+		96266979243CCB1D00B65416 /* UIViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewComponent.swift; sourceTree = "<group>"; };
+		9626697C243CD39800B65416 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		9626697F243CD60500B65416 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		968F0C74243E71D40052768E /* ChatPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatPageView.swift; sourceTree = "<group>"; };
+		968F0C7F244251760052768E /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
+		968F0C832443798B0052768E /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
+		968F0C882444D0EA0052768E /* PinLayout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PinLayout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		968F0CB2244616AE0052768E /* UITableViewCellComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCellComponent.swift; sourceTree = "<group>"; };
+		968F0CB42446E8180052768E /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
+		968F0CB6244729190052768E /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
+		96CDD1AA24351B7000A7D2FF /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		96CDD1AF243520FE00A7D2FF /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
+		96CDD1B124361D1C00A7D2FF /* StoryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCardView.swift; sourceTree = "<group>"; };
+		CA0D4D96243F0DB300376CC7 /* BubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleView.swift; sourceTree = "<group>"; };
+		CA920C7B244C66C600BBC461 /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
 		CAD59A332435151600974C2D /* Nonlinearity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nonlinearity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAD59A362435151600974C2D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CAD59A382435151600974C2D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +56,7 @@
 		CAD59A3F2435151700974C2D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CAD59A422435151700974C2D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CAD59A442435151700974C2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EC88F17E3A7B51CB543A7199 /* Pods-Nonlinearity.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nonlinearity.debug.xcconfig"; path = "Target Support Files/Pods-Nonlinearity/Pods-Nonlinearity.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +64,112 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				968F0C8C2444D1E80052768E /* Pods_Nonlinearity.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		885BF90D05FEFBBC7BC3E863 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				968F0C882444D0EA0052768E /* PinLayout.framework */,
+				34B1D1D1EE7E9F4DE5428D17 /* Pods_Nonlinearity.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9626697B243CCCD100B65416 /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				96266979243CCB1D00B65416 /* UIViewComponent.swift */,
+				968F0CB2244616AE0052768E /* UITableViewCellComponent.swift */,
+			);
+			path = Framework;
+			sourceTree = "<group>";
+		};
+		9626697E243CD5EF00B65416 /* MessageView */ = {
+			isa = PBXGroup;
+			children = (
+				96CDD1AF243520FE00A7D2FF /* MessageView.swift */,
+				9626697F243CD60500B65416 /* Constants.swift */,
+			);
+			path = MessageView;
+			sourceTree = "<group>";
+		};
+		968F0C72243E71A70052768E /* Pages */ = {
+			isa = PBXGroup;
+			children = (
+				968F0C73243E71B40052768E /* Game */,
+			);
+			path = Pages;
+			sourceTree = "<group>";
+		};
+		968F0C73243E71B40052768E /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				968F0C74243E71D40052768E /* ChatPageView.swift */,
+				968F0CB42446E8180052768E /* MessageCell.swift */,
+				968F0CB6244729190052768E /* Chat.swift */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		96CDD1A824351B2700A7D2FF /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				96CDD1AA24351B7000A7D2FF /* UIColor.swift */,
+				9626697C243CD39800B65416 /* String.swift */,
+				968F0C7F244251760052768E /* Queue.swift */,
+				968F0C832443798B0052768E /* UILabel.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		96CDD1AC2435201800A7D2FF /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				96CDD1AE2435204B00A7D2FF /* Platform */,
+				96CDD1AD2435202300A7D2FF /* Game */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		96CDD1AD2435202300A7D2FF /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				9626697E243CD5EF00B65416 /* MessageView */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		96CDD1AE2435204B00A7D2FF /* Platform */ = {
+			isa = PBXGroup;
+			children = (
+				96CDD1B124361D1C00A7D2FF /* StoryCardView.swift */,
+				CA0D4D96243F0DB300376CC7 /* BubbleView.swift */,
+				CA920C7B244C66C600BBC461 /* CollectionView.swift */,
+			);
+			path = Platform;
+			sourceTree = "<group>";
+		};
+		B01912A0ED647145B8A0F8A0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EC88F17E3A7B51CB543A7199 /* Pods-Nonlinearity.debug.xcconfig */,
+				878E0202A69DEC95C225B237 /* Pods-Nonlinearity.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		CAD59A2A2435151600974C2D = {
 			isa = PBXGroup;
 			children = (
 				CAD59A352435151600974C2D /* Nonlinearity */,
 				CAD59A342435151600974C2D /* Products */,
+				B01912A0ED647145B8A0F8A0 /* Pods */,
+				885BF90D05FEFBBC7BC3E863 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,6 +184,10 @@
 		CAD59A352435151600974C2D /* Nonlinearity */ = {
 			isa = PBXGroup;
 			children = (
+				968F0C72243E71A70052768E /* Pages */,
+				9626697B243CCCD100B65416 /* Framework */,
+				96CDD1AC2435201800A7D2FF /* Components */,
+				96CDD1A824351B2700A7D2FF /* Utils */,
 				CAD59A362435151600974C2D /* AppDelegate.swift */,
 				CAD59A382435151600974C2D /* SceneDelegate.swift */,
 				CAD59A3A2435151600974C2D /* ViewController.swift */,
@@ -74,9 +206,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CAD59A472435151700974C2D /* Build configuration list for PBXNativeTarget "Nonlinearity" */;
 			buildPhases = (
+				40C36A4B0B6B1205C07B9FF2 /* [CP] Check Pods Manifest.lock */,
 				CAD59A2F2435151600974C2D /* Sources */,
 				CAD59A302435151600974C2D /* Frameworks */,
 				CAD59A312435151600974C2D /* Resources */,
+				4B033F66F9DA4BB739B62A6F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -133,14 +267,71 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		40C36A4B0B6B1205C07B9FF2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Nonlinearity-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4B033F66F9DA4BB739B62A6F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Nonlinearity/Pods-Nonlinearity-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Nonlinearity/Pods-Nonlinearity-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Nonlinearity/Pods-Nonlinearity-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CAD59A2F2435151600974C2D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				968F0C75243E71D40052768E /* ChatPageView.swift in Sources */,
 				CAD59A3B2435151600974C2D /* ViewController.swift in Sources */,
+				968F0CB7244729190052768E /* Chat.swift in Sources */,
+				9626697A243CCB1D00B65416 /* UIViewComponent.swift in Sources */,
+				CA0D4D97243F0DB300376CC7 /* BubbleView.swift in Sources */,
+				96CDD1AB24351B7000A7D2FF /* UIColor.swift in Sources */,
+				968F0C842443798B0052768E /* UILabel.swift in Sources */,
 				CAD59A372435151600974C2D /* AppDelegate.swift in Sources */,
+				968F0CB3244616AE0052768E /* UITableViewCellComponent.swift in Sources */,
 				CAD59A392435151600974C2D /* SceneDelegate.swift in Sources */,
+				CA920C7C244C66C600BBC461 /* CollectionView.swift in Sources */,
+				96CDD1B0243520FE00A7D2FF /* MessageView.swift in Sources */,
+				968F0C80244251760052768E /* Queue.swift in Sources */,
+				9626697D243CD39800B65416 /* String.swift in Sources */,
+				96CDD1B224361D1C00A7D2FF /* StoryCardView.swift in Sources */,
+				96CDD1B224361D1C00A7D2FF /* StoryCardView.swift in Sources */,
+				96266980243CD60500B65416 /* Constants.swift in Sources */,
+				968F0CB52446E8180052768E /* MessageCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,15 +473,19 @@
 		};
 		CAD59A482435151700974C2D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EC88F17E3A7B51CB543A7199 /* Pods-Nonlinearity.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = VXUJ9UWYJ7;
 				INFOPLIST_FILE = Nonlinearity/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Nonlinearity.Nonlinearity;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Nonlinearity.Nonlinearit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -299,15 +494,19 @@
 		};
 		CAD59A492435151700974C2D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 878E0202A69DEC95C225B237 /* Pods-Nonlinearity.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = VXUJ9UWYJ7;
 				INFOPLIST_FILE = Nonlinearity/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Nonlinearity.Nonlinearity;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Nonlinearity.Nonlinearit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
