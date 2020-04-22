@@ -22,11 +22,11 @@
 		96CDD1B224361D1C00A7D2FF /* StoryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDD1B124361D1C00A7D2FF /* StoryCardView.swift */; };
 		CA0D4D97243F0DB300376CC7 /* BubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0D4D96243F0DB300376CC7 /* BubbleView.swift */; };
 		CA920C81244C8EE900BBC461 /* StoryCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA920C80244C8EE900BBC461 /* StoryCards.swift */; };
-		CA920C8E244CCA3600BBC461 /* MainPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA920C8D244CCA3600BBC461 /* MainPageView.swift */; };
-		CA920C90244CE92F00BBC461 /* TableCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA920C8F244CE92F00BBC461 /* TableCardView.swift */; };
-		CA920C94244CECC400BBC461 /* TableCardViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA920C93244CECC400BBC461 /* TableCardViewCell.swift */; };
-		CA920C98244DA86700BBC461 /* BubbleViewCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA920C97244DA86700BBC461 /* BubbleViewCollection.swift */; };
 		CA920C9A244DA92F00BBC461 /* Bubbles.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA920C99244DA92F00BBC461 /* Bubbles.swift */; };
+		CA920CA0244DF24400BBC461 /* TableCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA920C9F244DF24400BBC461 /* TableCardView.swift */; };
+		CA920CA2244DF28C00BBC461 /* TableCardViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA920CA1244DF28C00BBC461 /* TableCardViewCell.swift */; };
+		CA920CA4244DF31100BBC461 /* MainPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA920CA3244DF31100BBC461 /* MainPageView.swift */; };
+		CA920CA624503D3800BBC461 /* BubbleViewCollectionAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA920CA524503D3700BBC461 /* BubbleViewCollectionAdapter.swift */; };
 		CAD59A372435151600974C2D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD59A362435151600974C2D /* AppDelegate.swift */; };
 		CAD59A392435151600974C2D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD59A382435151600974C2D /* SceneDelegate.swift */; };
 		CAD59A3B2435151600974C2D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD59A3A2435151600974C2D /* ViewController.swift */; };
@@ -52,11 +52,11 @@
 		96CDD1B124361D1C00A7D2FF /* StoryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCardView.swift; sourceTree = "<group>"; };
 		CA0D4D96243F0DB300376CC7 /* BubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleView.swift; sourceTree = "<group>"; };
 		CA920C80244C8EE900BBC461 /* StoryCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCards.swift; sourceTree = "<group>"; };
-		CA920C8D244CCA3600BBC461 /* MainPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageView.swift; sourceTree = "<group>"; };
-		CA920C8F244CE92F00BBC461 /* TableCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCardView.swift; sourceTree = "<group>"; };
-		CA920C93244CECC400BBC461 /* TableCardViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCardViewCell.swift; sourceTree = "<group>"; };
-		CA920C97244DA86700BBC461 /* BubbleViewCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleViewCollection.swift; sourceTree = "<group>"; };
 		CA920C99244DA92F00BBC461 /* Bubbles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bubbles.swift; sourceTree = "<group>"; };
+		CA920C9F244DF24400BBC461 /* TableCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCardView.swift; sourceTree = "<group>"; };
+		CA920CA1244DF28C00BBC461 /* TableCardViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCardViewCell.swift; sourceTree = "<group>"; };
+		CA920CA3244DF31100BBC461 /* MainPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageView.swift; sourceTree = "<group>"; };
+		CA920CA524503D3700BBC461 /* BubbleViewCollectionAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleViewCollectionAdapter.swift; sourceTree = "<group>"; };
 		CAD59A332435151600974C2D /* Nonlinearity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nonlinearity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAD59A362435151600974C2D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CAD59A382435151600974C2D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -156,9 +156,8 @@
 		96CDD1AE2435204B00A7D2FF /* Platform */ = {
 			isa = PBXGroup;
 			children = (
-				CA920C96244DA83E00BBC461 /* BubbleCollection */,
 				CA920C95244DA41700BBC461 /* Elements */,
-				CA920C86244CA14600BBC461 /* CardCollection */,
+				CA920C86244CA14600BBC461 /* MainPage */,
 			);
 			path = Platform;
 			sourceTree = "<group>";
@@ -177,18 +176,19 @@
 			children = (
 				CA920C99244DA92F00BBC461 /* Bubbles.swift */,
 				CA920C80244C8EE900BBC461 /* StoryCards.swift */,
-				CA920C8D244CCA3600BBC461 /* MainPageView.swift */,
+				CA920CA3244DF31100BBC461 /* MainPageView.swift */,
 			);
 			path = Platform;
 			sourceTree = "<group>";
 		};
-		CA920C86244CA14600BBC461 /* CardCollection */ = {
+		CA920C86244CA14600BBC461 /* MainPage */ = {
 			isa = PBXGroup;
 			children = (
-				CA920C8F244CE92F00BBC461 /* TableCardView.swift */,
-				CA920C93244CECC400BBC461 /* TableCardViewCell.swift */,
+				CA920CA524503D3700BBC461 /* BubbleViewCollectionAdapter.swift */,
+				CA920C9F244DF24400BBC461 /* TableCardView.swift */,
+				CA920CA1244DF28C00BBC461 /* TableCardViewCell.swift */,
 			);
-			path = CardCollection;
+			path = MainPage;
 			sourceTree = "<group>";
 		};
 		CA920C95244DA41700BBC461 /* Elements */ = {
@@ -198,14 +198,6 @@
 				CA0D4D96243F0DB300376CC7 /* BubbleView.swift */,
 			);
 			path = Elements;
-			sourceTree = "<group>";
-		};
-		CA920C96244DA83E00BBC461 /* BubbleCollection */ = {
-			isa = PBXGroup;
-			children = (
-				CA920C97244DA86700BBC461 /* BubbleViewCollection.swift */,
-			);
-			path = BubbleCollection;
 			sourceTree = "<group>";
 		};
 		CAD59A2A2435151600974C2D = {
@@ -359,16 +351,14 @@
 			files = (
 				CA920C81244C8EE900BBC461 /* StoryCards.swift in Sources */,
 				968F0C75243E71D40052768E /* ChatPageView.swift in Sources */,
-				CA920C8E244CCA3600BBC461 /* MainPageView.swift in Sources */,
 				CAD59A3B2435151600974C2D /* ViewController.swift in Sources */,
-				CA920C94244CECC400BBC461 /* TableCardViewCell.swift in Sources */,
 				968F0CB7244729190052768E /* Chat.swift in Sources */,
+				CA920CA4244DF31100BBC461 /* MainPageView.swift in Sources */,
 				9626697A243CCB1D00B65416 /* UIViewComponent.swift in Sources */,
 				CA0D4D97243F0DB300376CC7 /* BubbleView.swift in Sources */,
 				96CDD1AB24351B7000A7D2FF /* UIColor.swift in Sources */,
 				968F0C842443798B0052768E /* UILabel.swift in Sources */,
 				CAD59A372435151600974C2D /* AppDelegate.swift in Sources */,
-				CA920C90244CE92F00BBC461 /* TableCardView.swift in Sources */,
 				968F0CB3244616AE0052768E /* UITableViewCellComponent.swift in Sources */,
 				CAD59A392435151600974C2D /* SceneDelegate.swift in Sources */,
 				96CDD1B0243520FE00A7D2FF /* MessageView.swift in Sources */,
@@ -376,9 +366,11 @@
 				9626697D243CD39800B65416 /* String.swift in Sources */,
 				CA920C9A244DA92F00BBC461 /* Bubbles.swift in Sources */,
 				96CDD1B224361D1C00A7D2FF /* StoryCardView.swift in Sources */,
-				CA920C98244DA86700BBC461 /* BubbleViewCollection.swift in Sources */,
+				CA920CA624503D3800BBC461 /* BubbleViewCollectionAdapter.swift in Sources */,
 				96CDD1B224361D1C00A7D2FF /* StoryCardView.swift in Sources */,
+				CA920CA0244DF24400BBC461 /* TableCardView.swift in Sources */,
 				96266980243CD60500B65416 /* Constants.swift in Sources */,
+				CA920CA2244DF28C00BBC461 /* TableCardViewCell.swift in Sources */,
 				968F0CB52446E8180052768E /* MessageCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

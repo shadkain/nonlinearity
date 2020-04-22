@@ -2,7 +2,7 @@
 //  TableCardView.swift
 //  Nonlinearity
 //
-//  Created by Юлия Плаксина on 19/04/2020.
+//  Created by Юлия Плаксина on 20/04/2020.
 //  Copyright © 2020 Святослав Кряжев. All rights reserved.
 //
 
@@ -13,40 +13,25 @@ class TableCardView: UIViewController {
     var tableView: UITableView?
     
     var storyCard = StoryCard()
-    
+    var bubbleAdapter = BubbleViewCollectionAdapter()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var tableViewFrame = view.frame
-        
-        tableViewFrame.size.height = 600
-        tableViewFrame.origin.y = 225
-        
-        tableView = UITableView(frame: tableViewFrame)
+        tableView = UITableView(frame: view.frame)
         tableView!.backgroundColor = .white
         
         tableView!.backgroundColor = .hex(rgb: 0x191919)
         tableView!.separatorStyle = .none
         
         tableView!.dataSource = self
-       // tableView!.delegate = self
+        tableView!.delegate = self
         tableView!.register(TableCardViewCell.self, forCellReuseIdentifier: customIdentifier)
         
         view.addSubview(tableView!)
         
         //self.updateLayout(with: self.view.frame.size)
     }
-    
-//    private func updateLayout(with size: CGSize) {
-//       tableView!.frame = CGRect.init(origin: .zero, size: size)
-//    }
-    
-//    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-//       super.viewWillTransition(to: size, with: coordinator)
-//       coordinator.animate(alongsideTransition: { (contex) in
-//        self.updateLayout(with: size)
-//       }, completion: nil)
-//    }
 }
 
 extension TableCardView: UITableViewDelegate {
@@ -56,6 +41,20 @@ extension TableCardView: UITableViewDelegate {
 
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return bubbleAdapter.collectionView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 125
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if tableView!.contentOffset.y < 0 {
+            tableView!.contentOffset.y = 0
+        }
     }
 
 }

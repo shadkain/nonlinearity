@@ -1,5 +1,5 @@
 //
-//  BubbleViewCollection.swift
+//  BubbleViewCollectionAdapter.swift
 //  Nonlinearity
 //
 //  Created by Юлия Плаксина on 20/04/2020.
@@ -8,23 +8,18 @@
 
 import UIKit
 
-class BubbleViewCollection: UIViewController {
+class BubbleViewCollectionAdapter: UIViewComponent {
     private var bubbles = Bubbles()
     var collectionView: UICollectionView?
     private var flowLayout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
     
-    override func viewDidLoad() {
-        
+    override func setup() {
         flowLayout.sectionInset = UIEdgeInsets(top: 20, left: 9, bottom: 5, right: 0)
         flowLayout.itemSize = CGSize(width: 85, height: 100)
         flowLayout.scrollDirection = .horizontal
         
-        var collectionViewFrame = view.frame
-        
-        collectionViewFrame.size.height = 125
-        collectionViewFrame.origin.y = 100
         collectionView = UICollectionView(
-            frame: collectionViewFrame,
+            frame: frame,
             collectionViewLayout: flowLayout)
         
         
@@ -34,16 +29,14 @@ class BubbleViewCollection: UIViewController {
         collectionView!.setContentOffset(CGPoint(x: 0,y: 0), animated: true)
         
         collectionView!.dataSource = self
-        //collectionView!.delegate = delegate
+        collectionView!.delegate = self
         
         collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cellId")
-        view.addSubview(collectionView!)
+        addSubview(collectionView!)
     }
-    
-    
 }
 
-extension BubbleViewCollection: UICollectionViewDataSource {
+extension BubbleViewCollectionAdapter: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return bubbles.GetElementsCount()
@@ -67,9 +60,9 @@ extension BubbleViewCollection: UICollectionViewDataSource {
     }
 }
 
-//extension BubbleViewCollection: UICollectionViewDelegate {
-//
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//       print("User tapped on item \(indexPath.item)")
-//    }
-//}
+extension BubbleViewCollectionAdapter: UICollectionViewDelegate {
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+       print("User tapped on bubble \(indexPath.item)")
+    }
+}

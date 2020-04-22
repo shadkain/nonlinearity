@@ -2,9 +2,10 @@
 //  TableCardViewCell.swift
 //  Nonlinearity
 //
-//  Created by Юлия Плаксина on 19/04/2020.
+//  Created by Юлия Плаксина on 20/04/2020.
 //  Copyright © 2020 Святослав Кряжев. All rights reserved.
 //
+
 
 import UIKit
 
@@ -81,17 +82,6 @@ extension TableCardViewCell: UICollectionViewDataSource {
 
          return myCell
     }
-//
-//    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize
-//    {
-//        return CGSize(width: 115, height: collectionView.frame.height)
-//    }
-//
-//    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat
-//    {
-//        return 10
-//    }
-    
 }
 
 extension TableCardViewCell: UICollectionViewDelegate {
@@ -100,4 +90,5 @@ extension TableCardViewCell: UICollectionViewDelegate {
        print("User tapped on section \(tag) item \(indexPath.item)")
     }
 }
+
 
