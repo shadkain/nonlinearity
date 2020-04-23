@@ -9,20 +9,15 @@
 import UIKit
 
 class MainPageView: UIViewController {
+    override var preferredStatusBarStyle: UIStatusBarStyle { .lightContent }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = .hex(rgb: 0x191919)
         
         let child = TableCardView()
         view.addSubview(child.view)
         addChild(child)
         child.didMove(toParent: parent)
-        
-        NSLayoutConstraint.activate([
-            child.view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-             child.view.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-             child.view.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-             child.view.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-        ])
     }
 }
