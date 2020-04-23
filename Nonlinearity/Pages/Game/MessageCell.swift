@@ -76,7 +76,7 @@ final class RightMessageCell: BaseMessageCell, MessageCell {
     }
 }
 
-final class LeftMessageCell: BaseMessageCell, MessageCell {
+class LeftMessageCell: BaseMessageCell, MessageCell {
     private let avatarView = UIView()
     private let avatarLetters = UILabel()
     
@@ -93,7 +93,7 @@ final class LeftMessageCell: BaseMessageCell, MessageCell {
     override func setup() {
         super.setup()
         
-        messageView = Message.UnnamedView()
+        createMessageView()
         messageView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(messageView)
         
@@ -107,6 +107,10 @@ final class LeftMessageCell: BaseMessageCell, MessageCell {
         avatarLetters.textColor = .hex(rgb: 0xFFFBFB)
         avatarLetters.translatesAutoresizingMaskIntoConstraints = false
         avatarView.addSubview(avatarLetters)
+    }
+    
+    fileprivate func createMessageView() {
+        messageView = Message.UnnamedView()
     }
     
     override func constraint() {
@@ -127,5 +131,11 @@ final class LeftMessageCell: BaseMessageCell, MessageCell {
         super.prepareForReuse()
         
         showAvatar = true
+    }
+}
+
+final class LeftGroupMessageCell: LeftMessageCell {
+    override func createMessageView() {
+        messageView = Message.NamedView()
     }
 }

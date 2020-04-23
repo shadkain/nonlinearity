@@ -16,7 +16,7 @@ protocol MessageView: UIView {
 extension Message {
     class UnnamedView: UIViewComponent, MessageView {
         fileprivate let messageLabel = UILabel()
-        private let timeLabel = UILabel()
+        fileprivate let timeLabel = UILabel()
         private var widthConstraint: NSLayoutConstraint!
         private var changingConstraints: [NSLayoutConstraint] = []
         
@@ -90,7 +90,7 @@ extension Message {
         private func constraintSingleLine() {
             changingConstraints.append(contentsOf: [
                 messageLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -const.space.messageToVBounds),
-                messageLabel.trailingAnchor.constraint(equalTo: timeLabel.leadingAnchor, constant: -const.space.commonH),
+                messageLabel.trailingAnchor.constraint(lessThanOrEqualTo: timeLabel.leadingAnchor, constant: -const.space.commonH),
             ])
         }
         
@@ -146,11 +146,15 @@ extension Message {
         }
         
         override func constraintMessageLabel() {
+            let viewConstraint = trailingAnchor.constraint(greaterThanOrEqualTo: nameLabel.trailingAnchor, constant: const.space.commonH)
+            viewConstraint.priority = .defaultHigh
+            
             NSLayoutConstraint.activate([
                 messageLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: const.space.commonH),
                 messageLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: const.space.nameToMessageV),
                 nameLabel.leadingAnchor.constraint(equalTo: messageLabel.leadingAnchor),
                 nameLabel.topAnchor.constraint(equalTo: topAnchor, constant: const.space.messageToVBounds),
+                viewConstraint,
             ])
         }
         
