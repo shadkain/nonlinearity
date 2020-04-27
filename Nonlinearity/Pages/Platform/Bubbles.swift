@@ -23,11 +23,11 @@ class Bubbles {
         setBubbleView()
     }
     
-    func GetElementsCount() -> Int {
+    func getElementsCount() -> Int {
         return bubbleViews.count
     }
     
-    func GetBubbleViewByIndex(index: Int) -> BubbleView {
+    func getBubbleViewByIndex(index: Int) -> BubbleView {
         return bubbleViews[index]
     }
 }

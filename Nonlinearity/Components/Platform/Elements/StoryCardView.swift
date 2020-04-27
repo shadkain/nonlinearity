@@ -18,14 +18,18 @@ class StoryCardView: UIViewComponent {
             imageView.image
         }
     }
+    
     private var isRated: Bool = false
-    var isFirstRated: Bool = false
+    private var isFirstRated: Bool = false
     
     private let imageView = UIImageView()
     
     private let starMainView = UIImageView()
     private let starLeftView = UIImageView()
     private let starRightView = UIImageView()
+    
+    private var isListenable: Bool = false
+    private var isPlayable: Bool = false
     
     override func setup() {
         
@@ -54,17 +58,34 @@ class StoryCardView: UIViewComponent {
         }
     }
     
-    func SetRate() {
+    override func constraint() {
+        NSLayoutConstraint.activate([
+            imageView.topAnchor.constraint(equalTo: topAnchor),
+            imageView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            imageView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            imageView.heightAnchor.constraint(equalToConstant: 152),
+            
+            nameLable.topAnchor.constraint(equalTo: imageView.bottomAnchor),
+            nameLable.bottomAnchor.constraint(equalTo: bottomAnchor),
+            nameLable.leadingAnchor.constraint(equalTo: leadingAnchor),
+            nameLable.trailingAnchor.constraint(equalTo: trailingAnchor),
+        ])
+    }
+}
+
+extension StoryCardView {
+    
+    func setRate() {
         isRated = true
-        configure()
+        configureRates()
     }
     
-    func SetFirstRate() {
+    func setFirstRate() {
         isFirstRated = true
-        configure()
+        configureRates()
     }
     
-    private func configure() {
+    private func configureRates() {
         
         starMainView.isHidden = false
         
@@ -92,19 +113,28 @@ class StoryCardView: UIViewComponent {
             ])
         }
     }
-    
-    override func constraint() {
-        NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: topAnchor),
-            imageView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            imageView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            imageView.heightAnchor.constraint(equalToConstant: 152),
-            
-            nameLable.topAnchor.constraint(equalTo: imageView.bottomAnchor),
-            nameLable.bottomAnchor.constraint(equalTo: bottomAnchor),
-            nameLable.leadingAnchor.constraint(equalTo: leadingAnchor),
-            nameLable.trailingAnchor.constraint(equalTo: trailingAnchor),
-        ])
+}
+
+extension StoryCardView {
+    func setListenable() {
+        isListenable = true
+        configureOptions()
     }
     
+    func setPlayable() {
+        isPlayable = true
+        configureOptions()
+    }
+    
+    func getListenable() -> Bool {
+        return isListenable
+    }
+    
+    func getPlayable() -> Bool {
+        return isPlayable
+    }
+    
+    private func configureOptions() {
+        // Для отображения символов прослушивания и игры
+    }
 }

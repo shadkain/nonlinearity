@@ -2,105 +2,171 @@
 //  StoryCards.swift
 //  Nonlinearity
 //
-//  Created by Юлия Плаксина on 19/04/2020.
+//  Created by Юлия Плаксина on 20/04/2020.
 //  Copyright © 2020 Святослав Кряжев. All rights reserved.
 //
 
 import UIKit
 
-struct Section {
-    var title: String
-    var cardsInSection: [StoryCardView]
+enum Tab {
+    case main, read, listen, play
+}
+
+extension StoryCard {
+    struct Card {
+        var title: String
+        var imageName: String
+        
+        var isRated: Bool
+        var isFirstRated: Bool
+        
+        var isListenable: Bool
+        var isPlayable: Bool
+    }
+
+    struct Section {
+        var title: String
+        var cardsInSectionMain: [Card]
+        var cardsInSectionRead: [Card]
+        var cardsInSectionListen: [Card]
+        var cardsInSectionPlay: [Card]
+    }
 }
 
 class StoryCard {
     private var storyCards: [Section] = []
+    private var sections: [String] = []
     
     init() {
         setStoryCards()
     }
     
-    func GetItemsInSectionCount(section: Int) -> Int{
-        return storyCards[section].cardsInSection.count
+    func getItemsInSectionCount(tab: Tab, section: Int) -> Int{
+        switch tab {
+        case .main:
+            return storyCards[section].cardsInSectionMain.count
+        case .read:
+            return storyCards[section].cardsInSectionRead.count
+        case .listen:
+            return storyCards[section].cardsInSectionListen.count
+        case .play:
+            return storyCards[section].cardsInSectionPlay.count
+        }
     }
     
-    func GetSectionsCount() -> Int {
+    func getSectionsCount() -> Int {
         return storyCards.count
     }
     
-    func GetCardViewBySectionAndIndex(section: Int, index: Int) -> StoryCardView {
-        return storyCards[section].cardsInSection[index]
+    func getCardBySectionAndIndex(tab: Tab, section: Int, index: Int)
+        -> Card {
+            switch tab {
+            case .main:
+                return storyCards[section].cardsInSectionMain[index]
+            case .read:
+                return storyCards[section].cardsInSectionRead[index]
+            case .listen:
+                return storyCards[section].cardsInSectionListen[index]
+            case .play:
+                return storyCards[section].cardsInSectionPlay[index]
+            }
     }
     
-    func GetTitle(section: Int) -> String {
+    func getTitle(section: Int) -> String {
         return storyCards[section].title
     }
 }
 
+
 extension StoryCard {
     private func setStoryCards() {
-        let sv = StoryCardView(frame: .zero)
-
-        sv.image = UIImage(named: "book")
-        sv.nameLable.text = "Захватывающий дух"
         
-        let sv2 = StoryCardView(frame: .zero)
+        let cards: [Card] = genCards()
+        initArraySections()
+        appendCards(data: cards)
+    }
+    
+    private func genCards() -> [Card] {
+        var cards: [Card] = []
 
-        sv2.image = UIImage(named: "book")
-        sv2.nameLable.text = "Захватывающий дух"
-        
-        let sv3 = StoryCardView(frame: .zero)
-
-        sv3.image = UIImage(named: "book")
-        sv3.nameLable.text = "Захватывающий дух"
-        
-        let svRated = StoryCardView(frame: .zero)
-
-        svRated.image = UIImage(named: "unicorn")
-        svRated.nameLable.text = "Путь за рогом"
-        svRated.SetRate()
-        
-        let svRated1 = StoryCardView(frame: .zero)
-
-        svRated1.image = UIImage(named: "unicorn")
-        svRated1.nameLable.text = "Путь за рогом"
-        svRated1.SetRate()
-        
-        let svRated2 = StoryCardView(frame: .zero)
-
-        svRated2.image = UIImage(named: "unicorn")
-        svRated2.nameLable.text = "Путь за рогом"
-        svRated2.SetRate()
-
-        let svFirstRated = StoryCardView(frame: .zero)
-
-        svFirstRated.image = UIImage(named: "wolf")
-        svFirstRated.nameLable.text = "Сказки об оборотнях"
-        svFirstRated.SetFirstRate()
-        
-        let svFirstRated2 = StoryCardView(frame: .zero)
-
-        svFirstRated2.image = UIImage(named: "wolf")
-        svFirstRated2.nameLable.text = "Сказки об оборотнях"
-        svFirstRated2.SetFirstRate()
-
-        storyCards.append(contentsOf: [
-            .init(
-                title: "Сейчас популярно",
-                cardsInSection: [sv, svRated, sv3, svFirstRated2]
-            ),
-            .init(
-                title: "Короткие истории",
-                cardsInSection: [svFirstRated]
-                ),
-            .init(
-                title: "Новинки",
-                cardsInSection: [svRated1]
-            ),
-            .init(
-                title: "Еще одна секция",
-                cardsInSection: [sv2, svRated2]
+        for i in 1...10 {
+            var newTitle: String = ""
+            var newImageName: String = ""
+            
+            var newIsRated: Bool = false
+            var newIsFirstRated: Bool = false
+            
+            var newIsListenable: Bool = false
+            var newIsPlayable: Bool = false
+            
+            if (i % 3 == 0) {
+                newImageName = "book"
+                newTitle = "Захватывающий дух"
+            } else if (i % 3 == 1) {
+                newImageName = "unicorn"
+                newTitle = "Путь за рогом"
+                newIsListenable = true
+            } else {
+                newImageName = "wolf"
+                newTitle = "Сказки об оборотнях"
+                newIsPlayable = true
+            }
+            if (i % 4 == 0) {
+                newIsRated = true
+            } else if (i % 4 == 2) {
+                newIsFirstRated = true
+            }
+            
+            cards.append(.init(
+                title: newTitle,
+                imageName: newImageName,
+                isRated: newIsRated,
+                isFirstRated: newIsFirstRated,
+                isListenable: newIsListenable,
+                isPlayable: newIsPlayable)
             )
+            
+        }
+
+        return cards
+    }
+    
+    private func initArraySections() {
+        
+        sections.append(contentsOf: [
+            "Сейчас популярно",
+            "Короткие истории",
+            "Новинки",
+            "Еще одна секция"
         ])
+    }
+    
+    private func appendCards(data: [Card]) {
+        for section in sections {
+            var cardsMain: [Card] = []
+            var cardsRead: [Card] = []
+            var cardsListen: [Card] = []
+            var cardsPlay: [Card] = []
+            
+            for item in data {
+                cardsMain.append(item)
+                if item.isListenable {
+                    cardsListen.append(item)
+                }
+                if item.isPlayable {
+                    cardsPlay.append(item)
+                }
+                if !item.isListenable && !item.isPlayable {
+                    cardsRead.append(item)
+                }
+            }
+            
+            storyCards.append(.init(
+                title: section,
+                cardsInSectionMain: cardsMain,
+                cardsInSectionRead: cardsRead,
+                cardsInSectionListen: cardsListen,
+                cardsInSectionPlay: cardsPlay))
+        }
     }
 }

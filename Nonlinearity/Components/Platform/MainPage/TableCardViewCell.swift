@@ -51,36 +51,61 @@ class TableCardViewCell: UITableViewCell {
     private func initHeader() {
         labelView.frame = CGRect(x: 20, y: 0, width: self.bounds.size.width, height: 30)
         labelView.textAlignment = .left
-        labelView.text = storyCard!.GetTitle(section: tag)
+        labelView.text = storyCard!.getTitle(section: tag)
         labelView.font = UIFont(name: "Arial-BoldMT", size: 23)
         labelView.textColor = .hex(rgb: 0xC35EB9)
         //labelView.backgroundColor = .hex(rgb: 0x191919)
+    }
+    
+    override func prepareForReuse() {
+        
     }
 }
 
 extension TableCardViewCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return storyCard!.GetItemsInSectionCount(section: tag)
+        return storyCard!.getItemsInSectionCount(tab: .main, section: tag)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellWithCollectionView", for: indexPath)
         
-        let sv = storyCard!.GetCardViewBySectionAndIndex(
-            section: tag,
-            index: indexPath.item)
-         sv.translatesAutoresizingMaskIntoConstraints = false
-         myCell.contentView.addSubview(sv)
+        for subview in myCell.contentView.subviews {
+            subview.removeFromSuperview()
+        }
+        
+        let card = storyCard?.getCardBySectionAndIndex(tab: .main, section: tag, index: indexPath.item)
+        
+        let sv = StoryCardView(frame: .zero)
+        
+        sv.image = UIImage(named: card?.imageName ?? "book")
+        sv.nameLable.text = card?.title
+        
+        if card?.isFirstRated ?? false {
+            sv.setFirstRate()
+        }
+        if card?.isRated ?? false {
+            sv.setRate()
+        }
+        if card?.isListenable ?? false {
+            sv.setListenable()
+        }
+        if card?.isPlayable ?? false {
+            sv.setPlayable()
+        }
+        
+        sv.translatesAutoresizingMaskIntoConstraints = false
+        myCell.contentView.addSubview(sv)
 
-         NSLayoutConstraint.activate([
-             sv.topAnchor.constraint(equalTo: myCell.contentView.topAnchor),
-             sv.leadingAnchor.constraint(equalTo: myCell.contentView.leadingAnchor),
-             sv.trailingAnchor.constraint(equalTo: myCell.contentView.trailingAnchor),
-             sv.bottomAnchor.constraint(equalTo: myCell.contentView.bottomAnchor),
+        NSLayoutConstraint.activate([
+            sv.topAnchor.constraint(equalTo: myCell.contentView.topAnchor),
+            sv.leadingAnchor.constraint(equalTo: myCell.contentView.leadingAnchor),
+            sv.trailingAnchor.constraint(equalTo: myCell.contentView.trailingAnchor),
+            sv.bottomAnchor.constraint(equalTo: myCell.contentView.bottomAnchor),
         ])
 
-         return myCell
+        return myCell
     }
 }
 

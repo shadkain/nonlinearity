@@ -18,16 +18,14 @@ class TableCardView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView = UITableView(frame: view.frame)
-        //tableView!.tableHeaderView = bubbleAdapter.collectionView
-        //tableView!.tableHeaderView?.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 125)
-        tableView!.backgroundColor = .white
+        tableView?.backgroundColor = .white
         
-        tableView!.backgroundColor = .hex(rgb: 0x191919)
-        tableView!.separatorStyle = .none
+        tableView?.backgroundColor = .hex(rgb: 0x191919)
+        tableView?.separatorStyle = .none
         
-        tableView!.dataSource = self
-        tableView!.delegate = self
-        tableView!.register(TableCardViewCell.self, forCellReuseIdentifier: customIdentifier)
+        tableView?.dataSource = self
+        tableView?.delegate = self
+        tableView?.register(TableCardViewCell.self, forCellReuseIdentifier: customIdentifier)
         
         view.addSubview(bubbleAdapter.collectionView!)
         view.addSubview(tableView!)
@@ -85,6 +83,6 @@ extension TableCardView: UITableViewDataSource {
     
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return storyCard.GetSectionsCount()
+        return storyCard.getSectionsCount()
     }
 }

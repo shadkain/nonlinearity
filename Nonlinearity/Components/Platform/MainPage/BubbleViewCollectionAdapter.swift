@@ -39,13 +39,13 @@ class BubbleViewCollectionAdapter: UIViewComponent {
 extension BubbleViewCollectionAdapter: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return bubbles.GetElementsCount()
+        return bubbles.getElementsCount()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath)
         
-        let sv = bubbles.GetBubbleViewByIndex(index: indexPath.item)
+        let sv = bubbles.getBubbleViewByIndex(index: indexPath.item)
          sv.translatesAutoresizingMaskIntoConstraints = false
          myCell.contentView.addSubview(sv)
 
