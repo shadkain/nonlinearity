@@ -21,9 +21,12 @@
 		96CDD1B0243520FE00A7D2FF /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDD1AF243520FE00A7D2FF /* MessageView.swift */; };
 		96CDD1B224361D1C00A7D2FF /* StoryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDD1B124361D1C00A7D2FF /* StoryCardView.swift */; };
 		CA06FF852457358D00C33921 /* StoryCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA06FF842457358D00C33921 /* StoryCards.swift */; };
+		CA06FF87245770EB00C33921 /* TabsViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA06FF86245770EB00C33921 /* TabsViewAdapter.swift */; };
+		CA06FF892457715200C33921 /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA06FF882457715200C33921 /* TabView.swift */; };
+		CA06FF8D2457761900C33921 /* Tabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA06FF8C2457761900C33921 /* Tabs.swift */; };
 		CA0D4D97243F0DB300376CC7 /* BubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0D4D96243F0DB300376CC7 /* BubbleView.swift */; };
 		CA920C9A244DA92F00BBC461 /* Bubbles.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA920C99244DA92F00BBC461 /* Bubbles.swift */; };
-		CA920CA0244DF24400BBC461 /* TableCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA920C9F244DF24400BBC461 /* TableCardView.swift */; };
+		CA920CA0244DF24400BBC461 /* TableCardViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA920C9F244DF24400BBC461 /* TableCardViewAdapter.swift */; };
 		CA920CA2244DF28C00BBC461 /* TableCardViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA920CA1244DF28C00BBC461 /* TableCardViewCell.swift */; };
 		CA920CA4244DF31100BBC461 /* MainPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA920CA3244DF31100BBC461 /* MainPageView.swift */; };
 		CA920CA624503D3800BBC461 /* BubbleViewCollectionAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA920CA524503D3700BBC461 /* BubbleViewCollectionAdapter.swift */; };
@@ -51,9 +54,12 @@
 		96CDD1AF243520FE00A7D2FF /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		96CDD1B124361D1C00A7D2FF /* StoryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCardView.swift; sourceTree = "<group>"; };
 		CA06FF842457358D00C33921 /* StoryCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCards.swift; sourceTree = "<group>"; };
+		CA06FF86245770EB00C33921 /* TabsViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsViewAdapter.swift; sourceTree = "<group>"; };
+		CA06FF882457715200C33921 /* TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
+		CA06FF8C2457761900C33921 /* Tabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tabs.swift; sourceTree = "<group>"; };
 		CA0D4D96243F0DB300376CC7 /* BubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleView.swift; sourceTree = "<group>"; };
 		CA920C99244DA92F00BBC461 /* Bubbles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bubbles.swift; sourceTree = "<group>"; };
-		CA920C9F244DF24400BBC461 /* TableCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCardView.swift; sourceTree = "<group>"; };
+		CA920C9F244DF24400BBC461 /* TableCardViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCardViewAdapter.swift; sourceTree = "<group>"; };
 		CA920CA1244DF28C00BBC461 /* TableCardViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCardViewCell.swift; sourceTree = "<group>"; };
 		CA920CA3244DF31100BBC461 /* MainPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageView.swift; sourceTree = "<group>"; };
 		CA920CA524503D3700BBC461 /* BubbleViewCollectionAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleViewCollectionAdapter.swift; sourceTree = "<group>"; };
@@ -177,6 +183,7 @@
 				CA920C99244DA92F00BBC461 /* Bubbles.swift */,
 				CA920CA3244DF31100BBC461 /* MainPageView.swift */,
 				CA06FF842457358D00C33921 /* StoryCards.swift */,
+				CA06FF8C2457761900C33921 /* Tabs.swift */,
 			);
 			path = Platform;
 			sourceTree = "<group>";
@@ -185,8 +192,9 @@
 			isa = PBXGroup;
 			children = (
 				CA920CA524503D3700BBC461 /* BubbleViewCollectionAdapter.swift */,
-				CA920C9F244DF24400BBC461 /* TableCardView.swift */,
+				CA920C9F244DF24400BBC461 /* TableCardViewAdapter.swift */,
 				CA920CA1244DF28C00BBC461 /* TableCardViewCell.swift */,
+				CA06FF86245770EB00C33921 /* TabsViewAdapter.swift */,
 			);
 			path = MainPage;
 			sourceTree = "<group>";
@@ -196,6 +204,7 @@
 			children = (
 				96CDD1B124361D1C00A7D2FF /* StoryCardView.swift */,
 				CA0D4D96243F0DB300376CC7 /* BubbleView.swift */,
+				CA06FF882457715200C33921 /* TabView.swift */,
 			);
 			path = Elements;
 			sourceTree = "<group>";
@@ -362,15 +371,18 @@
 				CAD59A392435151600974C2D /* SceneDelegate.swift in Sources */,
 				96CDD1B0243520FE00A7D2FF /* MessageView.swift in Sources */,
 				CA06FF852457358D00C33921 /* StoryCards.swift in Sources */,
+				CA06FF8D2457761900C33921 /* Tabs.swift in Sources */,
 				968F0C80244251760052768E /* Queue.swift in Sources */,
 				9626697D243CD39800B65416 /* String.swift in Sources */,
 				CA920C9A244DA92F00BBC461 /* Bubbles.swift in Sources */,
 				96CDD1B224361D1C00A7D2FF /* StoryCardView.swift in Sources */,
 				CA920CA624503D3800BBC461 /* BubbleViewCollectionAdapter.swift in Sources */,
 				96CDD1B224361D1C00A7D2FF /* StoryCardView.swift in Sources */,
-				CA920CA0244DF24400BBC461 /* TableCardView.swift in Sources */,
+				CA920CA0244DF24400BBC461 /* TableCardViewAdapter.swift in Sources */,
+				CA06FF892457715200C33921 /* TabView.swift in Sources */,
 				96266980243CD60500B65416 /* Constants.swift in Sources */,
 				CA920CA2244DF28C00BBC461 /* TableCardViewCell.swift in Sources */,
+				CA06FF87245770EB00C33921 /* TabsViewAdapter.swift in Sources */,
 				968F0CB52446E8180052768E /* MessageCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

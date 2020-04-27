@@ -6,7 +6,6 @@
 //  Copyright © 2020 Святослав Кряжев. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 struct Bubble {

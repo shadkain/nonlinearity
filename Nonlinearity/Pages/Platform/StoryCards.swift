@@ -8,8 +8,8 @@
 
 import UIKit
 
-enum Tab {
-    case main, read, listen, play
+enum TypeOfTab: Int {
+    case main = 0, read, listen, play
 }
 
 extension StoryCard {
@@ -41,7 +41,7 @@ class StoryCard {
         setStoryCards()
     }
     
-    func getItemsInSectionCount(tab: Tab, section: Int) -> Int{
+    func getItemsInSectionCount(tab: TypeOfTab, section: Int) -> Int{
         switch tab {
         case .main:
             return storyCards[section].cardsInSectionMain.count
@@ -58,7 +58,7 @@ class StoryCard {
         return storyCards.count
     }
     
-    func getCardBySectionAndIndex(tab: Tab, section: Int, index: Int)
+    func getCardBySectionAndIndex(tab: TypeOfTab, section: Int, index: Int)
         -> Card {
             switch tab {
             case .main:

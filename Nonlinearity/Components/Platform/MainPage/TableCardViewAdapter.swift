@@ -1,5 +1,5 @@
 //
-//  TableCardView.swift
+//  TableCardViewAdapter.swift
 //  Nonlinearity
 //
 //  Created by Юлия Плаксина on 20/04/2020.
@@ -8,16 +8,15 @@
 
 import UIKit
 
-class TableCardView: UIViewController {
+class TableCardViewAdapter: UIViewComponent {
     let customIdentifier = "CustomTableViewCell"
     var tableView: UITableView?
     
     var storyCard = StoryCard()
-    var bubbleAdapter = BubbleViewCollectionAdapter()
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        tableView = UITableView(frame: view.frame)
+    var currentTypeOfTab: TypeOfTab = .main
+    
+    override func setup() {
+        tableView = UITableView(frame: frame)
         tableView?.backgroundColor = .white
         
         tableView?.backgroundColor = .hex(rgb: 0x191919)
@@ -27,32 +26,11 @@ class TableCardView: UIViewController {
         tableView?.delegate = self
         tableView?.register(TableCardViewCell.self, forCellReuseIdentifier: customIdentifier)
         
-        view.addSubview(bubbleAdapter.collectionView!)
-        view.addSubview(tableView!)
-        setConstraint()
-    }
-    
-    func setConstraint() {
-        bubbleAdapter.collectionView!.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-             bubbleAdapter.collectionView!.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-             bubbleAdapter.collectionView!.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-             bubbleAdapter.collectionView!.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-             bubbleAdapter.collectionView!.heightAnchor.constraint(equalToConstant: 125),
-        ])
-        
-        tableView!.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            tableView!.topAnchor.constraint(equalTo: bubbleAdapter.collectionView!.bottomAnchor),
-             tableView!.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-             tableView!.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-             tableView!.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-        ])
+        addSubview(tableView!)
     }
 }
 
-extension TableCardView: UITableViewDelegate {
+extension TableCardViewAdapter: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 250
     }
@@ -69,13 +47,14 @@ extension TableCardView: UITableViewDelegate {
 
 }
 
-extension TableCardView: UITableViewDataSource {
+extension TableCardViewAdapter: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let tableViewCell = tableView.dequeueReusableCell(withIdentifier: customIdentifier, for: indexPath) as? TableCardViewCell else {
             fatalError("Cell should be not nil")
         }
         tableViewCell.tag = indexPath.row
         tableViewCell.storyCard = storyCard
+        tableViewCell.currentTypeOfTab = currentTypeOfTab
         tableViewCell.selectionStyle = .none
         tableViewCell.initCell()
         return tableViewCell

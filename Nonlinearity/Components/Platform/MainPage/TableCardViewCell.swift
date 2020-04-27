@@ -14,6 +14,8 @@ class TableCardViewCell: UITableViewCell {
     var storyCard: StoryCard?
     var collectionView: UICollectionView?
     
+    var currentTypeOfTab: TypeOfTab?
+    
     private var flowLayout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
     
     func initCell () {
@@ -65,7 +67,7 @@ class TableCardViewCell: UITableViewCell {
 extension TableCardViewCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return storyCard!.getItemsInSectionCount(tab: .main, section: tag)
+        return storyCard!.getItemsInSectionCount(tab: currentTypeOfTab ?? .main, section: tag)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -75,7 +77,10 @@ extension TableCardViewCell: UICollectionViewDataSource {
             subview.removeFromSuperview()
         }
         
-        let card = storyCard?.getCardBySectionAndIndex(tab: .main, section: tag, index: indexPath.item)
+        let card = storyCard?.getCardBySectionAndIndex(
+            tab: currentTypeOfTab ?? .main,
+            section: tag,
+            index: indexPath.item)
         
         let sv = StoryCardView(frame: .zero)
         
