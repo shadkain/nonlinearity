@@ -56,13 +56,14 @@ class BaseMessageCell: UITableViewCellComponent {
 
 final class RightMessageCell: BaseMessageCell, MessageCell {
     func configure(with message: Message) {
-        messageView.configure(with: message, location: .right)
+        let presenter = MessageUnauthoredPresenter(model: message, view: messageView as! MessageUnauthoredView)
+        presenter.show(as: .firstPerson)
     }
     
     override func setup() {
         super.setup()
         
-        messageView = Message.UnnamedView()
+        messageView = MessageUnauthoredView()
         messageView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(messageView)
     }
@@ -78,7 +79,7 @@ final class RightMessageCell: BaseMessageCell, MessageCell {
 
 class LeftMessageCell: BaseMessageCell, MessageCell {
     private let avatarView = UIView()
-    private let avatarLetters = UILabel()
+    let avatarLetters = UILabel()
     
     var showAvatar: Bool {
         get { avatarView.isHidden }
@@ -86,7 +87,8 @@ class LeftMessageCell: BaseMessageCell, MessageCell {
     }
     
     func configure(with message: Message) {
-        messageView.configure(with: message, location: .left)
+        let presenter = MessageUnauthoredPresenter(model: message, view: messageView as! MessageUnauthoredView)
+        presenter.show(as: .secondPerson)
         avatarLetters.text = message.author.lettersString()
     }
     
@@ -110,7 +112,7 @@ class LeftMessageCell: BaseMessageCell, MessageCell {
     }
     
     fileprivate func createMessageView() {
-        messageView = Message.UnnamedView()
+        messageView = MessageUnauthoredView()
     }
     
     override func constraint() {
@@ -136,6 +138,12 @@ class LeftMessageCell: BaseMessageCell, MessageCell {
 
 final class LeftGroupMessageCell: LeftMessageCell {
     override func createMessageView() {
-        messageView = Message.NamedView()
+        messageView = MessageAuthoredView()
+    }
+    
+    override func configure(with message: Message) {
+        let presenter = MessageAuthoredPresenter(model: message, view: messageView as! MessageAuthoredView)
+        presenter.show(as: .secondPerson)
+        avatarLetters.text = message.author.lettersString()
     }
 }

@@ -20,7 +20,7 @@ final class PersonalHeaderView: UIViewComponent {
     private var networkStatus: NetworkStatus!
     
     func set(companion: Author) {
-        nameLabel.text = companion.nameString()
+        nameLabel.text = companion.concatNameString()
     }
     
     func set(networkStatus: NetworkStatus) {

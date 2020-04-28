@@ -7,51 +7,37 @@
 //
 
 import UIKit
-import PinLayout
 
 class ChatPageView: UIViewController {
-    private let headerView = UIView()
+    private let headerView = PersonalHeaderView()
+    private let bottomView = BottomView()
     private let tableView = UITableView()
-    private let companionLabel = UILabel()
-    private let onlineLabel = UILabel()
-    private let backArrowView = UIImageView()
     private var chat: Chat!
     
     override var preferredStatusBarStyle: UIStatusBarStyle { .lightContent }
+    override var prefersStatusBarHidden: Bool { true }
+    
+    func configure(with chat: Chat) {
+        self.chat = chat
+        
+        if !chat.isGroup {
+            headerView.configure(companion: chat.companions[0], networkStatus: .offline)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .hex(rgb: 0x191919)
         
-        setupHeaderView()
         setupTableView()
         configure(with: .init())
         
-        [headerView, tableView].forEach {
+        [headerView, tableView, bottomView].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
             view.addSubview($0)
         }
         
         constraint()
-    }
-    
-    private func setupHeaderView() {
-        headerView.backgroundColor = .hex(rgb: 0x252525)
-        
-        companionLabel.font = .systemFont(ofSize: 16, weight: .semibold)
-        companionLabel.textAlignment = .center
-        companionLabel.textColor = .hex(rgb: 0xE1E3E6)
-        
-        onlineLabel.font = .systemFont(ofSize: 13, weight: .regular)
-        onlineLabel.textAlignment = .center
-        onlineLabel.textColor = .hex(rgb: 0xAEAEAE)
-        
-        backArrowView.image = .init(imageLiteralResourceName: "back-arrow")
-        
-        [companionLabel, backArrowView, onlineLabel].forEach {
-            $0.translatesAutoresizingMaskIntoConstraints = false
-            headerView.addSubview($0)
-        }
     }
     
     private func setupTableView() {
@@ -65,6 +51,7 @@ class ChatPageView: UIViewController {
         
         tableView.register(RightMessageCell.self, forCellReuseIdentifier: "rcell")
         tableView.register(LeftMessageCell.self, forCellReuseIdentifier: "lcell")
+        tableView.register(LeftGroupMessageCell.self, forCellReuseIdentifier: "lcell-g")
     }
     
     private func constraint() {
@@ -74,28 +61,17 @@ class ChatPageView: UIViewController {
             headerView.topAnchor.constraint(equalTo: view.topAnchor),
             headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             headerView.heightAnchor.constraint(equalToConstant: 88),
+            // bottomView
+            bottomView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            bottomView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            bottomView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            bottomView.heightAnchor.constraint(equalToConstant: 50),
             // tableView
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.topAnchor.constraint(equalTo: headerView.bottomAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20),
-            backArrowView.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 12),
-            backArrowView.bottomAnchor.constraint(equalTo: headerView.bottomAnchor, constant: -12),
-            onlineLabel.centerXAnchor.constraint(equalTo: companionLabel.centerXAnchor),
-            onlineLabel.bottomAnchor.constraint(equalTo: headerView.bottomAnchor, constant: -6),
-            companionLabel.bottomAnchor.constraint(equalTo: onlineLabel.topAnchor, constant: -1),
-            companionLabel.centerXAnchor.constraint(equalTo: headerView.centerXAnchor),
+            tableView.bottomAnchor.constraint(equalTo: bottomView.topAnchor),
         ])
-    }
-    
-    func configure(with chat: Chat) {
-        self.chat = chat
-        
-        if !chat.isGroup {
-            companionLabel.text = chat.companions[0].nameString()
-        }
-        
-        onlineLabel.text = "в сети"
     }
 }
 
@@ -122,7 +98,7 @@ extension ChatPageView: UITableViewDataSource, UITableViewDelegate {
     }
     
     func prepareLeftCell(_ tableView: UITableView, for indexPath: IndexPath) -> LeftMessageCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "lcell", for: indexPath) as! LeftMessageCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "lcell-g", for: indexPath) as! LeftGroupMessageCell
         
         if !chat.authorWillChange(afterIndex: indexPath.row) {
             cell.showAvatar = false

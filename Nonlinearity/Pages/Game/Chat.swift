@@ -9,15 +9,21 @@
 import Foundation
 
 class Author {
-    var name: String
-    var surname: String?
-    
-    init(name: String, surname: String?) {
-        self.name = name
-        self.surname = surname
+    enum Gender {
+        case male, female
     }
     
-    func nameString() -> String {
+    var name: String
+    var surname: String?
+    var gender: Gender
+    
+    init(name: String, surname: String?, gender: Gender) {
+        self.name = name
+        self.surname = surname
+        self.gender = gender
+    }
+    
+    func concatNameString() -> String {
         guard let surname = surname else {
             return name
         }
@@ -34,35 +40,14 @@ class Author {
     }
 }
 
-struct Message {
-    var author: Author
-    var text: String
-    var time: Time
-}
-
-extension Message {
-    struct Time {
-        var hours: Int8
-        var minutes: Int8
-        
-        func toString() -> String {
-            return (hours < 10 ? "0" : "") + "\(hours):" + (minutes < 10 ? "0" : "") + "\(minutes)"
-        }
-    }
-    
-    enum Location {
-        case left, right
-    }
-}
-
 class Chat {
     var protagonist: Author!
     var companions: [Author] = []
     var messages: [Message] = []
     
     init() {
-        let me: Author = .init(name: "Ясон", surname: "Великий")
-        let she: Author = .init(name: "Ксения", surname: "Безбашенная")
+        let me: Author = .init(name: "Ясон", surname: "Великий", gender: .male)
+        let she: Author = .init(name: "Ксения", surname: "Безбашенная", gender: .female)
         
         protagonist = me
         companions.append(she)
