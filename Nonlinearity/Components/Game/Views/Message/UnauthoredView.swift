@@ -19,7 +19,7 @@ protocol ChatMessageUnauthoredViewProtocol: class {
 final class ChatMessageUnauthoredView: UIViewComponent {
     let messageLabel = UILabel()
     let timeLabel = UILabel()
-    var appearance: ChatMessageAppearance!
+    private(set) var appearance: ChatMessageAppearance!
     private var layout = Layout()
    
     override func setup() {
@@ -80,14 +80,12 @@ final class ChatMessageUnauthoredView: UIViewComponent {
 }
 
 
-extension ChatMessageUnauthoredView: ChatMessageView {
+extension ChatMessageUnauthoredView: ChatMessageView, ChatMessageUnauthoredViewProtocol {
     var maxWidth: CGFloat {
         get { layout.widthConstraint.constant }
         set { layout.widthConstraint.constant = newValue }
     }
-}
-
-extension ChatMessageUnauthoredView: ChatMessageUnauthoredViewProtocol {
+    
     func set(message: String) {
         messageLabel.text = message
     }
