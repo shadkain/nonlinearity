@@ -10,7 +10,7 @@ import UIKit
 
 protocol ChatHeaderViewAppearance {
     var backgroundColor: UIColor { get }
-    var backArrowImageName: String { get }
+    var backButtonImageName: String { get }
     var nameTextColor: UIColor { get }
     var nameFont: UIFont { get }
     var networkStatusTextColor: UIColor { get }
@@ -30,8 +30,8 @@ struct DarkChatHeaderViewAppearance: ChatHeaderViewAppearance {
     var backgroundColor: UIColor {
         .hex(rgb: 0x252525)
     }
-    var backArrowImageName: String {
-        "back-arrow"
+    var backButtonImageName: String {
+        "back-arrow-dark"
     }
     var nameTextColor: UIColor {
         .hex(rgb: 0xE1E3E6)

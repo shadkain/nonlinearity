@@ -39,15 +39,15 @@ extension ChatMessageUnauthoredView {
         
         func rebuildIfNeeded(messageLabel: UILabel, timeLabel: UILabel, maxWidth: CGFloat) {
             timeWidth = timeLabel.textWidth
-            let messageTextBreakpoint = maxWidth - (2*12 + timeWidth)
+            let messageTextBreakpoint = maxWidth - (2*spacing.commonH + timeWidth)
             if messageLabel.textWidth < messageTextBreakpoint {
                 state = .singleLine
                 return
             }
             
             size = messageLabel.estimatedRect(withMaxWidth: maxWidth).size
-            lastLineWidth = messageLabel.lastLineWidth(withMaxWidth: maxWidth - 2*12)
-            state = lastLineWidth < maxWidth - (timeWidth + 3*12) ?
+            lastLineWidth = messageLabel.lastLineWidth(withMaxWidth: maxWidth - 2*spacing.commonH)
+            state = lastLineWidth < maxWidth - (timeWidth + 3*spacing.commonH) ?
                 .multiLineSame : .multiLineSeparate
         }
         

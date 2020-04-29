@@ -32,16 +32,16 @@ final class ChatMessageAuthoredView: UIViewComponent {
     }
     
     override func constraint() {
-        let viewConstraint = rightAnchor.constraint(greaterThanOrEqualTo: authorLabel.rightAnchor, constant: 12)
+        let viewConstraint = rightAnchor.constraint(greaterThanOrEqualTo: authorLabel.rightAnchor, constant: spacing.commonH)
         viewConstraint.priority = .defaultHigh
         
         NSLayoutConstraint.activate([
             leftAnchor.constraint(equalTo: unauthoredSubview.leftAnchor),
-            topAnchor.constraint(equalTo: authorLabel.topAnchor, constant: -7),
+            topAnchor.constraint(equalTo: authorLabel.topAnchor, constant: -spacing.authorToTop),
             rightAnchor.constraint(equalTo: unauthoredSubview.rightAnchor),
             bottomAnchor.constraint(equalTo: unauthoredSubview.bottomAnchor),
-            unauthoredSubview.messageLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
-            unauthoredSubview.messageLabel.topAnchor.constraint(equalTo: authorLabel.bottomAnchor, constant: 2),
+            unauthoredSubview.messageLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: spacing.commonH),
+            unauthoredSubview.messageLabel.topAnchor.constraint(equalTo: authorLabel.bottomAnchor, constant: spacing.authorToMsgV),
             authorLabel.leadingAnchor.constraint(equalTo: unauthoredSubview.messageLabel.leadingAnchor),
             viewConstraint,
         ])

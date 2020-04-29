@@ -8,17 +8,23 @@
 
 protocol ChatBottomPresenterProtocol {
     func show()
-    func didTapNextArrow()
+    func didTapNextButton()
 }
 
 final class ChatBottomPresenter: ChatBottomPresenterProtocol {
     unowned var view: ChatBottomViewProtocol!
     
+    init(view: ChatBottomViewProtocol) {
+        self.view = view
+        
+        view.set(appearance: DarkChatBottomViewAppearance())
+    }
+    
     func show() {
         
     }
     
-    func didTapNextArrow() {
-        
+    func didTapNextButton() {
+        print("did tap next")
     }
 }

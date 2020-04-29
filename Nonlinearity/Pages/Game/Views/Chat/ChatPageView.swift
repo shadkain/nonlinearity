@@ -34,6 +34,9 @@ class ChatPageView: UIViewController {
 
         headerView.presenter = ChatHeaderPresenter(model: .init(companion: chat.companions[0], networkStatus: .offline), view: headerView)
         headerView.presenter.show()
+        
+        bottomView.presenter = ChatBottomPresenter(view: bottomView)
+        bottomView.presenter.show()
     }
     
     override func viewDidLoad() {
@@ -56,6 +59,8 @@ class ChatPageView: UIViewController {
         tableView.separatorStyle = .none
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 35
+        tableView.showsHorizontalScrollIndicator = false
+        tableView.showsVerticalScrollIndicator = false
         
         tableView.dataSource = self
         tableView.delegate = self

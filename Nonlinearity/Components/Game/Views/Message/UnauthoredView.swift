@@ -44,37 +44,37 @@ final class ChatMessageUnauthoredView: UIViewComponent {
         layout.widthConstraint = self.widthAnchor.constraint(lessThanOrEqualToConstant: frame.width)
         
         NSLayoutConstraint.activate([
-            messageLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 12),
-            messageLabel.topAnchor.constraint(equalTo: topAnchor, constant: 7),
-            timeLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -12),
-            timeLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -6),
+            messageLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: spacing.commonH),
+            messageLabel.topAnchor.constraint(equalTo: topAnchor, constant: spacing.msgToVBounds),
+            timeLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -spacing.commonH),
+            timeLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -spacing.timeToBottom),
             layout.widthConstraint,
         ])
     }
     
     private func constraintSingleLine() {
         layout.changingConstraints.append(contentsOf: [
-            messageLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -7),
-            messageLabel.trailingAnchor.constraint(equalTo: timeLabel.leadingAnchor, constant: -12),
+            messageLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -spacing.msgToVBounds),
+            messageLabel.trailingAnchor.constraint(equalTo: timeLabel.leadingAnchor, constant: -spacing.commonH),
         ])
     }
     
     private func constraintMultiLineSame() {
         let freeSpace = layout.size.width - layout.lastLineWidth
-        let messageAndTimeConstraint = freeSpace < (timeLabel.textWidth + 12) ?
-            messageLabel.trailingAnchor.constraint(equalTo: timeLabel.leadingAnchor, constant: freeSpace - 12) :
+        let messageAndTimeConstraint = freeSpace < (timeLabel.textWidth + spacing.commonH) ?
+            messageLabel.trailingAnchor.constraint(equalTo: timeLabel.leadingAnchor, constant: freeSpace - spacing.commonH) :
             messageLabel.trailingAnchor.constraint(equalTo: timeLabel.trailingAnchor)
         
         layout.changingConstraints.append(contentsOf: [
             messageAndTimeConstraint,
-            messageLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -7),
+            messageLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -spacing.msgToVBounds),
         ])
     }
     
     private func constraintMultiLineSeparate() {
         layout.changingConstraints.append(contentsOf: [
             messageLabel.trailingAnchor.constraint(equalTo: timeLabel.trailingAnchor),
-            timeLabel.topAnchor.constraint(equalTo: messageLabel.bottomAnchor, constant: 4),
+            timeLabel.topAnchor.constraint(equalTo: messageLabel.bottomAnchor, constant: spacing.msgToTimeV),
         ])
     }
 }

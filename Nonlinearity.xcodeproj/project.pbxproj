@@ -23,6 +23,8 @@
 		969271ED2458E0A800979597 /* ChatScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969271EC2458E0A800979597 /* ChatScreenPresenter.swift */; };
 		969271EF2458E28C00979597 /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969271EE2458E28C00979597 /* ChatModel.swift */; };
 		969271F12459BD5700979597 /* BottomPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969271F02459BD5700979597 /* BottomPresenter.swift */; };
+		969271F3245A10E600979597 /* BottomViewAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969271F2245A10E600979597 /* BottomViewAppearance.swift */; };
+		969271F5245A31F700979597 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969271F4245A31F700979597 /* Constants.swift */; };
 		9698FA78244E425300AE69CE /* BottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9698FA77244E425300AE69CE /* BottomView.swift */; };
 		96A0397824531B05001EF1C6 /* ChatMessagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A0397724531B05001EF1C6 /* ChatMessagePresenter.swift */; };
 		96A0397A24543966001EF1C6 /* AuthoredView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A0397924543966001EF1C6 /* AuthoredView.swift */; };
@@ -64,6 +66,8 @@
 		969271EC2458E0A800979597 /* ChatScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatScreenPresenter.swift; sourceTree = "<group>"; };
 		969271EE2458E28C00979597 /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
 		969271F02459BD5700979597 /* BottomPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomPresenter.swift; sourceTree = "<group>"; };
+		969271F2245A10E600979597 /* BottomViewAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomViewAppearance.swift; sourceTree = "<group>"; };
+		969271F4245A31F700979597 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		9698FA77244E425300AE69CE /* BottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomView.swift; sourceTree = "<group>"; };
 		96A0397724531B05001EF1C6 /* ChatMessagePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessagePresenter.swift; sourceTree = "<group>"; };
 		96A0397924543966001EF1C6 /* AuthoredView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthoredView.swift; sourceTree = "<group>"; };
@@ -224,6 +228,7 @@
 				96A0397924543966001EF1C6 /* AuthoredView.swift */,
 				96A0398924586E06001EF1C6 /* Layout.swift */,
 				96A0398B2458A25A001EF1C6 /* MessageAppearance.swift */,
+				969271F4245A31F700979597 /* Constants.swift */,
 			);
 			path = Message;
 			sourceTree = "<group>";
@@ -242,6 +247,7 @@
 				965BFF7A244E006D00FB2A1D /* HeaderView.swift */,
 				9698FA77244E425300AE69CE /* BottomView.swift */,
 				969271E02458D2B000979597 /* HeaderViewAppearance.swift */,
+				969271F2245A10E600979597 /* BottomViewAppearance.swift */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -456,6 +462,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				968F0C75243E71D40052768E /* ChatPageView.swift in Sources */,
+				969271F5245A31F700979597 /* Constants.swift in Sources */,
 				CAD59A3B2435151600974C2D /* ViewController.swift in Sources */,
 				96A0397824531B05001EF1C6 /* ChatMessagePresenter.swift in Sources */,
 				968F0CB7244729190052768E /* Chat.swift in Sources */,
@@ -470,6 +477,7 @@
 				96A0397C24543A5F001EF1C6 /* UnauthoredView.swift in Sources */,
 				968F0C842443798B0052768E /* UILabel.swift in Sources */,
 				96A0398C2458A25A001EF1C6 /* MessageAppearance.swift in Sources */,
+				969271F3245A10E600979597 /* BottomViewAppearance.swift in Sources */,
 				CAD59A372435151600974C2D /* AppDelegate.swift in Sources */,
 				968F0CB3244616AE0052768E /* UITableViewCellComponent.swift in Sources */,
 				CAD59A392435151600974C2D /* SceneDelegate.swift in Sources */,

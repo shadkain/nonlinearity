@@ -10,7 +10,7 @@ import Foundation
 
 protocol ChatHeaderPresenterProtocol {
     func show()
-    func didTapBackArrow()
+    func didTapBackButton()
 }
 
 final class ChatHeaderPresenter: ChatHeaderPresenterProtocol {
@@ -29,7 +29,7 @@ final class ChatHeaderPresenter: ChatHeaderPresenterProtocol {
         view.set(networkStatus: model.networkStatus.string)
     }
     
-    func didTapBackArrow() {
-        print("tapped")
+    func didTapBackButton() {
+        print("did tap back")
     }
 }

@@ -16,18 +16,18 @@ protocol ChatHeaderViewProtocol: class {
 
 final class ChatHeaderView: UIViewComponent {
     var presenter: ChatHeaderPresenter!
-    let backArrowView = UIImageView()
+    let backButtonView = UIImageView()
     let nameLabel = UILabel()
     let networkStatusLabel = UILabel()
     
     override func setup() {
-        backArrowView.isUserInteractionEnabled = true
-        backArrowView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(backArrowDidTap)))
+        backButtonView.isUserInteractionEnabled = true
+        backButtonView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapBackButton)))
         
         nameLabel.textAlignment = .center
         networkStatusLabel.textAlignment = .center
         
-        [backArrowView, nameLabel, networkStatusLabel].forEach {
+        [backButtonView, nameLabel, networkStatusLabel].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
             addSubview($0)
         }
@@ -35,8 +35,8 @@ final class ChatHeaderView: UIViewComponent {
     
     override func constraint() {
         NSLayoutConstraint.activate([
-            backArrowView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
-            backArrowView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -12),
+            backButtonView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
+            backButtonView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -12),
             networkStatusLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             networkStatusLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -6),
             nameLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
@@ -44,8 +44,8 @@ final class ChatHeaderView: UIViewComponent {
         ])
     }
     
-    @objc private func backArrowDidTap(_ recognizer: UITapGestureRecognizer) {
-        presenter?.didTapBackArrow()
+    @objc private func didTapBackButton(_ recognizer: UITapGestureRecognizer) {
+        presenter?.didTapBackButton()
     }
 }
 
@@ -61,7 +61,7 @@ extension ChatHeaderView: ChatHeaderViewProtocol {
     func set(appearance: ChatHeaderViewAppearance) {
         backgroundColor = appearance.backgroundColor
         
-        backArrowView.image = .init(imageLiteralResourceName: appearance.backArrowImageName)
+        backButtonView.image = .init(imageLiteralResourceName: appearance.backButtonImageName)
         
         nameLabel.font = appearance.nameFont
         nameLabel.textColor = appearance.nameTextColor

@@ -9,6 +9,7 @@
 import UIKit
 
 protocol ChatBottomViewProtocol: class {
+    func set(appearance: ChatBottomViewAppearance)
 }
 
 final class ChatBottomView: UIViewComponent {
@@ -17,8 +18,7 @@ final class ChatBottomView: UIViewComponent {
     
     override func setup() {
         nextButtonView.isUserInteractionEnabled = true
-        nextButtonView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapNextArrow)))
-        nextButtonView.image = .init(imageLiteralResourceName: "next-arrow")
+        nextButtonView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapNextButton)))
         
         [nextButtonView].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
@@ -33,7 +33,13 @@ final class ChatBottomView: UIViewComponent {
         ])
     }
     
-    @objc private func didTapNextArrow(_ recognizer: UITapGestureRecognizer) {
-        presenter?.didTapNextArrow()
+    @objc private func didTapNextButton(_ recognizer: UITapGestureRecognizer) {
+        presenter?.didTapNextButton()
+    }
+}
+
+extension ChatBottomView: ChatBottomViewProtocol {
+    func set(appearance: ChatBottomViewAppearance) {
+        nextButtonView.image = .init(imageLiteralResourceName: appearance.nextButtonImageName)
     }
 }
