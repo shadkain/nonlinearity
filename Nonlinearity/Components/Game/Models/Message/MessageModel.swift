@@ -6,13 +6,15 @@
 //  Copyright © 2020 Святослав Кряжев. All rights reserved.
 //
 
-struct Message {
-    var author: Author
-    var text: String
-    var time: Time
+extension Chat {
+    struct Message {
+        var author: Author
+        var text: String
+        var time: Time
+    }
 }
 
-extension Message {
+extension Chat.Message {
     struct Time {
         var hours: Int8
         var minutes: Int8

@@ -6,18 +6,18 @@
 //  Copyright © 2020 Святослав Кряжев. All rights reserved.
 //
 
-final class MessageUnauthoredPresenter: MessagePresenterProtocol {
-    unowned var view: MessageUnauthoredViewProtocol
-    var model: Message
+final class ChatMessageUnauthoredPresenter: ChatMessagePresenter {
+    unowned var view: ChatMessageUnauthoredViewProtocol
+    var model: Chat.Message
     
-    init(model: Message, view: MessageUnauthoredViewProtocol) {
+    init(model: Chat.Message, view: ChatMessageUnauthoredViewProtocol) {
         self.view = view
         self.model = model
         
-        view.set(appearance: DarkMessageAppearance())
+        view.set(appearance: DarkChatMessageAppearance())
     }
     
-    func show(as role: MessageRole?) {
+    func show(as role: Chat.Message.Role?) {
         view.set(message: model.text)
         view.set(time: model.time.time24)
         view.set(role: role)

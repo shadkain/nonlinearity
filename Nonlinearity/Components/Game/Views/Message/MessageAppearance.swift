@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol MessageAppearance {
+protocol ChatMessageAppearance {
     var firstPersonViewColor: UIColor { get }
     var secondPersonViewColor: UIColor { get }
     var viewCornerRadius: CGFloat { get }
@@ -20,7 +20,7 @@ protocol MessageAppearance {
     var timeFont: UIFont { get }
 }
 
-extension MessageAppearance {
+extension ChatMessageAppearance {
     var viewCornerRadius: CGFloat {
         17
     }
@@ -35,7 +35,7 @@ extension MessageAppearance {
     }
 }
 
-struct DarkMessageAppearance: MessageAppearance {
+struct DarkChatMessageAppearance: ChatMessageAppearance {
     var firstPersonViewColor: UIColor {
         .hex(rgb: 0x454647)
     }

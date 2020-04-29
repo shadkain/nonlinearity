@@ -8,67 +8,62 @@
 
 import UIKit
 
-protocol MessageAuthoredViewProtocol: class {
-    var unauthored: MessageUnauthoredViewProtocol { get }
+protocol ChatMessageAuthoredViewProtocol: class {
+    var unauthoredView: ChatMessageUnauthoredViewProtocol { get }
     
     func set(author: String)
-    func set(role: MessageRole?)
-    func set(appearance: MessageAppearance)
+    func set(role: Chat.Message.Role?)
+    func set(appearance: ChatMessageAppearance)
 }
 
-final class MessageAuthoredView: UIViewComponent {
-    let unauthoredView = MessageUnauthoredView()
+final class ChatMessageAuthoredView: UIViewComponent {
+    let unauthoredSubview = ChatMessageUnauthoredView()
     let authorLabel = UILabel()
-    private var _appearance: MessageAppearance!
+    private(set) var appearance: ChatMessageAppearance!
     
     override func setup() {
         authorLabel.textAlignment = .left
         authorLabel.numberOfLines = 1
         
-        [unauthoredView, authorLabel].forEach {
+        [unauthoredSubview, authorLabel].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
             addSubview($0)
         }
     }
     
     override func constraint() {
-        let viewConstraint = trailingAnchor.constraint(greaterThanOrEqualTo: authorLabel.trailingAnchor, constant: 12)
+        let viewConstraint = rightAnchor.constraint(greaterThanOrEqualTo: authorLabel.rightAnchor, constant: 12)
         viewConstraint.priority = .defaultHigh
         
         NSLayoutConstraint.activate([
-            leftAnchor.constraint(equalTo: unauthoredView.leftAnchor),
+            leftAnchor.constraint(equalTo: unauthoredSubview.leftAnchor),
             topAnchor.constraint(equalTo: authorLabel.topAnchor, constant: -7),
-            rightAnchor.constraint(equalTo: unauthoredView.rightAnchor),
-            bottomAnchor.constraint(equalTo: unauthoredView.bottomAnchor),
-            unauthoredView.messageLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
-            unauthoredView.messageLabel.topAnchor.constraint(equalTo: authorLabel.bottomAnchor, constant: 2),
-            authorLabel.leadingAnchor.constraint(equalTo: unauthoredView.messageLabel.leadingAnchor),
+            rightAnchor.constraint(equalTo: unauthoredSubview.rightAnchor),
+            bottomAnchor.constraint(equalTo: unauthoredSubview.bottomAnchor),
+            unauthoredSubview.messageLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
+            unauthoredSubview.messageLabel.topAnchor.constraint(equalTo: authorLabel.bottomAnchor, constant: 2),
+            authorLabel.leadingAnchor.constraint(equalTo: unauthoredSubview.messageLabel.leadingAnchor),
             viewConstraint,
         ])
     }
 }
 
-extension MessageAuthoredView: MessageView {
-    var appearance: MessageAppearance {
-        _appearance
-    }
+extension ChatMessageAuthoredView: ChatMessageView, ChatMessageAuthoredViewProtocol {
     var maxWidth: CGFloat {
-        get { unauthoredView.maxWidth }
-        set { unauthoredView.maxWidth = newValue }
+        get { unauthoredSubview.maxWidth }
+        set { unauthoredSubview.maxWidth = newValue }
     }
-}
-
-extension MessageAuthoredView: MessageAuthoredViewProtocol {
-    var unauthored: MessageUnauthoredViewProtocol {
-        self.unauthoredView
+    
+    var unauthoredView: ChatMessageUnauthoredViewProtocol {
+        unauthoredSubview
     }
     
     func set(author: String) {
         authorLabel.text = author
     }
     
-    func set(appearance: MessageAppearance) {
-        _appearance = appearance
+    func set(appearance: ChatMessageAppearance) {
+        self.appearance = appearance
         
         layer.cornerRadius = appearance.viewCornerRadius
         

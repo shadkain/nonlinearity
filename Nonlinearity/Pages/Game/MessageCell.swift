@@ -13,11 +13,11 @@ protocol MessageCell: UITableViewCell {
     var marginTop: CGFloat { get set }
     var marginBottom: CGFloat { get set }
     
-    func configure(with message: Message)
+    func configure(with message: Chat.Message)
 }
 
 class BaseMessageCell: UITableViewCellComponent {
-    fileprivate var messageView: MessageView!
+    fileprivate var messageView: ChatMessageView!
     private var topConstraint = NSLayoutConstraint()
     private var bottomConstraint = NSLayoutConstraint()
     
@@ -55,15 +55,15 @@ class BaseMessageCell: UITableViewCellComponent {
 }
 
 final class RightMessageCell: BaseMessageCell, MessageCell {
-    func configure(with message: Message) {
-        let presenter = MessageUnauthoredPresenter(model: message, view: messageView as! MessageUnauthoredView)
+    func configure(with message: Chat.Message) {
+        let presenter = ChatMessageUnauthoredPresenter(model: message, view: messageView as! ChatMessageUnauthoredView)
         presenter.show(as: .firstPerson)
     }
     
     override func setup() {
         super.setup()
         
-        messageView = MessageUnauthoredView()
+        messageView = ChatMessageUnauthoredView()
         messageView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(messageView)
     }
@@ -86,8 +86,8 @@ class LeftMessageCell: BaseMessageCell, MessageCell {
         set { avatarView.isHidden = !newValue }
     }
     
-    func configure(with message: Message) {
-        let presenter = MessageUnauthoredPresenter(model: message, view: messageView as! MessageUnauthoredView)
+    func configure(with message: Chat.Message) {
+        let presenter = ChatMessageUnauthoredPresenter(model: message, view: messageView as! ChatMessageUnauthoredView)
         presenter.show(as: .secondPerson)
         avatarLetters.text = message.author.lettersString()
     }
@@ -112,7 +112,7 @@ class LeftMessageCell: BaseMessageCell, MessageCell {
     }
     
     fileprivate func createMessageView() {
-        messageView = MessageUnauthoredView()
+        messageView = ChatMessageUnauthoredView()
     }
     
     override func constraint() {
@@ -138,11 +138,11 @@ class LeftMessageCell: BaseMessageCell, MessageCell {
 
 final class LeftGroupMessageCell: LeftMessageCell {
     override func createMessageView() {
-        messageView = MessageAuthoredView()
+        messageView = ChatMessageAuthoredView()
     }
     
-    override func configure(with message: Message) {
-        let presenter = MessageAuthoredPresenter(model: message, view: messageView as! MessageAuthoredView)
+    override func configure(with message: Chat.Message) {
+        let presenter = ChatMessageAuthoredPresenter(model: message, view: messageView as! ChatMessageAuthoredView)
         presenter.show(as: .secondPerson)
         avatarLetters.text = message.author.lettersString()
     }

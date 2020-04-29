@@ -8,18 +8,18 @@
 
 import UIKit
 
-protocol MessageUnauthoredViewProtocol: class {
+protocol ChatMessageUnauthoredViewProtocol: class {
     func set(message: String)
     func set(time: String)
-    func set(role: MessageRole?)
-    func set(appearance: MessageAppearance)
+    func set(role: Chat.Message.Role?)
+    func set(appearance: ChatMessageAppearance)
     func rebuild()
 }
 
-final class MessageUnauthoredView: UIViewComponent {
+final class ChatMessageUnauthoredView: UIViewComponent {
     let messageLabel = UILabel()
     let timeLabel = UILabel()
-    private var _appearance: MessageAppearance!
+    var appearance: ChatMessageAppearance!
     private var layout = Layout()
    
     override func setup() {
@@ -79,17 +79,15 @@ final class MessageUnauthoredView: UIViewComponent {
     }
 }
 
-extension MessageUnauthoredView: MessageView {
-    var appearance: MessageAppearance {
-        _appearance
-    }
+
+extension ChatMessageUnauthoredView: ChatMessageView {
     var maxWidth: CGFloat {
         get { layout.widthConstraint.constant }
         set { layout.widthConstraint.constant = newValue }
     }
 }
 
-extension MessageUnauthoredView: MessageUnauthoredViewProtocol {
+extension ChatMessageUnauthoredView: ChatMessageUnauthoredViewProtocol {
     func set(message: String) {
         messageLabel.text = message
     }
@@ -98,8 +96,8 @@ extension MessageUnauthoredView: MessageUnauthoredViewProtocol {
         timeLabel.text = time
     }
     
-    func set(appearance: MessageAppearance) {
-        _appearance = appearance
+    func set(appearance: ChatMessageAppearance) {
+        self.appearance = appearance
         
         layer.cornerRadius = appearance.viewCornerRadius
         

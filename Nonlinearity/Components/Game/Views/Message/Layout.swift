@@ -8,13 +8,13 @@
 
 import UIKit
 
-extension MessageUnauthoredView {
+extension ChatMessageUnauthoredView {
     class Layout {
+        var widthConstraint: NSLayoutConstraint!
+        var changingConstraints = [NSLayoutConstraint]()
         private(set) var size: CGSize!
         private(set) var timeWidth: CGFloat!
         private(set) var lastLineWidth: CGFloat!
-        var widthConstraint: NSLayoutConstraint!
-        var changingConstraints = [NSLayoutConstraint]()
         private var blocks = [State:() -> Void]()
         private var state: State! {
             didSet {

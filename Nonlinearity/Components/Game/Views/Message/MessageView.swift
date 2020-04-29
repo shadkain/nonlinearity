@@ -8,28 +8,30 @@
 
 import UIKit
 
-protocol MessageView: UIView {
-    var appearance: MessageAppearance { get }
+protocol ChatMessageView: UIView {
+    var appearance: ChatMessageAppearance! { get }
     var maxWidth: CGFloat { get set }
     
-    func set(role: MessageRole?)
+    func set(role: Chat.Message.Role?)
 }
 
-extension MessageView {
-    func set(role: MessageRole?) {
+extension ChatMessageView {
+    func set(role: Chat.Message.Role?) {
         backgroundColor = role?.color(for: appearance) ?? nil
     }
 }
 
-enum MessageRole {
-    case firstPerson, secondPerson
-    
-    func color(for appearance: MessageAppearance) -> UIColor {
-        switch self {
-        case .firstPerson:
-            return appearance.firstPersonViewColor
-        case .secondPerson:
-            return appearance.secondPersonViewColor
+extension Chat.Message {
+    enum Role {
+        case firstPerson, secondPerson
+        
+        func color(for appearance: ChatMessageAppearance) -> UIColor {
+            switch self {
+            case .firstPerson:
+                return appearance.firstPersonViewColor
+            case .secondPerson:
+                return appearance.secondPersonViewColor
+            }
         }
     }
 }

@@ -8,9 +8,21 @@
 
 import UIKit
 
+protocol ChatScreenViewProtocol: class {
+    var headerView: ChatHeaderViewProtocol { get }
+    var bottomView: ChatBottomViewProtocol { get }
+}
+
+
+final class ChatScreenView: UIViewController {
+    let headerView = ChatHeaderView()
+    let bottomView = ChatBottomView()
+    let tableView = UITableView()
+}
+
 class ChatPageView: UIViewController {
-    private let headerView = PersonalHeaderView()
-    private let bottomView = BottomView()
+    let headerView = ChatHeaderView()
+    let bottomView = ChatBottomView()
     private let tableView = UITableView()
     private var chat: Chat!
     
@@ -19,10 +31,9 @@ class ChatPageView: UIViewController {
     
     func configure(with chat: Chat) {
         self.chat = chat
-        
-        if !chat.isGroup {
-            headerView.configure(companion: chat.companions[0], networkStatus: .offline)
-        }
+
+        headerView.presenter = ChatHeaderPresenter(model: .init(companion: chat.companions[0], networkStatus: .offline), view: headerView)
+        headerView.presenter.show()
     }
     
     override func viewDidLoad() {

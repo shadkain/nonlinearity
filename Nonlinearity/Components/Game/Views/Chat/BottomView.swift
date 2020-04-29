@@ -8,10 +8,16 @@
 
 import UIKit
 
-final class BottomView: UIViewComponent {
-    private let nextButtonView = UIImageView()
+protocol ChatBottomViewProtocol: class {
+}
+
+final class ChatBottomView: UIViewComponent {
+    var presenter: ChatBottomPresenter!
+    let nextButtonView = UIImageView()
     
     override func setup() {
+        nextButtonView.isUserInteractionEnabled = true
+        nextButtonView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapNextArrow)))
         nextButtonView.image = .init(imageLiteralResourceName: "next-arrow")
         
         [nextButtonView].forEach {
@@ -25,5 +31,9 @@ final class BottomView: UIViewComponent {
             nextButtonView.centerYAnchor.constraint(equalTo: centerYAnchor),
             nextButtonView.centerXAnchor.constraint(equalTo: centerXAnchor),
         ])
+    }
+    
+    @objc private func didTapNextArrow(_ recognizer: UITapGestureRecognizer) {
+        presenter?.didTapNextArrow()
     }
 }
