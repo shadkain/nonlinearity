@@ -13,7 +13,7 @@ protocol ChatBottomViewProtocol: class {
 }
 
 final class ChatBottomView: UIViewComponent {
-    var presenter: ChatBottomPresenter!
+    var presenter: ChatBottomPresenterProtocol!
     let nextButtonView = UIImageView()
     
     override func setup() {

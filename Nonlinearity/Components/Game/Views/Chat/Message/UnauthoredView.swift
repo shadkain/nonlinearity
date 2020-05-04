@@ -20,7 +20,7 @@ final class ChatMessageUnauthoredView: UIViewComponent {
     let messageLabel = UILabel()
     let timeLabel = UILabel()
     private(set) var appearance: ChatMessageAppearance!
-    private var layout = Layout()
+    private var layout = LayoutDelegate()
    
     override func setup() {
         messageLabel.textAlignment = .left

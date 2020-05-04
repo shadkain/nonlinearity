@@ -9,12 +9,9 @@
 import UIKit
 
 protocol ChatScreenViewProtocol: class {
-    var headerView: ChatHeaderViewProtocol { get }
-    var bottomView: ChatBottomViewProtocol { get }
 }
 
-
-final class ChatScreenView: UIViewController {
+final class ChatScreenView: UIViewController, ChatScreenViewProtocol {
     let headerView = ChatHeaderView()
     let bottomView = ChatBottomView()
     let tableView = UITableView()
@@ -35,7 +32,7 @@ class ChatPageView: UIViewController {
         headerView.presenter = ChatHeaderPresenter(model: .init(companion: chat.companions[0], networkStatus: .offline), view: headerView)
         headerView.presenter.show()
         
-        bottomView.presenter = ChatBottomPresenter(view: bottomView)
+        bottomView.presenter = ChatBottomPresenter(model: .init(), view: bottomView)
         bottomView.presenter.show()
     }
     

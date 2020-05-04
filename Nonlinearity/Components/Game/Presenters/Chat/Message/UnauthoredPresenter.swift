@@ -7,7 +7,7 @@
 //
 
 final class ChatMessageUnauthoredPresenter: ChatMessagePresenter {
-    unowned var view: ChatMessageUnauthoredViewProtocol
+    unowned let view: ChatMessageUnauthoredViewProtocol
     var model: Chat.Message
     
     init(model: Chat.Message, view: ChatMessageUnauthoredViewProtocol) {

@@ -15,7 +15,7 @@ protocol ChatHeaderViewProtocol: class {
 }
 
 final class ChatHeaderView: UIViewComponent {
-    var presenter: ChatHeaderPresenter!
+    var presenter: ChatHeaderPresenterProtocol!
     let backButtonView = UIImageView()
     let nameLabel = UILabel()
     let networkStatusLabel = UILabel()

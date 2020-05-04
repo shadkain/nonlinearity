@@ -8,12 +8,58 @@
 
 import UIKit
 
+protocol ChatMessageCell: UITableViewCell {
+    var margins: MessageCellVMarginConstraints { get set }
+    var marginTop: CGFloat { get set }
+    var marginBottom: CGFloat { get set }
+    var maxMessageWidth: CGFloat { get set }
+    var messageView: ChatMessageView { get }
+    
+    func setupAppearance()
+    func setupMargins(bindTo: UIView)
+}
+
+extension ChatMessageCell {
+    var marginTop: CGFloat {
+        get { margins.top.constant }
+        set { margins.top.constant = newValue }
+    }
+    var marginBottom: CGFloat {
+        get { -margins.bottom.constant }
+        set { margins.bottom.constant = -newValue }
+    }
+    var maxMessageWidth: CGFloat {
+        get { messageView.maxWidth }
+        set { messageView.maxWidth = newValue }
+    }
+    
+    func setupAppearance() {
+        backgroundColor = .none
+        selectionStyle = .none
+    }
+    
+    func setupMargins(bindTo view: UIView) {
+        margins.top = view.topAnchor.constraint(equalTo: contentView.topAnchor)
+        margins.bottom = view.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+    }
+}
+
 protocol MessageCell: UITableViewCell {
     var maxWidth: CGFloat { get set }
     var marginTop: CGFloat { get set }
     var marginBottom: CGFloat { get set }
     
     func configure(with message: Chat.Message)
+}
+
+struct MessageCellVMarginConstraints {
+    var top: NSLayoutConstraint!
+    var bottom: NSLayoutConstraint!
+    
+    func setToZero() {
+        top?.constant = 0
+        bottom?.constant = 0
+    }
 }
 
 class BaseMessageCell: UITableViewCellComponent {
@@ -82,7 +128,7 @@ class LeftMessageCell: BaseMessageCell, MessageCell {
     let avatarLetters = UILabel()
     
     var showAvatar: Bool {
-        get { avatarView.isHidden }
+        get { !avatarView.isHidden }
         set { avatarView.isHidden = !newValue }
     }
     
@@ -142,8 +188,9 @@ final class LeftGroupMessageCell: LeftMessageCell {
     }
     
     override func configure(with message: Chat.Message) {
-        let presenter = ChatMessageAuthoredPresenter(model: message, view: messageView as! ChatMessageAuthoredView)
-        presenter.show(as: .secondPerson)
+        let conf = ChatMessageAuthoredConfigurator(model: message, view: messageView as! ChatMessageAuthoredView)
+        conf.presenter.show(as: .secondPerson)
+        
         avatarLetters.text = message.author.lettersString()
     }
 }

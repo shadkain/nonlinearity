@@ -6,14 +6,13 @@
 //  Copyright © 2020 Святослав Кряжев. All rights reserved.
 //
 
-extension Chat {
-    struct Header {
-        var companion: Author
-        var networkStatus: NetworkStatus
-    }
+struct ChatHeader {
+    var companion: Author
+    var networkStatus: NetworkStatus
+    var backButtonAction: (() -> Void)?
 }
 
-extension Chat.Header {
+extension ChatHeader {
     enum NetworkStatus {
         case online, offline
         

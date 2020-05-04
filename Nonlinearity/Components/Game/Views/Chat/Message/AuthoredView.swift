@@ -9,15 +9,13 @@
 import UIKit
 
 protocol ChatMessageAuthoredViewProtocol: class {
-    var unauthoredView: ChatMessageUnauthoredViewProtocol { get }
-    
     func set(author: String)
     func set(role: Chat.Message.Role?)
     func set(appearance: ChatMessageAppearance)
 }
 
 final class ChatMessageAuthoredView: UIViewComponent {
-    let unauthoredSubview = ChatMessageUnauthoredView()
+    let unauthoredView = ChatMessageUnauthoredView()
     let authorLabel = UILabel()
     private(set) var appearance: ChatMessageAppearance!
     
@@ -25,7 +23,7 @@ final class ChatMessageAuthoredView: UIViewComponent {
         authorLabel.textAlignment = .left
         authorLabel.numberOfLines = 1
         
-        [unauthoredSubview, authorLabel].forEach {
+        [unauthoredView, authorLabel].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
             addSubview($0)
         }
@@ -36,13 +34,13 @@ final class ChatMessageAuthoredView: UIViewComponent {
         viewConstraint.priority = .defaultHigh
         
         NSLayoutConstraint.activate([
-            leftAnchor.constraint(equalTo: unauthoredSubview.leftAnchor),
+            leftAnchor.constraint(equalTo: unauthoredView.leftAnchor),
             topAnchor.constraint(equalTo: authorLabel.topAnchor, constant: -spacing.authorToTop),
-            rightAnchor.constraint(equalTo: unauthoredSubview.rightAnchor),
-            bottomAnchor.constraint(equalTo: unauthoredSubview.bottomAnchor),
-            unauthoredSubview.messageLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: spacing.commonH),
-            unauthoredSubview.messageLabel.topAnchor.constraint(equalTo: authorLabel.bottomAnchor, constant: spacing.authorToMsgV),
-            authorLabel.leadingAnchor.constraint(equalTo: unauthoredSubview.messageLabel.leadingAnchor),
+            rightAnchor.constraint(equalTo: unauthoredView.rightAnchor),
+            bottomAnchor.constraint(equalTo: unauthoredView.bottomAnchor),
+            unauthoredView.messageLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: spacing.commonH),
+            unauthoredView.messageLabel.topAnchor.constraint(equalTo: authorLabel.bottomAnchor, constant: spacing.authorToMsgV),
+            authorLabel.leadingAnchor.constraint(equalTo: unauthoredView.messageLabel.leadingAnchor),
             viewConstraint,
         ])
     }
@@ -50,12 +48,8 @@ final class ChatMessageAuthoredView: UIViewComponent {
 
 extension ChatMessageAuthoredView: ChatMessageView, ChatMessageAuthoredViewProtocol {
     var maxWidth: CGFloat {
-        get { unauthoredSubview.maxWidth }
-        set { unauthoredSubview.maxWidth = newValue }
-    }
-    
-    var unauthoredView: ChatMessageUnauthoredViewProtocol {
-        unauthoredSubview
+        get { unauthoredView.maxWidth }
+        set { unauthoredView.maxWidth = newValue }
     }
     
     func set(author: String) {

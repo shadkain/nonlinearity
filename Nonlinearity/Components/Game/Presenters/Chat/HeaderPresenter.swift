@@ -15,9 +15,9 @@ protocol ChatHeaderPresenterProtocol {
 
 final class ChatHeaderPresenter: ChatHeaderPresenterProtocol {
     unowned var view: ChatHeaderViewProtocol
-    var model: Chat.Header
+    var model: ChatHeader
     
-    init(model: Chat.Header, view: ChatHeaderViewProtocol) {
+    init(model: ChatHeader, view: ChatHeaderViewProtocol) {
         self.view = view
         self.model = model
         
@@ -30,6 +30,7 @@ final class ChatHeaderPresenter: ChatHeaderPresenterProtocol {
     }
     
     func didTapBackButton() {
+        model.backButtonAction?()
         print("did tap back")
     }
 }

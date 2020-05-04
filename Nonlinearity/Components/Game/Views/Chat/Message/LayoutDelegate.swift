@@ -9,7 +9,7 @@
 import UIKit
 
 extension ChatMessageUnauthoredView {
-    class Layout {
+    class LayoutDelegate {
         var widthConstraint: NSLayoutConstraint!
         var changingConstraints = [NSLayoutConstraint]()
         private(set) var size: CGSize!

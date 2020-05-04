@@ -7,17 +7,17 @@
 //
 
 final class ChatMessageAuthoredPresenter: ChatMessagePresenter {
-    let unauthored: ChatMessageUnauthoredPresenter
-    unowned var view: ChatMessageAuthoredView
+    unowned let view: ChatMessageAuthoredViewProtocol
     var model: Chat.Message {
-        get { unauthored.model }
-        set { unauthored.model = newValue }
+        get { unauthoredPresenter.model }
+        set { unauthoredPresenter.model = newValue }
     }
     
-    init(model: Chat.Message, view: ChatMessageAuthoredView) {
-        self.unauthored = .init(model: model, view: view.unauthoredSubview)
+    // MARK: subpresenters
+    var unauthoredPresenter: ChatMessageUnauthoredPresenter!
+    
+    init(view: ChatMessageAuthoredViewProtocol) {
         self.view = view
-        
         view.set(appearance: DarkChatMessageAppearance())
     }
     
@@ -25,6 +25,6 @@ final class ChatMessageAuthoredPresenter: ChatMessagePresenter {
         view.set(author: model.author.concatNameString())
         view.set(role: role)
         
-        unauthored.show(as: .none)
+        unauthoredPresenter.show(as: .none)
     }
 }

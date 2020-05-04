@@ -13,9 +13,11 @@ protocol ChatBottomPresenterProtocol {
 
 final class ChatBottomPresenter: ChatBottomPresenterProtocol {
     unowned var view: ChatBottomViewProtocol!
+    var model: ChatBottom
     
-    init(view: ChatBottomViewProtocol) {
+    init(model: ChatBottom, view: ChatBottomViewProtocol) {
         self.view = view
+        self.model = model
         
         view.set(appearance: DarkChatBottomViewAppearance())
     }
@@ -25,6 +27,7 @@ final class ChatBottomPresenter: ChatBottomPresenterProtocol {
     }
     
     func didTapNextButton() {
+        model.nextButtonAction?()
         print("did tap next")
     }
 }
