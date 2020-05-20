@@ -60,8 +60,8 @@ class DownloadsPageView: UIViewController {
         
         NSLayoutConstraint.activate([
              cardsAdapter.collectionView!.topAnchor.constraint(equalTo: labelView.bottomAnchor),
-             cardsAdapter.collectionView!.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
-             cardsAdapter.collectionView!.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
+             cardsAdapter.collectionView!.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+             cardsAdapter.collectionView!.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
              cardsAdapter.collectionView!.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
         ])
     }

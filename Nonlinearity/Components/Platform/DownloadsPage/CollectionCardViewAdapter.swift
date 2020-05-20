@@ -17,11 +17,15 @@ class CollectionCardViewAdapter: UIViewComponent {
     override func setup() {
         flowLayout.scrollDirection = .vertical
         flowLayout.itemSize = CGSize(width: 114, height: 190)
-        flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-//
-//        var collectionViewBounds = self.bounds
-//        collectionViewBounds.size.height = 220
-//        collectionViewBounds.origin.y = 30
+        flowLayout.minimumInteritemSpacing = 5
+        
+        var margin: CGFloat = 10
+        if UIScreen.main.bounds.size.width > 400 {
+            margin = 20
+        }
+        
+        flowLayout.sectionInset = UIEdgeInsets(top: 0, left: margin, bottom: 0, right: margin)
+        
         collectionView = UICollectionView(
             frame: .zero,
             collectionViewLayout: flowLayout)
