@@ -27,11 +27,11 @@ class TabsViewAdapter: UIViewComponent {
             collectionViewLayout: flowLayout)
     
         
-        collectionView?.backgroundColor = .hex(rgb: 0x252525)
-        collectionView?.dataSource = self
-        collectionView?.delegate = self
+        collectionView!.backgroundColor = .hex(rgb: 0x252525)
+        collectionView!.dataSource = self
+        collectionView!.delegate = self
         
-        collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "tabsViewCellId")
+        collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "tabsViewCellId")
         addSubview(collectionView!)
     }
 }
@@ -77,8 +77,8 @@ extension TabsViewAdapter: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         tabs.activateViewByIndex(index: indexPath.item)
-        table?.currentTypeOfTab = TypeOfTab(rawValue: indexPath.item) ?? .main
-        table?.tableView?.reloadData()
+        table!.currentTypeOfTab = TypeOfTab(rawValue: indexPath.item) ?? .main
+        table!.tableView!.reloadData()
         print("User tapped on tab \(indexPath.item)")
     }
 }

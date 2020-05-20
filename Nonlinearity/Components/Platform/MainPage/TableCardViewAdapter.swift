@@ -17,14 +17,13 @@ class TableCardViewAdapter: UIViewComponent {
     
     override func setup() {
         tableView = UITableView(frame: frame)
-        tableView?.backgroundColor = .white
         
-        tableView?.backgroundColor = .hex(rgb: 0x191919)
-        tableView?.separatorStyle = .none
+        tableView!.backgroundColor = .hex(rgb: 0x191919)
+        tableView!.separatorStyle = .none
         
-        tableView?.dataSource = self
-        tableView?.delegate = self
-        tableView?.register(TableCardViewCell.self, forCellReuseIdentifier: customIdentifier)
+        tableView!.dataSource = self
+        tableView!.delegate = self
+        tableView!.register(TableCardViewCell.self, forCellReuseIdentifier: customIdentifier)
         
         addSubview(tableView!)
     }
@@ -41,6 +40,10 @@ extension TableCardViewAdapter: UITableViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if tableView!.contentOffset.y < 0 {
+            tableView!.contentOffset.y = 0
+        }
+        
+        if tableView!.contentOffset.y > tableView!.frame.height {
             tableView!.contentOffset.y = 0
         }
     }

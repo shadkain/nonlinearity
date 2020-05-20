@@ -77,26 +77,26 @@ extension TableCardViewCell: UICollectionViewDataSource {
             subview.removeFromSuperview()
         }
         
-        let card = storyCard?.getCardBySectionAndIndex(
+        let card = storyCard!.getCardBySectionAndIndex(
             tab: currentTypeOfTab ?? .main,
             section: tag,
             index: indexPath.item)
         
         let sv = StoryCardView(frame: .zero)
         
-        sv.image = UIImage(named: card?.imageName ?? "book")
-        sv.nameLable.text = card?.title
+        sv.image = UIImage(named: card.imageName )
+        sv.nameLable.text = card.title
         
-        if card?.isFirstRated ?? false {
+        if card.isFirstRated {
             sv.setFirstRate()
         }
-        if card?.isRated ?? false {
+        if card.isRated {
             sv.setRate()
         }
-        if card?.isListenable ?? false {
+        if card.isListenable {
             sv.setListenable()
         }
-        if card?.isPlayable ?? false {
+        if card.isPlayable {
             sv.setPlayable()
         }
         
