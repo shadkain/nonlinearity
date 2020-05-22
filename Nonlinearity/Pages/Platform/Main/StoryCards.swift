@@ -13,17 +13,6 @@ enum TypeOfTab: Int {
 }
 
 extension StoryCard {
-    struct Card {
-        var title: String
-        var imageName: String
-        
-        var isRated: Bool
-        var isFirstRated: Bool
-        
-        var isListenable: Bool
-        var isPlayable: Bool
-    }
-
     struct Section {
         var title: String
         var cardsInSectionMain: [Card]

@@ -1,5 +1,5 @@
 //
-//  CollectionCardViewAdapter.swift
+//  CardsCollectionViewAdapter.swift
 //  Nonlinearity
 //
 //  Created by Юлия Плаксина on 20/05/2020.
@@ -8,8 +8,8 @@
 
 import UIKit
 
-class CollectionCardViewAdapter: UIViewComponent {
-    var storyCard = DownloadsStoryCard()
+class CardsCollectionViewAdapter: UIViewComponent {
+    var storyCard: StoryCardCollection?
     var collectionView: UICollectionView?
     
     private var flowLayout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
@@ -39,24 +39,24 @@ class CollectionCardViewAdapter: UIViewComponent {
         collectionView!.isScrollEnabled = true
         collectionView!.setContentOffset(CGPoint(x: 0,y: 0), animated: true)
 
-        collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "DownloadsCollectionView")
+        collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "CardsCollectionView")
     }
 }
 
-extension CollectionCardViewAdapter: UICollectionViewDataSource {
+extension CardsCollectionViewAdapter: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return storyCard.getItemsCount()
+        return storyCard!.getItemsCount()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: "DownloadsCollectionView", for: indexPath)
+        let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: "CardsCollectionView", for: indexPath)
         
         for subview in myCell.contentView.subviews {
             subview.removeFromSuperview()
         }
         
-        let card = storyCard.getCardByIndex(index: indexPath.item)
+        let card = storyCard!.getCardByIndex(index: indexPath.item)
         
         let sv = StoryCardView(frame: .zero)
         
@@ -90,11 +90,9 @@ extension CollectionCardViewAdapter: UICollectionViewDataSource {
     }
 }
 
-extension CollectionCardViewAdapter: UICollectionViewDelegate {
+extension CardsCollectionViewAdapter: UICollectionViewDelegate {
  
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
        print("User tapped on section \(tag) item \(indexPath.item)")
     }
 }
-
-
