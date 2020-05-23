@@ -6,6 +6,7 @@
 //  Copyright © 2020 Святослав Кряжев. All rights reserved.
 //
 
-protocol ChatMessagePresenter: class {
-    func show(as role: Chat.Message.Role?)
+protocol ChatMessagePresenter: class  {
+    var model: ChatMessage { get set }
+    func show(as role: ChatMessageRole?)
 }

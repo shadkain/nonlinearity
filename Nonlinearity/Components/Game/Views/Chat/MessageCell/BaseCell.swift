@@ -10,22 +10,15 @@ import UIKit
 
 class ChatBaseMessageCell: UITableViewCellComponent {
     var margins = MarginConstraints()
-
-    var marginTop: CGFloat {
-        get { margins.top.constant }
-        set { margins.top.constant = newValue }
-    }
-    var marginBottom: CGFloat {
-        get { -margins.bottom.constant }
-        set { margins.bottom.constant = -newValue }
-    }
+    var presenter: ChatMessageCellPresenterProtocol!
+    
     var maxMessageWidth: CGFloat {
         get { messageView.maxWidth }
         set { messageView.maxWidth = newValue }
     }
     
     var messageView: ChatMessageView {
-        fatalError("readonly computed property baseMessageView not implemented")
+        fatalError("messageView: ChatMessageView has not been implemented")
     }
     
     override func setup() {
@@ -41,23 +34,22 @@ class ChatBaseMessageCell: UITableViewCellComponent {
     override func constraint() {
         margins.top = messageView.topAnchor.constraint(equalTo: contentView.topAnchor)
         margins.bottom = messageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+        
+        NSLayoutConstraint.activate([margins.top, margins.bottom])
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        
+
         margins.setToZero()
     }
 }
 
-extension ChatBaseMessageCell {
-    struct MarginConstraints {
-        var top: NSLayoutConstraint!
-        var bottom: NSLayoutConstraint!
-        
-        func setToZero() {
-            top?.constant = 0
-            bottom?.constant = 0
+extension ChatBaseMessageCell: ChatMessageCellProtocol {
+    func set(vLocation: ChatMessageCellVLocation) {
+        if let (top, bottom) = ChatBaseMessageCell.marginPatterns[vLocation] {
+            marginTop = top
+            marginBottom = bottom
         }
     }
 }

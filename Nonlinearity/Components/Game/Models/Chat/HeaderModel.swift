@@ -7,7 +7,7 @@
 //
 
 struct ChatHeader {
-    var companion: Author
+    var companion: ChatAuthor
     var networkStatus: NetworkStatus
     var backButtonAction: (() -> Void)?
 }

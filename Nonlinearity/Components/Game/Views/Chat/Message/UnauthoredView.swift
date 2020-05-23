@@ -11,7 +11,7 @@ import UIKit
 protocol ChatMessageUnauthoredViewProtocol: class {
     func set(message: String)
     func set(time: String)
-    func set(role: Chat.Message.Role?)
+    func set(role: ChatMessageRole?)
     func set(appearance: ChatMessageAppearance)
     func rebuild()
 }

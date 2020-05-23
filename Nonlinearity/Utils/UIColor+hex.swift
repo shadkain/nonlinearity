@@ -1,5 +1,5 @@
 //
-//  UIColor.swift
+//  UIColor+hex.swift
 //  Nonlinearity
 //
 //  Created by Святослав Кряжев on 01.04.2020.

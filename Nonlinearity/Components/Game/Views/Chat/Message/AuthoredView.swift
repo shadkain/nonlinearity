@@ -10,18 +10,22 @@ import UIKit
 
 protocol ChatMessageAuthoredViewProtocol: class {
     func set(author: String)
-    func set(role: Chat.Message.Role?)
+    func set(role: ChatMessageRole?)
+    func setTextColors(first: Int, second: Int?)
     func set(appearance: ChatMessageAppearance)
 }
 
 final class ChatMessageAuthoredView: UIViewComponent {
     let unauthoredView = ChatMessageUnauthoredView()
-    let authorLabel = UILabel()
+    let authorLabel = UIGradientLabel()
     private(set) var appearance: ChatMessageAppearance!
     
     override func setup() {
         authorLabel.textAlignment = .left
         authorLabel.numberOfLines = 1
+        
+        authorLabel.startPoint = .init(x: 1, y: 0)
+        authorLabel.endPoint = .init(x: 0, y: 1)
         
         [unauthoredView, authorLabel].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
@@ -56,12 +60,15 @@ extension ChatMessageAuthoredView: ChatMessageView, ChatMessageAuthoredViewProto
         authorLabel.text = author
     }
     
+    func setTextColors(first: Int, second: Int?) {
+        authorLabel.gradientColors = [.hex(rgb: first), .hex(rgb: second!)]
+    }
+    
     func set(appearance: ChatMessageAppearance) {
         self.appearance = appearance
         
         layer.cornerRadius = appearance.viewCornerRadius
         
         authorLabel.font = appearance.authorFont
-        authorLabel.textColor = appearance.authorTextColor
     }
 }

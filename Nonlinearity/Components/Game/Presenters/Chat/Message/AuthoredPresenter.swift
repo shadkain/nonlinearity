@@ -8,7 +8,7 @@
 
 final class ChatMessageAuthoredPresenter: ChatMessagePresenter {
     unowned let view: ChatMessageAuthoredViewProtocol
-    var model: Chat.Message {
+    var model: ChatMessage {
         get { unauthoredPresenter.model }
         set { unauthoredPresenter.model = newValue }
     }
@@ -21,9 +21,10 @@ final class ChatMessageAuthoredPresenter: ChatMessagePresenter {
         view.set(appearance: DarkChatMessageAppearance())
     }
     
-    func show(as role: Chat.Message.Role?) {
+    func show(as role: ChatMessageRole?) {
         view.set(author: model.author.concatNameString())
         view.set(role: role)
+        view.setTextColors(first: model.author.colors.first.rawValue, second: model.author.colors.second?.rawValue)
         
         unauthoredPresenter.show(as: .none)
     }

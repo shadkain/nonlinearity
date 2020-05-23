@@ -8,6 +8,12 @@
 
 import UIKit
 
+protocol ChatBaseLeftMessageCellProtocol: ChatMessageCellProtocol {
+    var showAvatar: Bool { get set }
+    func set(avatarLetters: String)
+    func setAvatarBgColor(first: Int, second: Int?)
+}
+
 class ChatBaseLeftMessageCell: ChatBaseMessageCell {
     let avatarView = LetterAvatarView()
     
@@ -19,7 +25,7 @@ class ChatBaseLeftMessageCell: ChatBaseMessageCell {
     override func setup() {
         super.setup()
         
-        avatarView.layer.cornerRadius = sizes.avatarSide / 2
+        avatarView.gradientLayer.cornerRadius = sizes.avatarSide / 2
         
         [avatarView].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
@@ -43,5 +49,15 @@ class ChatBaseLeftMessageCell: ChatBaseMessageCell {
         super.prepareForReuse()
         
         showAvatar = true
+    }
+}
+
+extension ChatBaseLeftMessageCell: ChatBaseLeftMessageCellProtocol {
+    func set(avatarLetters: String) {
+        avatarView.lettersLabel.text = avatarLetters
+    }
+    
+    func setAvatarBgColor(first: Int, second: Int?) {
+        avatarView.gradientLayer.colors = [UIColor.hex(rgb: first).cgColor, UIColor.hex(rgb: second!).cgColor]
     }
 }

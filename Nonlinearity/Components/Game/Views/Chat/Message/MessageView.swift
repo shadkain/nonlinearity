@@ -12,26 +12,11 @@ protocol ChatMessageView: UIView {
     var appearance: ChatMessageAppearance! { get }
     var maxWidth: CGFloat { get set }
     
-    func set(role: Chat.Message.Role?)
+    func set(role: ChatMessageRole?)
 }
 
 extension ChatMessageView {
-    func set(role: Chat.Message.Role?) {
+    func set(role: ChatMessageRole?) {
         backgroundColor = role?.color(for: appearance) ?? nil
-    }
-}
-
-extension Chat.Message {
-    enum Role {
-        case firstPerson, secondPerson
-        
-        func color(for appearance: ChatMessageAppearance) -> UIColor {
-            switch self {
-            case .firstPerson:
-                return appearance.firstPersonViewColor
-            case .secondPerson:
-                return appearance.secondPersonViewColor
-            }
-        }
     }
 }

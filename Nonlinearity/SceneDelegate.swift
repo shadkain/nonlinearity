@@ -17,7 +17,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        
+        window = .init(frame: UIScreen.main.bounds)
+        window?.windowScene = windowScene
+        
+        let chatView = ChatScreenViewController()
+        
+        let filepath = Bundle.main.path(forResource: "test-story", ofType: "json")
+        let jsonString = try! String(contentsOfFile: filepath!)
+        let chatJSON = try! JSONDecoder().decode(ChatJSON.self, from: jsonString.data(using: .utf8)!)
+        let chatModel = ChatService().transform(from: chatJSON)
+        
+        let conf = ChatScreenConfigurator(model: chatModel, view: chatView.screenView)
+        
+        window?.rootViewController = chatView
+        window?.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

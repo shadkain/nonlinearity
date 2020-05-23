@@ -10,7 +10,7 @@ struct ChatMessageAuthoredConfigurator {
     let view: ChatMessageAuthoredView
     let presenter: ChatMessageAuthoredPresenter
     
-    init(model: Chat.Message, view: ChatMessageAuthoredView) {
+    init(model: ChatMessage, view: ChatMessageAuthoredView) {
         presenter = .init(view: view)
         presenter.unauthoredPresenter = .init(model: model, view: view.unauthoredView)
         

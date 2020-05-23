@@ -13,8 +13,9 @@ protocol ChatBottomViewProtocol: class {
 }
 
 final class ChatBottomView: UIViewComponent {
-    var presenter: ChatBottomPresenterProtocol!
     let nextButtonView = UIImageView()
+    
+    var presenter: ChatBottomPresenterProtocol!
     
     override func setup() {
         nextButtonView.isUserInteractionEnabled = true

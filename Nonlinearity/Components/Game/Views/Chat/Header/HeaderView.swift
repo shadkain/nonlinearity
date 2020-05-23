@@ -15,10 +15,11 @@ protocol ChatHeaderViewProtocol: class {
 }
 
 final class ChatHeaderView: UIViewComponent {
-    var presenter: ChatHeaderPresenterProtocol!
     let backButtonView = UIImageView()
     let nameLabel = UILabel()
     let networkStatusLabel = UILabel()
+    
+    var presenter: ChatHeaderPresenterProtocol!
     
     override func setup() {
         backButtonView.isUserInteractionEnabled = true
