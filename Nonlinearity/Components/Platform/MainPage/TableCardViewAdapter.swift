@@ -10,7 +10,7 @@ import UIKit
 
 class TableCardViewAdapter: UIViewComponent {
     let customIdentifier = "CustomTableViewCell"
-    var tableView: UITableView?
+    var tableView: UITableView!
     
     var storyCard = StoryCard()
     var currentTypeOfTab: TypeOfTab = .main
@@ -18,14 +18,14 @@ class TableCardViewAdapter: UIViewComponent {
     override func setup() {
         tableView = UITableView(frame: frame)
         
-        tableView!.backgroundColor = .hex(rgb: 0x191919)
-        tableView!.separatorStyle = .none
+        tableView.backgroundColor = .hex(rgb: 0x191919)
+        tableView.backgroundColor = .black
         
-        tableView!.dataSource = self
-        tableView!.delegate = self
-        tableView!.register(TableCardViewCell.self, forCellReuseIdentifier: customIdentifier)
+        tableView.separatorStyle = .none
         
-        addSubview(tableView!)
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(TableCardViewCell.self, forCellReuseIdentifier: customIdentifier)
     }
 }
 
@@ -39,12 +39,12 @@ extension TableCardViewAdapter: UITableViewDelegate {
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if tableView!.contentOffset.y < 0 {
-            tableView!.contentOffset.y = 0
+        if tableView.contentOffset.y < 0 {
+            tableView.contentOffset.y = 0
         }
         
-        if tableView!.contentOffset.y > tableView!.frame.height {
-            tableView!.contentOffset.y = 0
+        if tableView.contentOffset.y > tableView.frame.height {
+            tableView.contentOffset.y = 0
         }
     }
 

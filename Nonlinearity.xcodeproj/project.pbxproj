@@ -221,17 +221,9 @@
 			path = DownloadsAndInProgress;
 			sourceTree = "<group>";
 		};
-		CA3BA18624755ADC00A6C3A9 /* InProgress */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = InProgress;
-			sourceTree = "<group>";
-		};
 		CA920C7F244C8ECF00BBC461 /* Platform */ = {
 			isa = PBXGroup;
 			children = (
-				CA3BA18624755ADC00A6C3A9 /* InProgress */,
 				CA127C2A24752DCC004394D3 /* DownloadsAndInProgress */,
 				CA127C2924752DB6004394D3 /* Main */,
 			);
