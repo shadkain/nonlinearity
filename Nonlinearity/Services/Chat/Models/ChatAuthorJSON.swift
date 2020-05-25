@@ -21,6 +21,6 @@ struct ChatAuthorJSON: Codable {
 extension ChatAuthorJSON {
     struct Colors: Codable {
         var first: String
-        var second: String?
+        var second: String
     }
 }

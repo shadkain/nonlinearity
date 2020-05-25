@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -27,9 +28,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let filepath = Bundle.main.path(forResource: "test-story", ofType: "json")
         let jsonString = try! String(contentsOfFile: filepath!)
         let chatJSON = try! JSONDecoder().decode(ChatJSON.self, from: jsonString.data(using: .utf8)!)
-        let chatModel = ChatService().transform(from: chatJSON)
+        let chatModel = ChatLoader().load(from: chatJSON)!
         
-        let conf = ChatScreenConfigurator(model: chatModel, view: chatView.screenView)
+        let _ = ChatScreenConfigurator(model: chatModel, view: chatView.screenView)
         
         window?.rootViewController = chatView
         window?.makeKeyAndVisible()
@@ -61,8 +62,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Called as the scene transitions from the foreground to the background.
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
+
+        // Save changes in the application's managed object context when the application transitions to the background.
+        (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
     }
-
-
 }
 
