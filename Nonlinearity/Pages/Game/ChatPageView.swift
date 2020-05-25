@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import PinLayout
 
 class ChatPageView: UIViewController {
     private let headerView = UIView()
@@ -56,15 +55,15 @@ class ChatPageView: UIViewController {
     
     override func viewDidLayoutSubviews() {
         print("view did layout")
-        headerView.pin
-            .top()
-            .horizontally()
-            .height(88)
-        
-//        tableView.pin
+//        headerView.pin
+//            .top()
 //            .horizontally()
-//            .below(of: headerView)
-//            .bottom(400)
+//            .height(88)
+//
+////        tableView.pin
+////            .horizontally()
+////            .below(of: headerView)
+////            .bottom(400)
     }
 }
 

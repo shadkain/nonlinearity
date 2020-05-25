@@ -9,9 +9,27 @@
 import UIKit
 
 class ViewController: UIViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .white
+    
+    var footBarVC = FootBarVC()
+        
+        override var preferredStatusBarStyle: UIStatusBarStyle {
+                return .lightContent
+            }
+    //
+    //
+        override func viewDidLoad() {
+            super.viewDidLoad()
+            view.backgroundColor = .white
+            self.setNeedsStatusBarAppearanceUpdate()
+            self.view.addSubview(footBarVC.view)
+    }
+
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//
+        // *******
+        // *******
+//        view.backgroundColor = .white
         
       //  let col = CollectionScreenView(frame: .zero)
 
@@ -59,14 +77,14 @@ class ViewController: UIViewController {
 //                    .aspectRatio(0.6)
 //
 
-        //BubbleView setup
-                let bv = BubbleView(frame: .zero)
-        
-                bv.image = UIImage(named: "face-drama")
-                bv.titleLable.text = "Драма"
-        
-                view.addSubview(bv)
-        
-                bv.pin.top(100).hCenter()
-    }
+//        //BubbleView setup
+//                let bv = BubbleView(frame: .zero)
+//
+//                bv.image = UIImage(named: "face-drama")
+//                bv.titleLable.text = "Драма"
+//
+//                view.addSubview(bv)
+//
+////                bv.pin.top(100).hCenter()
+//    }
 }

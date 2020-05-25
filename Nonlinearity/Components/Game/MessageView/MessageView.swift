@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import PinLayout
+
 
 protocol MessageView: UIView {
     var maxWidth: CGFloat { get set }

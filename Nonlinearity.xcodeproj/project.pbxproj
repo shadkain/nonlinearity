@@ -20,6 +20,16 @@
 		96CDD1AB24351B7000A7D2FF /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDD1AA24351B7000A7D2FF /* UIColor.swift */; };
 		96CDD1B0243520FE00A7D2FF /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDD1AF243520FE00A7D2FF /* MessageView.swift */; };
 		96CDD1B224361D1C00A7D2FF /* StoryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDD1B124361D1C00A7D2FF /* StoryCardView.swift */; };
+		C64DFA4A247C2AD3007F8DED /* MainBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64DFA45247C2AD3007F8DED /* MainBlock.swift */; };
+		C64DFA4B247C2AD3007F8DED /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64DFA46247C2AD3007F8DED /* ProfileViewController.swift */; };
+		C64DFA4C247C2AD3007F8DED /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64DFA47247C2AD3007F8DED /* Profile.swift */; };
+		C64DFA4D247C2AD3007F8DED /* UpperBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64DFA48247C2AD3007F8DED /* UpperBlock.swift */; };
+		C64DFA4E247C2AD3007F8DED /* CircleSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64DFA49247C2AD3007F8DED /* CircleSystem.swift */; };
+		C6B69F48247C2B6F00744C63 /* FootBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B69F47247C2B6F00744C63 /* FootBarVC.swift */; };
+		C6B69F54247C2BC500744C63 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B69F4C247C2BC500744C63 /* User.swift */; };
+		C6B69F55247C2BC500744C63 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B69F4D247C2BC500744C63 /* Story.swift */; };
+		C6B69F56247C2BC500744C63 /* Rubric.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B69F4E247C2BC500744C63 /* Rubric.swift */; };
+		C6B69F57247C2BC500744C63 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B69F4F247C2BC500744C63 /* NetworkManager.swift */; };
 		CA06FF852457358D00C33921 /* StoryCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA06FF842457358D00C33921 /* StoryCards.swift */; };
 		CA06FF87245770EB00C33921 /* TabsViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA06FF86245770EB00C33921 /* TabsViewAdapter.swift */; };
 		CA06FF892457715200C33921 /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA06FF882457715200C33921 /* TabView.swift */; };
@@ -59,6 +69,16 @@
 		96CDD1AA24351B7000A7D2FF /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		96CDD1AF243520FE00A7D2FF /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		96CDD1B124361D1C00A7D2FF /* StoryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCardView.swift; sourceTree = "<group>"; };
+		C64DFA45247C2AD3007F8DED /* MainBlock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainBlock.swift; sourceTree = "<group>"; };
+		C64DFA46247C2AD3007F8DED /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		C64DFA47247C2AD3007F8DED /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		C64DFA48247C2AD3007F8DED /* UpperBlock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpperBlock.swift; sourceTree = "<group>"; };
+		C64DFA49247C2AD3007F8DED /* CircleSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleSystem.swift; sourceTree = "<group>"; };
+		C6B69F47247C2B6F00744C63 /* FootBarVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FootBarVC.swift; sourceTree = "<group>"; };
+		C6B69F4C247C2BC500744C63 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		C6B69F4D247C2BC500744C63 /* Story.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
+		C6B69F4E247C2BC500744C63 /* Rubric.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rubric.swift; sourceTree = "<group>"; };
+		C6B69F4F247C2BC500744C63 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		CA06FF842457358D00C33921 /* StoryCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCards.swift; sourceTree = "<group>"; };
 		CA06FF86245770EB00C33921 /* TabsViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsViewAdapter.swift; sourceTree = "<group>"; };
 		CA06FF882457715200C33921 /* TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
@@ -128,6 +148,7 @@
 		968F0C72243E71A70052768E /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				C667C620247C2A1F00597EDD /* Profile */,
 				CA920C7F244C8ECF00BBC461 /* Platform */,
 				968F0C73243E71B40052768E /* Game */,
 			);
@@ -189,6 +210,37 @@
 				878E0202A69DEC95C225B237 /* Pods-Nonlinearity.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		C667C620247C2A1F00597EDD /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				C64DFA49247C2AD3007F8DED /* CircleSystem.swift */,
+				C64DFA45247C2AD3007F8DED /* MainBlock.swift */,
+				C64DFA47247C2AD3007F8DED /* Profile.swift */,
+				C64DFA46247C2AD3007F8DED /* ProfileViewController.swift */,
+				C64DFA48247C2AD3007F8DED /* UpperBlock.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		C6B69F4A247C2BC500744C63 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				C6B69F4B247C2BC500744C63 /* NetworkingModel */,
+				C6B69F4F247C2BC500744C63 /* NetworkManager.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		C6B69F4B247C2BC500744C63 /* NetworkingModel */ = {
+			isa = PBXGroup;
+			children = (
+				C6B69F4C247C2BC500744C63 /* User.swift */,
+				C6B69F4D247C2BC500744C63 /* Story.swift */,
+				C6B69F4E247C2BC500744C63 /* Rubric.swift */,
+			);
+			path = NetworkingModel;
 			sourceTree = "<group>";
 		};
 		CA127C2824752D6D004394D3 /* DownloadsAndInProgressPage */ = {
@@ -272,10 +324,12 @@
 		CAD59A352435151600974C2D /* Nonlinearity */ = {
 			isa = PBXGroup;
 			children = (
+				C6B69F4A247C2BC500744C63 /* Networking */,
 				968F0C72243E71A70052768E /* Pages */,
 				9626697B243CCCD100B65416 /* Framework */,
 				96CDD1AC2435201800A7D2FF /* Components */,
 				96CDD1A824351B2700A7D2FF /* Utils */,
+				C6B69F47247C2B6F00744C63 /* FootBarVC.swift */,
 				CAD59A362435151600974C2D /* AppDelegate.swift */,
 				CAD59A382435151600974C2D /* SceneDelegate.swift */,
 				CAD59A3A2435151600974C2D /* ViewController.swift */,
@@ -409,29 +463,39 @@
 				CA127C2E24752F54004394D3 /* StoryCardCollection.swift in Sources */,
 				CA0D4D97243F0DB300376CC7 /* BubbleView.swift in Sources */,
 				96CDD1AB24351B7000A7D2FF /* UIColor.swift in Sources */,
+				C6B69F56247C2BC500744C63 /* Rubric.swift in Sources */,
+				C64DFA4E247C2AD3007F8DED /* CircleSystem.swift in Sources */,
 				968F0C842443798B0052768E /* UILabel.swift in Sources */,
 				CA3BA18824755AFD00A6C3A9 /* InProgressPageView.swift in Sources */,
 				CAD59A372435151600974C2D /* AppDelegate.swift in Sources */,
 				968F0CB3244616AE0052768E /* UITableViewCellComponent.swift in Sources */,
 				CAD59A392435151600974C2D /* SceneDelegate.swift in Sources */,
+				C64DFA4A247C2AD3007F8DED /* MainBlock.swift in Sources */,
 				96CDD1B0243520FE00A7D2FF /* MessageView.swift in Sources */,
 				CA06FF852457358D00C33921 /* StoryCards.swift in Sources */,
 				CA06FF8D2457761900C33921 /* Tabs.swift in Sources */,
 				968F0C80244251760052768E /* Queue.swift in Sources */,
+				C6B69F48247C2B6F00744C63 /* FootBarVC.swift in Sources */,
 				CA3BA193247821A800A6C3A9 /* UIViewComponentCollection.swift in Sources */,
 				CA127C3024753303004394D3 /* DownloadsPageView.swift in Sources */,
+				C6B69F57247C2BC500744C63 /* NetworkManager.swift in Sources */,
 				CA127C2C24752E6A004394D3 /* CardsCollectionViewAdapter.swift in Sources */,
+				C64DFA4D247C2AD3007F8DED /* UpperBlock.swift in Sources */,
 				9626697D243CD39800B65416 /* String.swift in Sources */,
+				C6B69F54247C2BC500744C63 /* User.swift in Sources */,
 				CA920C9A244DA92F00BBC461 /* Bubbles.swift in Sources */,
+				C64DFA4B247C2AD3007F8DED /* ProfileViewController.swift in Sources */,
 				96CDD1B224361D1C00A7D2FF /* StoryCardView.swift in Sources */,
 				CA920CA624503D3800BBC461 /* BubbleViewCollectionAdapter.swift in Sources */,
 				96CDD1B224361D1C00A7D2FF /* StoryCardView.swift in Sources */,
 				CA920CA0244DF24400BBC461 /* TableCardViewAdapter.swift in Sources */,
 				CA06FF892457715200C33921 /* TabView.swift in Sources */,
 				96266980243CD60500B65416 /* Constants.swift in Sources */,
+				C64DFA4C247C2AD3007F8DED /* Profile.swift in Sources */,
 				CA920CA2244DF28C00BBC461 /* TableCardViewCell.swift in Sources */,
 				CA06FF87245770EB00C33921 /* TabsViewAdapter.swift in Sources */,
 				968F0CB52446E8180052768E /* MessageCell.swift in Sources */,
+				C6B69F55247C2BC500744C63 /* Story.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
