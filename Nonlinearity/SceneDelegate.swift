@@ -30,9 +30,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let chatJSON = try! JSONDecoder().decode(ChatJSON.self, from: jsonString.data(using: .utf8)!)
         let chatModel = ChatLoader().load(from: chatJSON)!
         
-        _ = ChatScreenPresenter(model: chatModel, view: chatView.screenView)
-//        let _ = ChatScreenConfigurator(model: chatModel, view: chatView.screenView)
-        
+        let presenter = ChatScreenPresenter(model: chatModel, view: chatView.screenView)
+        presenter.show()
         
         window?.rootViewController = chatView
         window?.makeKeyAndVisible()

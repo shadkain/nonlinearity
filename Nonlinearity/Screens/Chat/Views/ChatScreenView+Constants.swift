@@ -9,9 +9,12 @@
 import UIKit
 
 extension ChatScreenView {
-    enum cellId {
-        static let right = "r"
-        static let leftUnauthored = "lu"
-        static let leftAuthored = "la"
+    enum size {
+        static let rowHeight: CGFloat = 35
+    }
+    
+    enum spacing {
+        static let messageSmallV: CGFloat = 5
+        static let messageBigV: CGFloat = 8
     }
 }

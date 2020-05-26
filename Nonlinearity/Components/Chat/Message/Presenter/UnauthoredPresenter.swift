@@ -8,18 +8,20 @@
 
 final class ChatMessageUnauthoredPresenter: ChatMessagePresenter {
     unowned let view: ChatMessageUnauthoredViewProtocol
-    var model: ChatMessage!
+    var model: ChatMessage
     
-    init(view: ChatMessageUnauthoredViewProtocol) {
+    init(model: ChatMessage, view: ChatMessageUnauthoredViewProtocol) {
+        self.model = model
         self.view = view
         
-        view.set(appearance: DarkChatMessageAppearance())
+        view.setAppearance(DarkChatMessageAppearance())
     }
     
     func show(as role: ChatMessageRole?) {
-        view.set(message: model.text)
-        view.set(time: model.time.time24)
-        view.set(role: role)
+        updateBackgroundColor(ofView: view, with: DarkChatMessageAppearance(), as: role)
+        
+        view.setMessage(model.text)
+        view.setTime(model.time.time24)
         view.rebuild()
     }
 }

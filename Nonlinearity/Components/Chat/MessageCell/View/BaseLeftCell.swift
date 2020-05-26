@@ -8,12 +8,6 @@
 
 import UIKit
 
-protocol ChatBaseLeftMessageCellProtocol: ChatMessageCellProtocol {
-    var showAvatar: Bool { get set }
-    func set(avatarLetters: String)
-    func setAvatarBgColor(first: Int, second: Int?)
-}
-
 class ChatBaseLeftMessageCell: ChatBaseMessageCell {
     let avatarView = LetterAvatarView()
     
@@ -43,21 +37,5 @@ class ChatBaseLeftMessageCell: ChatBaseMessageCell {
             avatarView.heightAnchor.constraint(equalToConstant: sizes.avatarSide),
             messageView.leftAnchor.constraint(equalTo: avatarView.rightAnchor, constant: spacing.commonH),
         ])
-    }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        
-        showAvatar = true
-    }
-}
-
-extension ChatBaseLeftMessageCell: ChatBaseLeftMessageCellProtocol {
-    func set(avatarLetters: String) {
-        avatarView.lettersLabel.text = avatarLetters
-    }
-    
-    func setAvatarBgColor(first: Int, second: Int?) {
-        avatarView.setGradientColors([.hex(rgb: first), .hex(rgb: second!)])
     }
 }

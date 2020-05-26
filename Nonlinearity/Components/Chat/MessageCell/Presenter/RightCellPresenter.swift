@@ -7,24 +7,22 @@
 //
 
 final class ChatRightMessageCellPresenter: ChatMessageCellPresenter {
-    unowned let view: ChatMessageCellProtocol
+    unowned let view: ChatRightMessageCellProtocol
     
-    var unauthoredPresenter: ChatMessageUnauthoredPresenter!
+    var unauthoredPresenter: ChatMessageUnauthoredPresenter
     
     var messagePresenter: ChatMessagePresenter! {
         unauthoredPresenter
     }
     
-    init(view: ChatMessageCellProtocol) {
+    init(model: ChatMessage, view: ChatRightMessageCellProtocol) {
         self.view = view
+        self.unauthoredPresenter = .init(model: model, view: view.unauthoredMessageViewProtocol)
     }
     
-    func show(at vLocation: ChatMessageCellVLocation) {
+    func show(as location: ChatMessageCellLocation, showingAvatar: Bool) {
+        view.setLocation(location)
+        
         messagePresenter.show(as: .firstPerson)
-        updateVLocation(vLocation)
-    }
-    
-    func updateVLocation(_ vLocation: ChatMessageCellVLocation) {
-        view.set(vLocation: vLocation)
     }
 }

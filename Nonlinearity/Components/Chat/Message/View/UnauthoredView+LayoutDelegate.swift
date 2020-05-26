@@ -37,7 +37,9 @@ extension ChatMessageUnauthoredView {
             changingConstraints.removeAll()
         }
         
-        func rebuildIfNeeded(messageLabel: UILabel, timeLabel: UILabel, maxWidth: CGFloat) {
+        func rebuildIfNeeded(messageLabel: UILabel, timeLabel: UILabel) {
+            let maxWidth = widthConstraint.constant
+            
             timeWidth = timeLabel.textWidth
             let messageTextBreakpoint = maxWidth - (2*spacing.commonH + timeWidth)
             if messageLabel.textWidth < messageTextBreakpoint {

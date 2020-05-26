@@ -9,14 +9,10 @@
 import UIKit
 
 protocol ChatMessageView: UIView {
-    var appearance: ChatMessageAppearance! { get }
     var maxWidth: CGFloat { get set }
-    
-    func set(role: ChatMessageRole?)
 }
 
-extension ChatMessageView {
-    func set(role: ChatMessageRole?) {
-        backgroundColor = role?.color(for: appearance) ?? nil
-    }
+protocol ChatMessageViewProtocol: class {
+    func setBackgroundColor(_ color: Int)
+    func clearBackgroundColor()
 }

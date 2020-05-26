@@ -9,46 +9,15 @@
 import UIKit
 
 protocol ChatMessageAppearance {
-    var firstPersonViewColor: UIColor { get }
-    var secondPersonViewColor: UIColor { get }
-    var viewCornerRadius: CGFloat { get }
-    var authorTextColor: UIColor { get }
-    var authorFont: UIFont { get }
-    var messageTextColor: UIColor { get }
-    var messageFont: UIFont { get }
-    var timeTextColor: UIColor { get }
-    var timeFont: UIFont { get }
-}
-
-extension ChatMessageAppearance {
-    var viewCornerRadius: CGFloat {
-        17
-    }
-    var authorFont: UIFont {
-        .systemFont(ofSize: 13, weight: .regular)
-    }
-    var messageFont: UIFont {
-        .systemFont(ofSize: 17, weight: .regular)
-    }
-    var timeFont: UIFont {
-        .systemFont(ofSize: 11, weight: .regular)
-    }
+    var firstPersonBackgroundColor: Int { get }
+    var secondPersonBackgroundColor: Int { get }
+    var messageTextColor: Int { get }
+    var timeTextColor: Int { get }
 }
 
 struct DarkChatMessageAppearance: ChatMessageAppearance {
-    var firstPersonViewColor: UIColor {
-        .hex(rgb: 0x454647)
-    }
-    var secondPersonViewColor: UIColor {
-        .hex(rgb: 0x2C2D2E)
-    }
-    var authorTextColor: UIColor {
-        .hex(rgb: 0xCE7272)
-    }
-    var messageTextColor: UIColor {
-        .hex(rgb: 0xE1E3E6)
-    }
-    var timeTextColor: UIColor {
-        .hex(rgb: 0xABAEB2)
-    }
+    var firstPersonBackgroundColor: Int { 0x454647 }
+    var secondPersonBackgroundColor: Int { 0x2C2D2E }
+    var messageTextColor: Int { 0xE1E3E6 }
+    var timeTextColor: Int { 0xABAEB2 }
 }

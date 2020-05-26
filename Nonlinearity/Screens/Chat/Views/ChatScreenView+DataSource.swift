@@ -14,23 +14,11 @@ extension ChatScreenView: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let id = getCellId(forType: presenter.messageType(at: indexPath.row))
-        let cell = tableView.dequeueReusableCell(withIdentifier: id, for: indexPath) as! ChatBaseMessageCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: presenter.messageId(at: indexPath.row), for: indexPath) as! ChatBaseMessageCell
         
         cell.maxMessageWidth = 290
-        presenter.cellWillBeInserted(cell, at: indexPath.row)
+        presenter.showCell(cell, at: indexPath.row)
         
         return cell
-    }
-    
-    func getCellId(forType type: ChatMessageType) -> String {
-        switch type {
-        case .right:
-            return cellId.right
-        case .leftUnauthored:
-            return cellId.leftUnauthored
-        case .leftAuthored:
-            return cellId.leftAuthored
-        }
     }
 }

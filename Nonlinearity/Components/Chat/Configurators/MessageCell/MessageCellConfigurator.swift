@@ -6,26 +6,24 @@
 //  Copyright © 2020 Святослав Кряжев. All rights reserved.
 //
 
-struct ChatMessageCellConfigurator {
-    init(view: ChatMessageCellProtocol, model: ChatMessage, type: ChatMessageType) {
-        switch type {
-        case .right:
-            let view = view as! ChatRightMessageCell
-            let presenter = ChatRightMessageCellPresenter(view: view)
-            presenter.unauthoredPresenter = ChatMessageUnauthoredPresenter(view: view.unauthoredMessageView)
-            presenter.model = model
-            view.presenter = presenter
-        case .leftUnauthored:
-            let view = view as! ChatLeftUnauthoredMessageCell
-            let presenter = ChatLeftUnauthoredMessageCellPresenter(view: view)
-            presenter.unauthoredPresenter = ChatMessageUnauthoredPresenter(view: view.unauthoredMessageView)
-            presenter.model = model
-            view.presenter = presenter
-        case .leftAuthored:
-            let view = view as! ChatLeftAuthoredMessageCell
-            let presenter = ChatLeftAuthoredMessageCellPresenter(view: view)
-            presenter.authoredPresenter = ChatMessageAuthoredPresenter.Factory.make(model: model, view: view.authoredMessageView)
-            view.presenter = presenter
-        }
-    }
-}
+//struct ChatMessageCellConfigurator {
+//    init(view: ChatMessageCellProtocol, model: ChatMessage, type: ChatMessageType) {
+//        switch type {
+//        case .right:
+//            let view = view as! ChatRightMessageCell
+//            let presenter = ChatRightMessageCellPresenter(view: view)
+//            presenter.unauthoredPresenter = ChatMessageUnauthoredPresenter(model: model, view: view.unauthoredMessageView)
+//            view.presenter = presenter
+//        case .leftUnauthored:
+//            let view = view as! ChatLeftUnauthoredMessageCell
+//            let presenter = ChatLeftUnauthoredMessageCellPresenter(view: view)
+//            presenter.unauthoredPresenter = ChatMessageUnauthoredPresenter(model: model, view: view.unauthoredMessageView)
+//            view.presenter = presenter
+//        case .leftAuthored:
+//            let view = view as! ChatLeftAuthoredMessageCell
+//            let presenter = ChatLeftAuthoredMessageCellPresenter(view: view)
+//            presenter.authoredPresenter = ChatMessageAuthoredPresenter(model: model, view: view.authoredMessageView)
+//            view.presenter = presenter
+//        }
+//    }
+//}

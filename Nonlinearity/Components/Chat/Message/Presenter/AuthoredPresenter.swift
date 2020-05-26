@@ -8,23 +8,26 @@
 
 final class ChatMessageAuthoredPresenter: ChatMessagePresenter {
     unowned let view: ChatMessageAuthoredViewProtocol
-    var model: ChatMessage! {
+    var model: ChatMessage {
         get { unauthoredPresenter.model }
         set { unauthoredPresenter.model = newValue }
     }
     
-    // MARK: subpresenters
-    var unauthoredPresenter: ChatMessageUnauthoredPresenter!
+    let unauthoredPresenter: ChatMessageUnauthoredPresenter
     
-    init(view: ChatMessageAuthoredViewProtocol) {
+    init(model: ChatMessage, view: ChatMessageAuthoredViewProtocol) {
         self.view = view
-        view.set(appearance: DarkChatMessageAppearance())
+        unauthoredPresenter = ChatMessageUnauthoredPresenter(model: model, view: view.unauthoredViewProtocol)
     }
     
     func show(as role: ChatMessageRole?) {
-        view.set(author: model.author.fullName)
-        view.set(role: role)
-        view.setTextColors(first: model.author.colors.first.rawValue, second: model.author.colors.second?.rawValue)
+        updateBackgroundColor(ofView: view, with: DarkChatMessageAppearance(), as: role)
+        
+        view.setAuthor(model.author.fullName)
+        view.setTextColors(
+            first: model.author.colors.first.rawValue,
+            second: model.author.colors.second.rawValue
+        )
         
         unauthoredPresenter.show(as: .none)
     }

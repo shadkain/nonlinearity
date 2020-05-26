@@ -37,19 +37,4 @@ class ChatBaseMessageCell: UITableViewCellComponent {
         
         NSLayoutConstraint.activate([margins.top, margins.bottom])
     }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-
-        margins.setToZero()
-    }
-}
-
-extension ChatBaseMessageCell: ChatMessageCellProtocol {
-    func set(vLocation: ChatMessageCellVLocation) {
-        if let (top, bottom) = ChatBaseMessageCell.marginPatterns[vLocation] {
-            marginTop = top
-            marginBottom = bottom
-        }
-    }
 }

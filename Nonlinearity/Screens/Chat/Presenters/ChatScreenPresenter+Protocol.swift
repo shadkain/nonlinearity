@@ -9,8 +9,8 @@
 protocol ChatScreenPresenterProtocol {
     var messagesCount: Int { get }
     
-    func messageType(at: Int) -> ChatMessageType
-    func cellWillBeInserted(_ cell: ChatMessageCellProtocol, at: Int)
+    func messageId(at: Int) -> String
+    func showCell(_ cell: ChatMessageCellProtocol, at index: Int)
 }
 
 extension ChatScreenPresenter: ChatScreenPresenterProtocol, ChatHeaderPresenterProtocol, ChatFooterPresenterProtocol {
@@ -27,27 +27,38 @@ extension ChatScreenPresenter: ChatScreenPresenterProtocol, ChatHeaderPresenterP
         }
     }
     
-    func cellWillBeInserted(_ cell: ChatMessageCellProtocol, at index: Int) {
-        if cell.presenter == nil {
+    func messageId(at index: Int) -> String {
+        switch try! model.messageRole(at: index) {
+        case .firstPerson:
+            return view.rightMessageId
+        case .secondPerson:
+            return try! model.messageIsFirst(at: index) ? view.leftAuthoredMessageId : view.leftUnauthoredMessageId
         }
-        
-        if let presenter = cell.presenter as? ChatMessageCellPresenter {
-            presenter.model = try! model.message(at: index)
-        } else {
-            _ = ChatMessageCellConfigurator(view: cell, model: try! model.message(at: index), type: messageType(at: index))
-        }
-        
-        showCell(cell, for: index)
     }
     
-    private func showCell(_ cell: ChatMessageCellProtocol, for index: Int) {
-        if index == 0 {
-            cell.presenter.show(at: .first)
-        } else if try! model.messageIsLast(at: index) || model.cursor == index {
-            cell.presenter.show(at: .last)
+    func showCell(_ cell: ChatMessageCellProtocol, at index: Int) {
+        let messageModel = try! model.message(at: index)
+        if cell.presenter == nil {
+            cell.presenter = ChatMessageCellPresenterFactory.make(model: messageModel, view: cell)
         } else {
-            cell.presenter.show(at: .regular)
+            (cell.presenter as! ChatMessageCellPresenter).model = messageModel
         }
+
+        cell.presenter.show(as: messageLocation(at: index), showingAvatar: shouldShowAvatar(at: index))
+    }
+    
+    private func messageLocation(at index: Int) -> ChatMessageCellLocation {
+        if index == 0 {
+            return .first
+        } else if try! model.messageIsLast(at: index) || model.cursor == index {
+            return .lastInChain
+        } else {
+            return .regular
+        }
+    }
+    
+    private func shouldShowAvatar(at index: Int) -> Bool {
+        return try! model.messageIsLast(at: index) || model.cursor == index
     }
     
     func didTapBackButton() {
@@ -60,6 +71,7 @@ extension ChatScreenPresenter: ChatScreenPresenterProtocol, ChatHeaderPresenterP
             return
         }
         guard model.stepForward() else {
+            view.scrollToBottom()
             return
         }
         

@@ -8,31 +8,32 @@
 
 import UIKit
 
-protocol ChatMessageUnauthoredViewProtocol: class {
-    func set(message: String)
-    func set(time: String)
-    func set(role: ChatMessageRole?)
-    func set(appearance: ChatMessageAppearance)
-    func rebuild()
-}
-
-final class ChatMessageUnauthoredView: UIViewComponent {
+final class ChatMessageUnauthoredView: UIViewComponent, ChatMessageView {
     let messageLabel = UILabel()
     let timeLabel = UILabel()
-    private(set) var appearance: ChatMessageAppearance!
-    private var layout = LayoutDelegate()
+    var appearance: ChatMessageAppearance!
+    let layoutDelegate = LayoutDelegate()
+    
+    var maxWidth: CGFloat {
+        get { layoutDelegate.widthConstraint.constant }
+        set { layoutDelegate.widthConstraint.constant = newValue }
+    }
    
     override func setup() {
+        layer.cornerRadius = Self.cornerRadius
+        
+        messageLabel.font = fonts.message
         messageLabel.textAlignment = .left
         messageLabel.lineBreakMode = .byWordWrapping
         messageLabel.numberOfLines = 0
         
+        timeLabel.font = fonts.time
         timeLabel.textAlignment = .right
         timeLabel.numberOfLines = 1
         
-        layout.set(block: { [unowned self] in self.constraintSingleLine() }, on: .singleLine)
-        layout.set(block: { [unowned self] in self.constraintMultiLineSame() }, on: .multiLineSame)
-        layout.set(block: { [unowned self] in self.constraintMultiLineSeparate() }, on: .multiLineSeparate)
+        layoutDelegate.set(block: { [unowned self] in self.constraintSingleLine() }, on: .singleLine)
+        layoutDelegate.set(block: { [unowned self] in self.constraintMultiLineSame() }, on: .multiLineSame)
+        layoutDelegate.set(block: { [unowned self] in self.constraintMultiLineSeparate() }, on: .multiLineSeparate)
         
         [messageLabel, timeLabel].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
@@ -41,71 +42,40 @@ final class ChatMessageUnauthoredView: UIViewComponent {
     }
     
     override func constraint() {
-        layout.widthConstraint = self.widthAnchor.constraint(lessThanOrEqualToConstant: frame.width)
+        layoutDelegate.widthConstraint = self.widthAnchor.constraint(lessThanOrEqualToConstant: frame.width)
         
         NSLayoutConstraint.activate([
             messageLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: spacing.commonH),
             messageLabel.topAnchor.constraint(equalTo: topAnchor, constant: spacing.msgToVBounds),
             timeLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -spacing.commonH),
             timeLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -spacing.timeToBottom),
-            layout.widthConstraint,
+            layoutDelegate.widthConstraint,
         ])
     }
     
     private func constraintSingleLine() {
-        layout.changingConstraints.append(contentsOf: [
+        layoutDelegate.changingConstraints.append(contentsOf: [
             messageLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -spacing.msgToVBounds),
             messageLabel.trailingAnchor.constraint(equalTo: timeLabel.leadingAnchor, constant: -spacing.commonH),
         ])
     }
     
     private func constraintMultiLineSame() {
-        let freeSpace = layout.size.width - layout.lastLineWidth
+        let freeSpace = layoutDelegate.size.width - layoutDelegate.lastLineWidth
         let messageAndTimeConstraint = freeSpace < (timeLabel.textWidth + spacing.commonH) ?
             messageLabel.trailingAnchor.constraint(equalTo: timeLabel.leadingAnchor, constant: freeSpace - spacing.commonH) :
             messageLabel.trailingAnchor.constraint(equalTo: timeLabel.trailingAnchor)
         
-        layout.changingConstraints.append(contentsOf: [
+        layoutDelegate.changingConstraints.append(contentsOf: [
             messageAndTimeConstraint,
             messageLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -spacing.msgToVBounds),
         ])
     }
     
     private func constraintMultiLineSeparate() {
-        layout.changingConstraints.append(contentsOf: [
+        layoutDelegate.changingConstraints.append(contentsOf: [
             messageLabel.trailingAnchor.constraint(equalTo: timeLabel.trailingAnchor),
             timeLabel.topAnchor.constraint(equalTo: messageLabel.bottomAnchor, constant: spacing.msgToTimeV),
         ])
-    }
-}
-
-
-extension ChatMessageUnauthoredView: ChatMessageView, ChatMessageUnauthoredViewProtocol {
-    var maxWidth: CGFloat {
-        get { layout.widthConstraint.constant }
-        set { layout.widthConstraint.constant = newValue }
-    }
-    
-    func set(message: String) {
-        messageLabel.text = message
-    }
-    
-    func set(time: String) {
-        timeLabel.text = time
-    }
-    
-    func set(appearance: ChatMessageAppearance) {
-        self.appearance = appearance
-        
-        layer.cornerRadius = appearance.viewCornerRadius
-        
-        messageLabel.font = appearance.messageFont
-        messageLabel.textColor = appearance.messageTextColor
-        timeLabel.font = appearance.timeFont
-        timeLabel.textColor = appearance.timeTextColor
-    }
-    
-    func rebuild() {
-        layout.rebuildIfNeeded(messageLabel: messageLabel, timeLabel: timeLabel, maxWidth: maxWidth)
     }
 }

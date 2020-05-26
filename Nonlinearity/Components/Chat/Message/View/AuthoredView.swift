@@ -8,19 +8,21 @@
 
 import UIKit
 
-protocol ChatMessageAuthoredViewProtocol: class {
-    func set(author: String)
-    func set(role: ChatMessageRole?)
-    func setTextColors(first: Int, second: Int?)
-    func set(appearance: ChatMessageAppearance)
-}
 
-final class ChatMessageAuthoredView: UIViewComponent {
+
+final class ChatMessageAuthoredView: UIViewComponent, ChatMessageView {
     let unauthoredView = ChatMessageUnauthoredView()
     let authorLabel = UIGradientLabel()
-    private(set) var appearance: ChatMessageAppearance!
+    
+    var maxWidth: CGFloat {
+        get { unauthoredView.maxWidth }
+        set { unauthoredView.maxWidth = newValue }
+    }
     
     override func setup() {
+        layer.cornerRadius = Self.cornerRadius
+        
+        authorLabel.font = fonts.author
         authorLabel.textAlignment = .left
         authorLabel.numberOfLines = 1
         
@@ -47,28 +49,5 @@ final class ChatMessageAuthoredView: UIViewComponent {
             authorLabel.leadingAnchor.constraint(equalTo: unauthoredView.messageLabel.leadingAnchor),
             viewConstraint,
         ])
-    }
-}
-
-extension ChatMessageAuthoredView: ChatMessageView, ChatMessageAuthoredViewProtocol {
-    var maxWidth: CGFloat {
-        get { unauthoredView.maxWidth }
-        set { unauthoredView.maxWidth = newValue }
-    }
-    
-    func set(author: String) {
-        authorLabel.text = author
-    }
-    
-    func setTextColors(first: Int, second: Int?) {
-        authorLabel.gradientColors = [.hex(rgb: first), .hex(rgb: second!)]
-    }
-    
-    func set(appearance: ChatMessageAppearance) {
-        self.appearance = appearance
-        
-        layer.cornerRadius = appearance.viewCornerRadius
-        
-        authorLabel.font = appearance.authorFont
     }
 }

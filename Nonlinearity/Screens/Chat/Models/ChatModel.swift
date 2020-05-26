@@ -14,28 +14,21 @@ enum ChatError: Error {
 
 enum ChatMessageRole {
     case firstPerson, secondPerson
-    
-    func color(for appearance: ChatMessageAppearance) -> UIColor {
-        switch self {
-        case .firstPerson:
-            return appearance.firstPersonViewColor
-        case .secondPerson:
-            return appearance.secondPersonViewColor
-        }
-    }
 }
 
 class ChatModel {
+    let title: String
+    private let firstPerson: ChatAuthor
+    private let companions: [ChatAuthor]
+    private let flow: [ChatMessage]
     private(set) var cursor: Int
-    private var flow: [ChatMessage]
-    private var firstPerson: ChatAuthor
-    private(set) var companions: [ChatAuthor]
     
-    init(flow: [ChatMessage], cursor: Int = 0, firstPerson: ChatAuthor, companions: [ChatAuthor]) {
-        self.flow = flow
-        self.cursor = cursor
+    init(title: String, firstPerson: ChatAuthor, companions: [ChatAuthor], flow: [ChatMessage], cursor: Int = 0) {
+        self.title = title
         self.firstPerson = firstPerson
         self.companions = companions
+        self.flow = flow
+        self.cursor = cursor
     }
     
     func step(by offset: Int) {

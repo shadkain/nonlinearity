@@ -39,6 +39,6 @@ class ChatAuthor {
 extension ChatAuthor {
     struct Colors {
         var first: Color
-        var second: Color?
+        var second: Color
     }
 }

@@ -15,6 +15,13 @@ extension ChatMessageUnauthoredView {
         static let timeToBottom: CGFloat = 6
         static let msgToTimeV: CGFloat = 4
     }
+    
+    enum fonts {
+        static let message: UIFont = .systemFont(ofSize: 17, weight: .regular)
+        static let time: UIFont = .systemFont(ofSize: 11, weight: .regular)
+    }
+    
+    static let cornerRadius: CGFloat = 17
 }
 
 extension ChatMessageAuthoredView {
@@ -23,4 +30,10 @@ extension ChatMessageAuthoredView {
         static let authorToMsgV: CGFloat = 2
         static let authorToTop: CGFloat = 7
     }
+    
+    enum fonts {
+        static let author: UIFont = .systemFont(ofSize: 13, weight: .regular)
+    }
+    
+    static var cornerRadius: CGFloat { ChatMessageUnauthoredView.cornerRadius }
 }

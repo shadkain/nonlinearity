@@ -8,10 +8,6 @@
 
 import UIKit
 
-enum ChatMessageCellVLocation {
-    case first, regular, last
-}
-
 final class ChatScreenView: UIViewComponent {
     let headerView = ChatHeaderView()
     let footerView = ChatFooterView()
@@ -25,20 +21,20 @@ final class ChatScreenView: UIViewComponent {
         tableView.backgroundColor = .none
         tableView.separatorStyle = .none
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 35
+        tableView.estimatedRowHeight = size.rowHeight
         tableView.showsHorizontalScrollIndicator = false
         tableView.showsVerticalScrollIndicator = false
         
         tableView.dataSource = self
         tableView.delegate = self
         
-        tableView.register(ChatRightMessageCell.self, forCellReuseIdentifier: cellId.right)
-        tableView.register(ChatLeftUnauthoredMessageCell.self, forCellReuseIdentifier: cellId.leftUnauthored)
-        tableView.register(ChatLeftAuthoredMessageCell.self, forCellReuseIdentifier: cellId.leftAuthored)
+        tableView.register(ChatRightMessageCell.self, forCellReuseIdentifier: rightMessageId)
+        tableView.register(ChatLeftUnauthoredMessageCell.self, forCellReuseIdentifier: leftUnauthoredMessageId)
+        tableView.register(ChatLeftAuthoredMessageCell.self, forCellReuseIdentifier: leftAuthoredMessageId)
         
-        ChatBaseMessageCell.marginPatterns[.first] = (top: 8, bottom: 5)
-        ChatBaseMessageCell.marginPatterns[.regular] = (top: 0, bottom: 5)
-        ChatBaseMessageCell.marginPatterns[.last] = (top: 0, bottom: 8)
+        ChatBaseMessageCell.marginPatterns[.first] = (top: spacing.messageBigV, bottom: spacing.messageSmallV)
+        ChatBaseMessageCell.marginPatterns[.regular] = (top: 0, bottom: spacing.messageSmallV)
+        ChatBaseMessageCell.marginPatterns[.lastInChain] = (top: 0, bottom: spacing.messageBigV)
         
         [headerView, footerView, tableView].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false

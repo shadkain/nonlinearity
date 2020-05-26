@@ -7,29 +7,28 @@
 //
 
 class ChatBaseLeftMessageCellPresenter: ChatMessageCellPresenter {
-    unowned let view: ChatBaseLeftMessageCellProtocol
+    unowned let view: ChatLeftMessageCellProtocol
     
     var messagePresenter: ChatMessagePresenter! {
         fatalError("messagePresenter: ChatMessagePresenter has not been implemented")
     }
     
-    init(view: ChatBaseLeftMessageCellProtocol) {
+    init(view: ChatLeftMessageCellProtocol) {
         self.view = view
     }
     
-    func show(at vLocation: ChatMessageCellVLocation) {
+    func show(as location: ChatMessageCellLocation, showingAvatar: Bool) {
         messagePresenter.show(as: .secondPerson)
-        view.set(vLocation: vLocation)
-        view.setAvatarBgColor(first: model.author.colors.first.rawValue, second: model.author.colors.second?.rawValue)
-        updateVLocation(vLocation)
-    }
-    
-    func updateVLocation(_ vLocation: ChatMessageCellVLocation) {
-        if vLocation == .last {
-            view.showAvatar = true
-            view.set(avatarLetters: model.author.initials)
-        } else {
-            view.showAvatar = false
+        
+        view.setLocation(location)
+        
+        view.showAvatar = showingAvatar
+        if showingAvatar {
+            view.setAvatarColors(
+                first: model.author.colors.first.rawValue,
+                second: model.author.colors.second.rawValue
+            )
+            view.setAvatarText(model.author.initials)
         }
     }
 }

@@ -7,8 +7,7 @@
 //
 
 protocol ChatMessageCellPresenterProtocol: class {
-    func show(at vLocation: ChatMessageCellVLocation)
-    func updateVLocation(_ vLocation: ChatMessageCellVLocation)
+    func show(as location: ChatMessageCellLocation, showingAvatar: Bool)
 }
 
 protocol ChatMessageCellPresenter: ChatMessageCellPresenterProtocol {

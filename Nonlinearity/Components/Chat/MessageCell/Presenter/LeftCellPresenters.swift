@@ -7,7 +7,12 @@
 //
 
 final class ChatLeftUnauthoredMessageCellPresenter: ChatBaseLeftMessageCellPresenter {
-    var unauthoredPresenter: ChatMessageUnauthoredPresenter!
+    let unauthoredPresenter: ChatMessageUnauthoredPresenter
+    
+    init(model: ChatMessage, view: ChatLeftUnauthoredMessageCellProtocol) {
+        unauthoredPresenter = .init(model: model, view: view.unauthoredMessageViewProtocol)
+        super.init(view: view)
+    }
     
     override var messagePresenter: ChatMessagePresenter! {
         unauthoredPresenter
@@ -15,7 +20,12 @@ final class ChatLeftUnauthoredMessageCellPresenter: ChatBaseLeftMessageCellPrese
 }
 
 final class ChatLeftAuthoredMessageCellPresenter: ChatBaseLeftMessageCellPresenter {
-    var authoredPresenter: ChatMessageAuthoredPresenter!
+    let authoredPresenter: ChatMessageAuthoredPresenter
+    
+    init(model: ChatMessage, view: ChatLeftAuthoredMessageCellProtocol) {
+        authoredPresenter = .init(model: model, view: view.authoredMessageViewProtocol)
+        super.init(view: view)
+    }
     
     override var messagePresenter: ChatMessagePresenter! {
         authoredPresenter

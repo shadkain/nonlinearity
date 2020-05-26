@@ -17,6 +17,6 @@ struct ChatLoader {
                 return nil
         }
      
-        return .init(flow: flow, cursor: -1, firstPerson: authors.firstPerson, companions: authors.companions)
+        return .init(title: "Сумеречная зона", firstPerson: authors.firstPerson, companions: authors.companions, flow: flow, cursor: -1)
     }
 }

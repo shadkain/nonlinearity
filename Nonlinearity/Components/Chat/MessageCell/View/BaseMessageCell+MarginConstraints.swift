@@ -28,5 +28,5 @@ extension ChatBaseMessageCell {
         set { margins.bottom.constant = -newValue }
     }
     
-    static var marginPatterns: [ChatMessageCellVLocation:(top: CGFloat, bottom: CGFloat)] = [:]
+    static var marginPatterns: [ChatMessageCellLocation:(top: CGFloat, bottom: CGFloat)] = [:]
 }
