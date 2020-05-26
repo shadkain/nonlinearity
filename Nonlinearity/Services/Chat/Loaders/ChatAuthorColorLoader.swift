@@ -33,7 +33,7 @@ struct ChatAuthorColorLoader {
     ]
     
     func load(from key: String) -> ChatAuthor.Color? {
-        ChatAuthorColorLoader.colorDict[key]
+        Self.colorDict[key]
     }
     
     func load(from colors: ChatAuthorJSON.Colors) -> ChatAuthor.Colors? {

@@ -28,28 +28,5 @@ extension ChatAuthor {
         case darkBlue = 0x57729A
         case darkLightBlue = 0x5B95A8
         case darkCyan = 0x589F93
-        
-        init?(from string: String) {
-            switch string {
-            case "red":
-                self = .red
-            case "orange":
-                self = .orange
-            case "yellow":
-                self = .yellow
-            case "yellow-green":
-                self = .yellowGreen
-            case "light-green":
-                self = .lightGreen
-            case "pink":
-                self = .pink
-            case "purple":
-                self = .purple
-            case "blue":
-                self = .blue
-            default:
-                return nil
-            }
-        }
     }
 }
