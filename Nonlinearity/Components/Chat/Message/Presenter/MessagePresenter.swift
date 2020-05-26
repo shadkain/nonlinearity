@@ -7,6 +7,6 @@
 //
 
 protocol ChatMessagePresenter: class  {
-    var model: ChatMessage { get set }
+    var model: ChatMessage! { get set }
     func show(as role: ChatMessageRole?)
 }

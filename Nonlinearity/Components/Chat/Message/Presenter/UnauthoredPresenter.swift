@@ -8,11 +8,10 @@
 
 final class ChatMessageUnauthoredPresenter: ChatMessagePresenter {
     unowned let view: ChatMessageUnauthoredViewProtocol
-    var model: ChatMessage
+    var model: ChatMessage!
     
-    init(model: ChatMessage, view: ChatMessageUnauthoredViewProtocol) {
+    init(view: ChatMessageUnauthoredViewProtocol) {
         self.view = view
-        self.model = model
         
         view.set(appearance: DarkChatMessageAppearance())
     }

@@ -8,7 +8,7 @@
 
 final class ChatMessageAuthoredPresenter: ChatMessagePresenter {
     unowned let view: ChatMessageAuthoredViewProtocol
-    var model: ChatMessage {
+    var model: ChatMessage! {
         get { unauthoredPresenter.model }
         set { unauthoredPresenter.model = newValue }
     }

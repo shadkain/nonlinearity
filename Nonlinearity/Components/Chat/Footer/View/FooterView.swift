@@ -8,10 +8,6 @@
 
 import UIKit
 
-protocol ChatFooterViewProtocol: class {
-    func set(appearance: ChatBottomViewAppearance)
-}
-
 final class ChatFooterView: UIViewComponent {
     let nextButtonView = UIImageView()
     
@@ -36,11 +32,5 @@ final class ChatFooterView: UIViewComponent {
     
     @objc private func didTapNextButton(_ recognizer: UITapGestureRecognizer) {
         presenter?.didTapNextButton()
-    }
-}
-
-extension ChatFooterView: ChatFooterViewProtocol {
-    func set(appearance: ChatBottomViewAppearance) {
-        nextButtonView.image = .init(imageLiteralResourceName: appearance.nextButtonImageName)
     }
 }

@@ -14,7 +14,7 @@ enum ChatMessageCellVLocation {
 
 final class ChatScreenView: UIViewComponent {
     let headerView = ChatHeaderView()
-    let bottomView = ChatFooterView()
+    let footerView = ChatFooterView()
     let tableView = UITableView()
     
     var presenter: ChatScreenPresenterProtocol!
@@ -40,7 +40,7 @@ final class ChatScreenView: UIViewComponent {
         ChatBaseMessageCell.marginPatterns[.regular] = (top: 0, bottom: 5)
         ChatBaseMessageCell.marginPatterns[.last] = (top: 0, bottom: 8)
         
-        [headerView, bottomView, tableView].forEach {
+        [headerView, footerView, tableView].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
             addSubview($0)
         }
@@ -54,15 +54,15 @@ final class ChatScreenView: UIViewComponent {
             headerView.rightAnchor.constraint(equalTo: rightAnchor),
             headerView.heightAnchor.constraint(equalToConstant: 88),
             // bottomView
-            bottomView.leftAnchor.constraint(equalTo: leftAnchor),
-            bottomView.rightAnchor.constraint(equalTo: rightAnchor),
-            bottomView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
-            bottomView.heightAnchor.constraint(equalToConstant: 50),
+            footerView.leftAnchor.constraint(equalTo: leftAnchor),
+            footerView.rightAnchor.constraint(equalTo: rightAnchor),
+            footerView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
+            footerView.heightAnchor.constraint(equalToConstant: 50),
             // tableView
             tableView.leftAnchor.constraint(equalTo: leftAnchor),
             tableView.topAnchor.constraint(equalTo: headerView.bottomAnchor),
             tableView.rightAnchor.constraint(equalTo: rightAnchor),
-            tableView.bottomAnchor.constraint(equalTo: bottomView.topAnchor),
+            tableView.bottomAnchor.constraint(equalTo: footerView.topAnchor),
         ])
     }
 }

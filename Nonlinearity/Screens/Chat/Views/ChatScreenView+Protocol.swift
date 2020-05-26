@@ -9,6 +9,11 @@
 import UIKit
 
 protocol ChatScreenViewProtocol: class {
+    var presenter: ChatScreenPresenterProtocol! { get set }
+    
+    var headerViewProtocol: ChatHeaderViewProtocol { get }
+    var footerViewProtocol: ChatFooterViewProtocol { get }
+    
     var isScrolledToBottom: Bool { get }
     
     func reload()
@@ -16,6 +21,9 @@ protocol ChatScreenViewProtocol: class {
 }
 
 extension ChatScreenView: ChatScreenViewProtocol {
+    var headerViewProtocol: ChatHeaderViewProtocol { headerView }
+    var footerViewProtocol: ChatFooterViewProtocol { footerView }
+    
     var isScrolledToBottom: Bool {
            ((tableView.contentSize.height - tableView.frame.height) - tableView.contentOffset.y) < tableView.estimatedRowHeight
     }

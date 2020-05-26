@@ -15,6 +15,8 @@ extension ChatHeaderView {
     }
     
     enum spacing {
-        
+        static let backButtonHV: CGFloat = 12
+        static let smallToBottom: CGFloat = 6
+        static let bigToSmallV: CGFloat = 1
     }
 }

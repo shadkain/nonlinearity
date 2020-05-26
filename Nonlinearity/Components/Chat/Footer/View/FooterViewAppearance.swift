@@ -8,11 +8,11 @@
 
 import UIKit
 
-protocol ChatBottomViewAppearance {
+protocol ChatFooterViewAppearance {
     var nextButtonImageName: String { get }
 }
 
-struct DarkChatBottomViewAppearance: ChatBottomViewAppearance {
+struct DarkChatFooterViewAppearance: ChatFooterViewAppearance {
     var nextButtonImageName: String {
         "next-arrow-dark"
     }

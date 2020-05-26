@@ -9,34 +9,15 @@
 import UIKit
 
 protocol ChatHeaderViewAppearance {
-    var backgroundColor: UIColor { get }
+    var backgroundColor: Int { get }
     var backButtonImageName: String { get }
-    var nameTextColor: UIColor { get }
-    var nameFont: UIFont { get }
-    var networkStatusTextColor: UIColor { get }
-    var networkStatusFont: UIFont { get }
-}
-
-extension ChatHeaderViewAppearance {
-    var nameFont: UIFont {
-        .systemFont(ofSize: 16, weight: .semibold)
-    }
-    var networkStatusFont: UIFont {
-        .systemFont(ofSize: 13, weight: .regular)
-    }
+    var bigTextColor: Int { get }
+    var smallTextColor: Int { get }
 }
 
 struct DarkChatHeaderViewAppearance: ChatHeaderViewAppearance {
-    var backgroundColor: UIColor {
-        .hex(rgb: 0x252525)
-    }
-    var backButtonImageName: String {
-        "back-arrow-dark"
-    }
-    var nameTextColor: UIColor {
-        .hex(rgb: 0xE1E3E6)
-    }
-    var networkStatusTextColor: UIColor {
-        .hex(rgb: 0xAEAEAE)
-    }
+    var backgroundColor: Int { 0x252525 }
+    var backButtonImageName: String { "back-arrow-dark" }
+    var bigTextColor: Int { 0xE1E3E6 }
+    var smallTextColor: Int { 0xAEAEAE }
 }

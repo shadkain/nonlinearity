@@ -12,17 +12,19 @@ struct ChatMessageCellConfigurator {
         case .right:
             let view = view as! ChatRightMessageCell
             let presenter = ChatRightMessageCellPresenter(view: view)
-            presenter.unauthoredPresenter = ChatMessageUnauthoredPresenter(model: model, view: view.unauthoredMessageView)
+            presenter.unauthoredPresenter = ChatMessageUnauthoredPresenter(view: view.unauthoredMessageView)
+            presenter.model = model
             view.presenter = presenter
         case .leftUnauthored:
             let view = view as! ChatLeftUnauthoredMessageCell
             let presenter = ChatLeftUnauthoredMessageCellPresenter(view: view)
-            presenter.unauthoredPresenter = ChatMessageUnauthoredPresenter(model: model, view: view.unauthoredMessageView)
+            presenter.unauthoredPresenter = ChatMessageUnauthoredPresenter(view: view.unauthoredMessageView)
+            presenter.model = model
             view.presenter = presenter
         case .leftAuthored:
             let view = view as! ChatLeftAuthoredMessageCell
             let presenter = ChatLeftAuthoredMessageCellPresenter(view: view)
-            presenter.authoredPresenter = ChatMessageAuthoredConfigurator(model: model, view: view.authoredMessageView).presenter
+            presenter.authoredPresenter = ChatMessageAuthoredPresenter.Factory.make(model: model, view: view.authoredMessageView)
             view.presenter = presenter
         }
     }

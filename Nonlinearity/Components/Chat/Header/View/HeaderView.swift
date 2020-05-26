@@ -8,12 +8,6 @@
 
 import UIKit
 
-protocol ChatHeaderViewProtocol: class {
-    func setBigText(_ text: String)
-    func setSmallText(_ text: String)
-    func set(appearance: ChatHeaderViewAppearance)
-}
-
 final class ChatHeaderView: UIViewComponent {
     let backButtonView = UIImageView()
     let bigLabel = UILabel()
@@ -39,12 +33,12 @@ final class ChatHeaderView: UIViewComponent {
     
     override func constraint() {
         NSLayoutConstraint.activate([
-            backButtonView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
-            backButtonView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -12),
+            backButtonView.leftAnchor.constraint(equalTo: leftAnchor, constant: spacing.backButtonHV),
+            backButtonView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -spacing.backButtonHV),
             smallLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            smallLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -6),
+            smallLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -spacing.smallToBottom),
             bigLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            bigLabel.bottomAnchor.constraint(equalTo: smallLabel.topAnchor, constant: -1),
+            bigLabel.bottomAnchor.constraint(equalTo: smallLabel.topAnchor, constant: -spacing.bigToSmallV),
         ])
     }
     
@@ -53,24 +47,3 @@ final class ChatHeaderView: UIViewComponent {
     }
 }
 
-extension ChatHeaderView: ChatHeaderViewProtocol {
-    func setBigText(_ text: String) {
-        bigLabel.text = text
-    }
-    
-    func setSmallText(_ text: String) {
-        smallLabel.text = text
-    }
-    
-    func set(appearance: ChatHeaderViewAppearance) {
-        backgroundColor = appearance.backgroundColor
-        
-        backButtonView.image = .init(imageLiteralResourceName: appearance.backButtonImageName)
-        
-        bigLabel.font = appearance.nameFont
-        bigLabel.textColor = appearance.nameTextColor
-        
-        smallLabel.font = appearance.networkStatusFont
-        smallLabel.textColor = appearance.networkStatusTextColor
-    }
-}
