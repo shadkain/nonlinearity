@@ -37,8 +37,6 @@ class TableCardViewCell: UITableViewCell {
         collectionView!.dataSource = self
         collectionView!.delegate = self
 
-        // Setting the collection view scrolling behaviour
-        collectionView!.isPagingEnabled = true
         collectionView!.isScrollEnabled = true
         collectionView!.setContentOffset(CGPoint(x: 0,y: 0), animated: true)
 

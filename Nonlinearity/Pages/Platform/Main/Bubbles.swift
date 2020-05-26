@@ -53,7 +53,23 @@ extension Bubbles {
             ),
             .init(
                 title: "Детектив",
-                imageName: "face-horror"
+                imageName: "face-detective"
+            ),
+            .init(
+                title: "Фантастика",
+                imageName: "face-fantasy"
+            ),
+            .init(
+                title: "Экшен",
+                imageName: "face-action"
+            ),
+            .init(
+                title: "Реализм",
+                imageName: "face-realism"
+            ),
+            .init(
+                title: "Семейное",
+                imageName: "face-family"
             )
         ])
         

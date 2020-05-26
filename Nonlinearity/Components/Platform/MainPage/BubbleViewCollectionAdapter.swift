@@ -24,7 +24,6 @@ class BubbleViewCollectionAdapter: UIViewComponent {
         
         
         collectionView!.backgroundColor = .hex(rgb: 0x252525)
-        collectionView!.isPagingEnabled = true
         collectionView!.isScrollEnabled = true
         collectionView!.setContentOffset(CGPoint(x: 0,y: 0), animated: true)
         
@@ -44,6 +43,10 @@ extension BubbleViewCollectionAdapter: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath)
+        
+        for subview in myCell.contentView.subviews {
+            subview.removeFromSuperview()
+        }
         
         let sv = bubbles.getBubbleViewByIndex(index: indexPath.item)
          sv.translatesAutoresizingMaskIntoConstraints = false
