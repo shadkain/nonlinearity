@@ -23,17 +23,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = .init(frame: UIScreen.main.bounds)
         window?.windowScene = windowScene
         
-        let chatView = ChatScreenViewController()
+//        let chatView = ChatScreenViewController()
+//
+//        let filepath = Bundle.main.path(forResource: "test-story", ofType: "json")
+//        let jsonString = try! String(contentsOfFile: filepath!)
+//        let chatJSON = try! JSONDecoder().decode(ChatJSON.self, from: jsonString.data(using: .utf8)!)
+//        let chatModel = ChatLoader().load(from: chatJSON)!
+//
+//        let presenter = ChatScreenPresenter(model: chatModel, view: chatView.screenView)
+//        presenter.show()
+        let authScreen = AuthMainScreenViewController()
+        authScreen.screenView.presenter = AuthMainScreenPresenter()
         
-        let filepath = Bundle.main.path(forResource: "test-story", ofType: "json")
-        let jsonString = try! String(contentsOfFile: filepath!)
-        let chatJSON = try! JSONDecoder().decode(ChatJSON.self, from: jsonString.data(using: .utf8)!)
-        let chatModel = ChatLoader().load(from: chatJSON)!
-        
-        let presenter = ChatScreenPresenter(model: chatModel, view: chatView.screenView)
-        presenter.show()
-        
-        window?.rootViewController = chatView
+        window?.rootViewController = authScreen
         window?.makeKeyAndVisible()
     }
 

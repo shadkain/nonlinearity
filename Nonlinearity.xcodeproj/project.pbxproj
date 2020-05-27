@@ -45,6 +45,10 @@
 		96113CE3247E8A87004BCE54 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96113CE2247E8A87004BCE54 /* Router.swift */; };
 		96113CE9247EF3FB004BCE54 /* UIScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96113CE8247EF3FB004BCE54 /* UIScreenView.swift */; };
 		96113CEB247EF444004BCE54 /* UIScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96113CEA247EF444004BCE54 /* UIScreenViewController.swift */; };
+		96113CED247EFC76004BCE54 /* AuthMainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96113CEC247EFC76004BCE54 /* AuthMainScreenView.swift */; };
+		96113CEF247EFE6B004BCE54 /* AuthMainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96113CEE247EFE6B004BCE54 /* AuthMainScreenViewController.swift */; };
+		96113CF1247F124B004BCE54 /* AuthMainScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96113CF0247F124B004BCE54 /* AuthMainScreenPresenter.swift */; };
+		96113CF3247F12C1004BCE54 /* AuthMainScreenPresenter+Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96113CF2247F12C1004BCE54 /* AuthMainScreenPresenter+Protocol.swift */; };
 		9626697A243CCB1D00B65416 /* UIViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96266979243CCB1D00B65416 /* UIViewComponent.swift */; };
 		9626697D243CD39800B65416 /* String+Width.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9626697C243CD39800B65416 /* String+Width.swift */; };
 		962791742460B718009A047D /* ChatScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962791732460B718009A047D /* ChatScreenView.swift */; };
@@ -132,6 +136,10 @@
 		96113CE2247E8A87004BCE54 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		96113CE8247EF3FB004BCE54 /* UIScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScreenView.swift; sourceTree = "<group>"; };
 		96113CEA247EF444004BCE54 /* UIScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScreenViewController.swift; sourceTree = "<group>"; };
+		96113CEC247EFC76004BCE54 /* AuthMainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthMainScreenView.swift; sourceTree = "<group>"; };
+		96113CEE247EFE6B004BCE54 /* AuthMainScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthMainScreenViewController.swift; sourceTree = "<group>"; };
+		96113CF0247F124B004BCE54 /* AuthMainScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthMainScreenPresenter.swift; sourceTree = "<group>"; };
+		96113CF2247F12C1004BCE54 /* AuthMainScreenPresenter+Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthMainScreenPresenter+Protocol.swift"; sourceTree = "<group>"; };
 		96266979243CCB1D00B65416 /* UIViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewComponent.swift; sourceTree = "<group>"; };
 		9626697C243CD39800B65416 /* String+Width.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Width.swift"; sourceTree = "<group>"; };
 		962791732460B718009A047D /* ChatScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatScreenView.swift; sourceTree = "<group>"; };
@@ -412,9 +420,7 @@
 		96113CE4247ED665004BCE54 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				96113CE7247ED6A8004BCE54 /* New Group */,
-				96113CE6247ED688004BCE54 /* Presenter */,
-				96113CE5247ED676004BCE54 /* View */,
+				96113CE7247ED6A8004BCE54 /* Main */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -422,6 +428,8 @@
 		96113CE5247ED676004BCE54 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				96113CEC247EFC76004BCE54 /* AuthMainScreenView.swift */,
+				96113CEE247EFE6B004BCE54 /* AuthMainScreenViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -429,15 +437,19 @@
 		96113CE6247ED688004BCE54 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				96113CF0247F124B004BCE54 /* AuthMainScreenPresenter.swift */,
+				96113CF2247F12C1004BCE54 /* AuthMainScreenPresenter+Protocol.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
 		};
-		96113CE7247ED6A8004BCE54 /* New Group */ = {
+		96113CE7247ED6A8004BCE54 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				96113CE6247ED688004BCE54 /* Presenter */,
+				96113CE5247ED676004BCE54 /* View */,
 			);
-			path = "New Group";
+			path = Main;
 			sourceTree = "<group>";
 		};
 		9626697B243CCCD100B65416 /* Framework */ = {
@@ -737,6 +749,7 @@
 				96A0398A24586E06001EF1C6 /* UnauthoredView+LayoutDelegate.swift in Sources */,
 				969271E12458D2B000979597 /* HeaderViewAppearance.swift in Sources */,
 				9626697A243CCB1D00B65416 /* UIViewComponent.swift in Sources */,
+				96113CF1247F124B004BCE54 /* AuthMainScreenPresenter.swift in Sources */,
 				96113CB7247C2232004BCE54 /* CDChat+CoreDataClass.swift in Sources */,
 				96A0398024543B5E001EF1C6 /* AuthoredPresenter.swift in Sources */,
 				96113C4B2475FC51004BCE54 /* BaseLeftCellPresenter.swift in Sources */,
@@ -788,6 +801,7 @@
 				96113C662479192B004BCE54 /* UIGradientLabel.swift in Sources */,
 				96113C53247723C0004BCE54 /* ChatScreenView+DataSource.swift in Sources */,
 				96A0398824543C2D001EF1C6 /* ChatMessageModel.swift in Sources */,
+				96113CED247EFC76004BCE54 /* AuthMainScreenView.swift in Sources */,
 				96113CDB247D52C4004BCE54 /* RightCell+Protocol.swift in Sources */,
 				96113C4D2475FE2A004BCE54 /* RightCellPresenter.swift in Sources */,
 				96113C552477456F004BCE54 /* BaseMessageCell+MarginConstraints.swift in Sources */,
@@ -798,8 +812,10 @@
 				96113CCE247CF9DE004BCE54 /* ChatScreenPresenter+Protocol.swift in Sources */,
 				96CDD1B224361D1C00A7D2FF /* StoryCardView.swift in Sources */,
 				96113CB9247C2993004BCE54 /* HeaderView+Constants.swift in Sources */,
+				96113CEF247EFE6B004BCE54 /* AuthMainScreenViewController.swift in Sources */,
 				96113C6224786396004BCE54 /* ChatAuthor.swift in Sources */,
 				96279176246365C7009A047D /* ChatScreenView+Constants.swift in Sources */,
+				96113CF3247F12C1004BCE54 /* AuthMainScreenPresenter+Protocol.swift in Sources */,
 				96113CDE247D55E2004BCE54 /* ChatMessageCellPresenterFactory.swift in Sources */,
 				969271F12459BD5700979597 /* FooterPresenterProtocol.swift in Sources */,
 				9698FA78244E425300AE69CE /* FooterView.swift in Sources */,
