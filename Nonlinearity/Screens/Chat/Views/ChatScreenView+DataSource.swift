@@ -16,7 +16,7 @@ extension ChatScreenView: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: presenter.messageId(at: indexPath.row), for: indexPath) as! ChatBaseMessageCell
         
-        cell.maxMessageWidth = 290
+        cell.maxMessageWidth = bounds.width - spacing.messageWidthOffset
         presenter.showCell(cell, at: indexPath.row)
         
         return cell

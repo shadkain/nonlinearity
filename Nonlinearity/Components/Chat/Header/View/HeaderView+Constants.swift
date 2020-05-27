@@ -10,7 +10,7 @@ import UIKit
 
 extension ChatHeaderView {
     enum fonts {
-        static let bigLabel: UIFont = .systemFont(ofSize: 16, weight: .regular)
+        static let bigLabel: UIFont = .systemFont(ofSize: 16, weight: .semibold)
         static let smallLabel: UIFont = .systemFont(ofSize: 13, weight: .regular)
     }
     

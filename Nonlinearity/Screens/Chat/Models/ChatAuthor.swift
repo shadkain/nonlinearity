@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChatAuthor {
+final class ChatAuthor {
     var name: String
     var surname: String?
     var colors: Colors

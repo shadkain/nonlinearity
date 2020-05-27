@@ -16,5 +16,6 @@ extension ChatScreenView {
     enum spacing {
         static let messageSmallV: CGFloat = 5
         static let messageBigV: CGFloat = 8
+        static let messageWidthOffset: CGFloat = 85
     }
 }

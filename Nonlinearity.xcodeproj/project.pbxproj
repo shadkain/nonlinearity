@@ -42,6 +42,7 @@
 		96113CDB247D52C4004BCE54 /* RightCell+Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96113CDA247D52C4004BCE54 /* RightCell+Protocol.swift */; };
 		96113CDE247D55E2004BCE54 /* ChatMessageCellPresenterFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96113CDD247D55E2004BCE54 /* ChatMessageCellPresenterFactory.swift */; };
 		96113CE0247D58A6004BCE54 /* LeftCells+Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96113CDF247D58A6004BCE54 /* LeftCells+Protocol.swift */; };
+		96113CE3247E8A87004BCE54 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96113CE2247E8A87004BCE54 /* Router.swift */; };
 		9626697A243CCB1D00B65416 /* UIViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96266979243CCB1D00B65416 /* UIViewComponent.swift */; };
 		9626697D243CD39800B65416 /* String+Width.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9626697C243CD39800B65416 /* String+Width.swift */; };
 		962791742460B718009A047D /* ChatScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962791732460B718009A047D /* ChatScreenView.swift */; };
@@ -126,6 +127,7 @@
 		96113CDA247D52C4004BCE54 /* RightCell+Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RightCell+Protocol.swift"; sourceTree = "<group>"; };
 		96113CDD247D55E2004BCE54 /* ChatMessageCellPresenterFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessageCellPresenterFactory.swift; sourceTree = "<group>"; };
 		96113CDF247D58A6004BCE54 /* LeftCells+Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LeftCells+Protocol.swift"; sourceTree = "<group>"; };
+		96113CE2247E8A87004BCE54 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		96266979243CCB1D00B65416 /* UIViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewComponent.swift; sourceTree = "<group>"; };
 		9626697C243CD39800B65416 /* String+Width.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Width.swift"; sourceTree = "<group>"; };
 		962791732460B718009A047D /* ChatScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatScreenView.swift; sourceTree = "<group>"; };
@@ -395,6 +397,14 @@
 			path = Factory;
 			sourceTree = "<group>";
 		};
+		96113CE1247E89FE004BCE54 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				96113CE2247E8A87004BCE54 /* Router.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
 		9626697B243CCCD100B65416 /* Framework */ = {
 			isa = PBXGroup;
 			children = (
@@ -546,6 +556,7 @@
 		CAD59A352435151600974C2D /* Nonlinearity */ = {
 			isa = PBXGroup;
 			children = (
+				96113CE1247E89FE004BCE54 /* Router */,
 				96113C7F2479CAA7004BCE54 /* CoreData */,
 				96113C56247852B8004BCE54 /* Services */,
 				968F0C72243E71A70052768E /* Screens */,
@@ -733,6 +744,7 @@
 				96113C6824791ACB004BCE54 /* CGContext+Gradient.swift in Sources */,
 				96113C5C24785445004BCE54 /* ChatAuthorJSON.swift in Sources */,
 				969272072460582800979597 /* BaseMessageCell.swift in Sources */,
+				96113CE3247E8A87004BCE54 /* Router.swift in Sources */,
 				96113C662479192B004BCE54 /* UIGradientLabel.swift in Sources */,
 				96113C53247723C0004BCE54 /* ChatScreenView+DataSource.swift in Sources */,
 				96A0398824543C2D001EF1C6 /* ChatMessageModel.swift in Sources */,

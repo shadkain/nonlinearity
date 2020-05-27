@@ -16,7 +16,7 @@ enum ChatMessageRole {
     case firstPerson, secondPerson
 }
 
-class ChatModel {
+final class ChatModel {
     let title: String
     private let firstPerson: ChatAuthor
     private let companions: [ChatAuthor]
