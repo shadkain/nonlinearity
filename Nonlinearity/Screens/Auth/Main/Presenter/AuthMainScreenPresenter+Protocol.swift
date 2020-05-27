@@ -13,10 +13,10 @@ protocol AuthMainScreenPresenterProtocol {
 
 extension AuthMainScreenPresenter: AuthMainScreenPresenterProtocol {
     func didTapLoginButton() {
-        print("didTapLoginButton")
+        router?.route(to: .login)
     }
     
     func didTapRegisterButton() {
-        print("didTapRegisterButton")
+        router?.route(to: .register)
     }
 }

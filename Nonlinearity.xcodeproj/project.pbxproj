@@ -49,6 +49,8 @@
 		96113CEF247EFE6B004BCE54 /* AuthMainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96113CEE247EFE6B004BCE54 /* AuthMainScreenViewController.swift */; };
 		96113CF1247F124B004BCE54 /* AuthMainScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96113CF0247F124B004BCE54 /* AuthMainScreenPresenter.swift */; };
 		96113CF3247F12C1004BCE54 /* AuthMainScreenPresenter+Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96113CF2247F12C1004BCE54 /* AuthMainScreenPresenter+Protocol.swift */; };
+		96113CF7247F1712004BCE54 /* Router+AuthMainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96113CF6247F1711004BCE54 /* Router+AuthMainScreen.swift */; };
+		96113CFB247F187C004BCE54 /* Router+AuthMainRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96113CFA247F187C004BCE54 /* Router+AuthMainRoutes.swift */; };
 		9626697A243CCB1D00B65416 /* UIViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96266979243CCB1D00B65416 /* UIViewComponent.swift */; };
 		9626697D243CD39800B65416 /* String+Width.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9626697C243CD39800B65416 /* String+Width.swift */; };
 		962791742460B718009A047D /* ChatScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962791732460B718009A047D /* ChatScreenView.swift */; };
@@ -140,6 +142,8 @@
 		96113CEE247EFE6B004BCE54 /* AuthMainScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthMainScreenViewController.swift; sourceTree = "<group>"; };
 		96113CF0247F124B004BCE54 /* AuthMainScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthMainScreenPresenter.swift; sourceTree = "<group>"; };
 		96113CF2247F12C1004BCE54 /* AuthMainScreenPresenter+Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthMainScreenPresenter+Protocol.swift"; sourceTree = "<group>"; };
+		96113CF6247F1711004BCE54 /* Router+AuthMainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Router+AuthMainScreen.swift"; sourceTree = "<group>"; };
+		96113CFA247F187C004BCE54 /* Router+AuthMainRoutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Router+AuthMainRoutes.swift"; sourceTree = "<group>"; };
 		96266979243CCB1D00B65416 /* UIViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewComponent.swift; sourceTree = "<group>"; };
 		9626697C243CD39800B65416 /* String+Width.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Width.swift"; sourceTree = "<group>"; };
 		962791732460B718009A047D /* ChatScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatScreenView.swift; sourceTree = "<group>"; };
@@ -413,6 +417,7 @@
 			isa = PBXGroup;
 			children = (
 				96113CE2247E8A87004BCE54 /* Router.swift */,
+				96113CF6247F1711004BCE54 /* Router+AuthMainScreen.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -446,10 +451,19 @@
 		96113CE7247ED6A8004BCE54 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				96113CF9247F1868004BCE54 /* Router */,
 				96113CE6247ED688004BCE54 /* Presenter */,
 				96113CE5247ED676004BCE54 /* View */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		96113CF9247F1868004BCE54 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				96113CFA247F187C004BCE54 /* Router+AuthMainRoutes.swift */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 		9626697B243CCCD100B65416 /* Framework */ = {
@@ -788,6 +802,7 @@
 				968F0C80244251760052768E /* Queue.swift in Sources */,
 				969271E32458D41200979597 /* HeaderPresenterProtocol.swift in Sources */,
 				96927201245E157400979597 /* LeftCells.swift in Sources */,
+				96113CFB247F187C004BCE54 /* Router+AuthMainRoutes.swift in Sources */,
 				962791742460B718009A047D /* ChatScreenView.swift in Sources */,
 				96113C5E24785837004BCE54 /* ChatService.swift in Sources */,
 				969272092460585600979597 /* BaseLeftCell.swift in Sources */,
@@ -812,6 +827,7 @@
 				96113CCE247CF9DE004BCE54 /* ChatScreenPresenter+Protocol.swift in Sources */,
 				96CDD1B224361D1C00A7D2FF /* StoryCardView.swift in Sources */,
 				96113CB9247C2993004BCE54 /* HeaderView+Constants.swift in Sources */,
+				96113CF7247F1712004BCE54 /* Router+AuthMainScreen.swift in Sources */,
 				96113CEF247EFE6B004BCE54 /* AuthMainScreenViewController.swift in Sources */,
 				96113C6224786396004BCE54 /* ChatAuthor.swift in Sources */,
 				96279176246365C7009A047D /* ChatScreenView+Constants.swift in Sources */,
