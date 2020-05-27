@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class ChatScreenView: UIViewComponent {
+final class ChatScreenView: UIScreenView {
     let headerView = ChatHeaderView()
     let footerView = ChatFooterView()
     let tableView = UITableView()
@@ -43,17 +43,19 @@ final class ChatScreenView: UIViewComponent {
     }
     
     override func constraint() {
+        let headerBottomConst: CGFloat = (window?.safeAreaInsets.top ?? 1 > 0) ? 44 : 72
+        
         NSLayoutConstraint.activate([
             // headerView
             headerView.leftAnchor.constraint(equalTo: leftAnchor),
             headerView.topAnchor.constraint(equalTo: topAnchor),
             headerView.rightAnchor.constraint(equalTo: rightAnchor),
-            headerView.heightAnchor.constraint(equalToConstant: 88),
+            headerView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: headerBottomConst),
             // bottomView
             footerView.leftAnchor.constraint(equalTo: leftAnchor),
             footerView.rightAnchor.constraint(equalTo: rightAnchor),
             footerView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
-            footerView.heightAnchor.constraint(equalToConstant: 50),
+            footerView.heightAnchor.constraint(equalToConstant: 70),
             // tableView
             tableView.leftAnchor.constraint(equalTo: leftAnchor),
             tableView.topAnchor.constraint(equalTo: headerView.bottomAnchor),

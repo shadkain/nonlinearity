@@ -8,12 +8,9 @@
 
 import UIKit
 
-final class ChatScreenViewController: UIViewController {
+final class ChatScreenViewController: UIScreenViewController {
     let screenView = ChatScreenView()
+    override var requiredScreenView: UIScreenView { screenView }
     
     override var prefersStatusBarHidden: Bool { true }
-    
-    override func loadView() {
-        view = screenView
-    }
 }
