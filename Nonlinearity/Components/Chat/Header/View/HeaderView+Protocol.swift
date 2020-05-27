@@ -28,8 +28,8 @@ extension ChatHeaderView: ChatHeaderViewProtocol {
         backgroundColor = .hex(rgb: appearance.backgroundColor)
         
         backButtonView.image = .init(imageLiteralResourceName: appearance.backButtonImageName)
-        bigLabel.textColor = .hex(rgb: appearance.bigTextColor)
-        smallLabel.textColor = .hex(rgb: appearance.smallTextColor)
+        bigLabel.textColor = .init(hex: appearance.bigTextColor)
+        smallLabel.textColor = .init(hex: appearance.smallTextColor)
     }
 }
 
