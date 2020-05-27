@@ -41,7 +41,7 @@ extension ChatMessageUnauthoredView {
             let maxWidth = widthConstraint.constant
             
             timeWidth = timeLabel.textWidth
-            let messageTextBreakpoint = maxWidth - (2*spacing.commonH + timeWidth)
+            let messageTextBreakpoint = maxWidth - (3*spacing.commonH + timeWidth)
             if messageLabel.textWidth < messageTextBreakpoint {
                 state = .singleLine
                 return
