@@ -405,6 +405,37 @@
 			path = Router;
 			sourceTree = "<group>";
 		};
+		96113CE4247ED665004BCE54 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				96113CE7247ED6A8004BCE54 /* New Group */,
+				96113CE6247ED688004BCE54 /* Presenter */,
+				96113CE5247ED676004BCE54 /* View */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		96113CE5247ED676004BCE54 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		96113CE6247ED688004BCE54 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		96113CE7247ED6A8004BCE54 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		9626697B243CCCD100B65416 /* Framework */ = {
 			isa = PBXGroup;
 			children = (
@@ -420,6 +451,7 @@
 		968F0C72243E71A70052768E /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				96113CE4247ED665004BCE54 /* Auth */,
 				968F0C73243E71B40052768E /* Chat */,
 			);
 			path = Screens;
