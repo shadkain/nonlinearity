@@ -41,6 +41,13 @@
 		CA3BA18824755AFD00A6C3A9 /* InProgressPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3BA18724755AFD00A6C3A9 /* InProgressPageView.swift */; };
 		CA3BA19124755E5A00A6C3A9 /* StoryCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3BA19024755E5A00A6C3A9 /* StoryCard.swift */; };
 		CA3BA193247821A800A6C3A9 /* UIViewComponentCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3BA192247821A800A6C3A9 /* UIViewComponentCollection.swift */; };
+		CA776353247D559600EA768F /* StoryPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA776352247D559600EA768F /* StoryPageView.swift */; };
+		CA776356247D560100EA768F /* StoryImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA776355247D560100EA768F /* StoryImageView.swift */; };
+		CA776358247D60A800EA768F /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA776357247D60A800EA768F /* RatingView.swift */; };
+		CA77635A247D6D9F00EA768F /* ViewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA776359247D6D9F00EA768F /* ViewsView.swift */; };
+		CA77635C247D81E400EA768F /* GenresView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA77635B247D81E400EA768F /* GenresView.swift */; };
+		CA776360247D8CDA00EA768F /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA77635F247D8CDA00EA768F /* ButtonView.swift */; };
+		CA776362247E73F500EA768F /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA776361247E73F500EA768F /* DescriptionView.swift */; };
 		CA920C9A244DA92F00BBC461 /* Bubbles.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA920C99244DA92F00BBC461 /* Bubbles.swift */; };
 		CA920CA0244DF24400BBC461 /* TableCardViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA920C9F244DF24400BBC461 /* TableCardViewAdapter.swift */; };
 		CA920CA2244DF28C00BBC461 /* TableCardViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA920CA1244DF28C00BBC461 /* TableCardViewCell.swift */; };
@@ -90,6 +97,13 @@
 		CA3BA18724755AFD00A6C3A9 /* InProgressPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InProgressPageView.swift; sourceTree = "<group>"; };
 		CA3BA19024755E5A00A6C3A9 /* StoryCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCard.swift; sourceTree = "<group>"; };
 		CA3BA192247821A800A6C3A9 /* UIViewComponentCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewComponentCollection.swift; sourceTree = "<group>"; };
+		CA776352247D559600EA768F /* StoryPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryPageView.swift; sourceTree = "<group>"; };
+		CA776355247D560100EA768F /* StoryImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryImageView.swift; sourceTree = "<group>"; };
+		CA776357247D60A800EA768F /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
+		CA776359247D6D9F00EA768F /* ViewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewsView.swift; sourceTree = "<group>"; };
+		CA77635B247D81E400EA768F /* GenresView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenresView.swift; sourceTree = "<group>"; };
+		CA77635F247D8CDA00EA768F /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
+		CA776361247E73F500EA768F /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
 		CA920C99244DA92F00BBC461 /* Bubbles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bubbles.swift; sourceTree = "<group>"; };
 		CA920C9F244DF24400BBC461 /* TableCardViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCardViewAdapter.swift; sourceTree = "<group>"; };
 		CA920CA1244DF28C00BBC461 /* TableCardViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCardViewCell.swift; sourceTree = "<group>"; };
@@ -196,6 +210,7 @@
 		96CDD1AE2435204B00A7D2FF /* Platform */ = {
 			isa = PBXGroup;
 			children = (
+				CA776354247D55DF00EA768F /* StoryPage */,
 				CA127C2824752D6D004394D3 /* DownloadsAndInProgressPage */,
 				CA920C95244DA41700BBC461 /* Elements */,
 				CA920C86244CA14600BBC461 /* MainPage */,
@@ -273,9 +288,31 @@
 			path = DownloadsAndInProgress;
 			sourceTree = "<group>";
 		};
+		CA776351247D557400EA768F /* Story */ = {
+			isa = PBXGroup;
+			children = (
+				CA776352247D559600EA768F /* StoryPageView.swift */,
+			);
+			path = Story;
+			sourceTree = "<group>";
+		};
+		CA776354247D55DF00EA768F /* StoryPage */ = {
+			isa = PBXGroup;
+			children = (
+				CA776355247D560100EA768F /* StoryImageView.swift */,
+				CA776357247D60A800EA768F /* RatingView.swift */,
+				CA776359247D6D9F00EA768F /* ViewsView.swift */,
+				CA77635B247D81E400EA768F /* GenresView.swift */,
+				CA77635F247D8CDA00EA768F /* ButtonView.swift */,
+				CA776361247E73F500EA768F /* DescriptionView.swift */,
+			);
+			path = StoryPage;
+			sourceTree = "<group>";
+		};
 		CA920C7F244C8ECF00BBC461 /* Platform */ = {
 			isa = PBXGroup;
 			children = (
+				CA776351247D557400EA768F /* Story */,
 				CA127C2A24752DCC004394D3 /* DownloadsAndInProgress */,
 				CA127C2924752DB6004394D3 /* Main */,
 			);
@@ -457,6 +494,7 @@
 				968F0C75243E71D40052768E /* ChatPageView.swift in Sources */,
 				CA3BA19124755E5A00A6C3A9 /* StoryCard.swift in Sources */,
 				CAD59A3B2435151600974C2D /* ViewController.swift in Sources */,
+				CA776358247D60A800EA768F /* RatingView.swift in Sources */,
 				968F0CB7244729190052768E /* Chat.swift in Sources */,
 				CA920CA4244DF31100BBC461 /* MainPageView.swift in Sources */,
 				9626697A243CCB1D00B65416 /* UIViewComponent.swift in Sources */,
@@ -467,9 +505,12 @@
 				C64DFA4E247C2AD3007F8DED /* CircleSystem.swift in Sources */,
 				968F0C842443798B0052768E /* UILabel.swift in Sources */,
 				CA3BA18824755AFD00A6C3A9 /* InProgressPageView.swift in Sources */,
+				CA77635C247D81E400EA768F /* GenresView.swift in Sources */,
+				CA776353247D559600EA768F /* StoryPageView.swift in Sources */,
 				CAD59A372435151600974C2D /* AppDelegate.swift in Sources */,
 				968F0CB3244616AE0052768E /* UITableViewCellComponent.swift in Sources */,
 				CAD59A392435151600974C2D /* SceneDelegate.swift in Sources */,
+				CA776360247D8CDA00EA768F /* ButtonView.swift in Sources */,
 				C64DFA4A247C2AD3007F8DED /* MainBlock.swift in Sources */,
 				96CDD1B0243520FE00A7D2FF /* MessageView.swift in Sources */,
 				CA06FF852457358D00C33921 /* StoryCards.swift in Sources */,
@@ -481,12 +522,15 @@
 				C6B69F57247C2BC500744C63 /* NetworkManager.swift in Sources */,
 				CA127C2C24752E6A004394D3 /* CardsCollectionViewAdapter.swift in Sources */,
 				C64DFA4D247C2AD3007F8DED /* UpperBlock.swift in Sources */,
+				CA77635A247D6D9F00EA768F /* ViewsView.swift in Sources */,
 				9626697D243CD39800B65416 /* String.swift in Sources */,
 				C6B69F54247C2BC500744C63 /* User.swift in Sources */,
 				CA920C9A244DA92F00BBC461 /* Bubbles.swift in Sources */,
 				C64DFA4B247C2AD3007F8DED /* ProfileViewController.swift in Sources */,
 				96CDD1B224361D1C00A7D2FF /* StoryCardView.swift in Sources */,
 				CA920CA624503D3800BBC461 /* BubbleViewCollectionAdapter.swift in Sources */,
+				CA776362247E73F500EA768F /* DescriptionView.swift in Sources */,
+				CA776356247D560100EA768F /* StoryImageView.swift in Sources */,
 				96CDD1B224361D1C00A7D2FF /* StoryCardView.swift in Sources */,
 				CA920CA0244DF24400BBC461 /* TableCardViewAdapter.swift in Sources */,
 				CA06FF892457715200C33921 /* TabView.swift in Sources */,
