@@ -32,13 +32,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //
 //        let presenter = ChatScreenPresenter(model: chatModel, view: chatView.screenView)
 //        presenter.show()
-        let router = Router()
-        let authScreen = AuthMainScreenViewController()
-        let presenter = AuthMainScreenPresenter()
-        presenter.router = router
+//        let router = Router()
+//        let authScreen = AuthMainScreenViewController()
+//        let presenter = AuthMainScreenPresenter()
+//        presenter.router = router
+//
+//        authScreen.screenView.presenter = presenter
         
-        authScreen.screenView.presenter = presenter
-        
+        let authScreen = AuthScreenViewController()
+        AuthScreenFactory.make(view: authScreen.screenView).setupView()
         
         window?.rootViewController = authScreen
         window?.makeKeyAndVisible()

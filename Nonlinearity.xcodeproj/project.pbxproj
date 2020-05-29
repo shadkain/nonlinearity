@@ -51,6 +51,21 @@
 		96113CF3247F12C1004BCE54 /* AuthMainScreenPresenter+Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96113CF2247F12C1004BCE54 /* AuthMainScreenPresenter+Protocol.swift */; };
 		96113CF7247F1712004BCE54 /* Router+AuthMainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96113CF6247F1711004BCE54 /* Router+AuthMainScreen.swift */; };
 		96113CFB247F187C004BCE54 /* Router+AuthMainRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96113CFA247F187C004BCE54 /* Router+AuthMainRoutes.swift */; };
+		96113D01247F19DB004BCE54 /* AuthScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96113D00247F19DB004BCE54 /* AuthScreenView.swift */; };
+		96113D03247F19EF004BCE54 /* AuthScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96113D02247F19EF004BCE54 /* AuthScreenViewController.swift */; };
+		96113D08247FE10E004BCE54 /* DoubleFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96113D07247FE10E004BCE54 /* DoubleFormView.swift */; };
+		96113D0A247FF75C004BCE54 /* DoubleFormView+Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96113D09247FF75C004BCE54 /* DoubleFormView+Protocol.swift */; };
+		96113D0C247FFBD6004BCE54 /* DoubleFormPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96113D0B247FFBD6004BCE54 /* DoubleFormPresenterProtocol.swift */; };
+		96113D0E247FFC1A004BCE54 /* DoubleFormPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96113D0D247FFC1A004BCE54 /* DoubleFormPresenter.swift */; };
+		96113D10247FFD2B004BCE54 /* AuthLoginScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96113D0F247FFD2B004BCE54 /* AuthLoginScreenPresenter.swift */; };
+		96113D12247FFE8B004BCE54 /* AuthScreenView+Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96113D11247FFE8B004BCE54 /* AuthScreenView+Protocol.swift */; };
+		96113D14247FFF25004BCE54 /* AuthScreenPresenter+Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96113D13247FFF25004BCE54 /* AuthScreenPresenter+Protocol.swift */; };
+		96113D16248008A4004BCE54 /* DoubleFormView+TextDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96113D15248008A3004BCE54 /* DoubleFormView+TextDelegate.swift */; };
+		96113D1924804C4C004BCE54 /* AuthScreenFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96113D1824804C4C004BCE54 /* AuthScreenFactory.swift */; };
+		96113D1F2480508E004BCE54 /* DoubleFormModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96113D1E2480508E004BCE54 /* DoubleFormModelProtocol.swift */; };
+		96113D21248059A9004BCE54 /* AuthFormModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96113D20248059A9004BCE54 /* AuthFormModel.swift */; };
+		96113D23248059D1004BCE54 /* ChangePasswordFormModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96113D22248059D0004BCE54 /* ChangePasswordFormModel.swift */; };
+		96113D2624805A09004BCE54 /* DoubleFormFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96113D2524805A09004BCE54 /* DoubleFormFactory.swift */; };
 		9626697A243CCB1D00B65416 /* UIViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96266979243CCB1D00B65416 /* UIViewComponent.swift */; };
 		9626697D243CD39800B65416 /* String+Width.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9626697C243CD39800B65416 /* String+Width.swift */; };
 		962791742460B718009A047D /* ChatScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962791732460B718009A047D /* ChatScreenView.swift */; };
@@ -144,6 +159,21 @@
 		96113CF2247F12C1004BCE54 /* AuthMainScreenPresenter+Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthMainScreenPresenter+Protocol.swift"; sourceTree = "<group>"; };
 		96113CF6247F1711004BCE54 /* Router+AuthMainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Router+AuthMainScreen.swift"; sourceTree = "<group>"; };
 		96113CFA247F187C004BCE54 /* Router+AuthMainRoutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Router+AuthMainRoutes.swift"; sourceTree = "<group>"; };
+		96113D00247F19DB004BCE54 /* AuthScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthScreenView.swift; sourceTree = "<group>"; };
+		96113D02247F19EF004BCE54 /* AuthScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthScreenViewController.swift; sourceTree = "<group>"; };
+		96113D07247FE10E004BCE54 /* DoubleFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleFormView.swift; sourceTree = "<group>"; };
+		96113D09247FF75C004BCE54 /* DoubleFormView+Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DoubleFormView+Protocol.swift"; sourceTree = "<group>"; };
+		96113D0B247FFBD6004BCE54 /* DoubleFormPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleFormPresenterProtocol.swift; sourceTree = "<group>"; };
+		96113D0D247FFC1A004BCE54 /* DoubleFormPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleFormPresenter.swift; sourceTree = "<group>"; };
+		96113D0F247FFD2B004BCE54 /* AuthLoginScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthLoginScreenPresenter.swift; sourceTree = "<group>"; };
+		96113D11247FFE8B004BCE54 /* AuthScreenView+Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthScreenView+Protocol.swift"; sourceTree = "<group>"; };
+		96113D13247FFF25004BCE54 /* AuthScreenPresenter+Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthScreenPresenter+Protocol.swift"; sourceTree = "<group>"; };
+		96113D15248008A3004BCE54 /* DoubleFormView+TextDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DoubleFormView+TextDelegate.swift"; sourceTree = "<group>"; };
+		96113D1824804C4C004BCE54 /* AuthScreenFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthScreenFactory.swift; sourceTree = "<group>"; };
+		96113D1E2480508E004BCE54 /* DoubleFormModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleFormModelProtocol.swift; sourceTree = "<group>"; };
+		96113D20248059A9004BCE54 /* AuthFormModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthFormModel.swift; sourceTree = "<group>"; };
+		96113D22248059D0004BCE54 /* ChangePasswordFormModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordFormModel.swift; sourceTree = "<group>"; };
+		96113D2524805A09004BCE54 /* DoubleFormFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleFormFactory.swift; sourceTree = "<group>"; };
 		96266979243CCB1D00B65416 /* UIViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewComponent.swift; sourceTree = "<group>"; };
 		9626697C243CD39800B65416 /* String+Width.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Width.swift"; sourceTree = "<group>"; };
 		962791732460B718009A047D /* ChatScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatScreenView.swift; sourceTree = "<group>"; };
@@ -425,6 +455,7 @@
 		96113CE4247ED665004BCE54 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				96113CFC247F198D004BCE54 /* Login+Register */,
 				96113CE7247ED6A8004BCE54 /* Main */,
 			);
 			path = Auth;
@@ -464,6 +495,107 @@
 				96113CFA247F187C004BCE54 /* Router+AuthMainRoutes.swift */,
 			);
 			path = Router;
+			sourceTree = "<group>";
+		};
+		96113CFC247F198D004BCE54 /* Login+Register */ = {
+			isa = PBXGroup;
+			children = (
+				96113D1A24805000004BCE54 /* Models */,
+				96113D1724804C3A004BCE54 /* Factory */,
+				96113CFF247F19B6004BCE54 /* Router */,
+				96113CFE247F19A8004BCE54 /* Presenters */,
+				96113CFD247F199E004BCE54 /* Views */,
+			);
+			path = "Login+Register";
+			sourceTree = "<group>";
+		};
+		96113CFD247F199E004BCE54 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				96113D00247F19DB004BCE54 /* AuthScreenView.swift */,
+				96113D02247F19EF004BCE54 /* AuthScreenViewController.swift */,
+				96113D11247FFE8B004BCE54 /* AuthScreenView+Protocol.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		96113CFE247F19A8004BCE54 /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				96113D0F247FFD2B004BCE54 /* AuthLoginScreenPresenter.swift */,
+				96113D13247FFF25004BCE54 /* AuthScreenPresenter+Protocol.swift */,
+			);
+			path = Presenters;
+			sourceTree = "<group>";
+		};
+		96113CFF247F19B6004BCE54 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		96113D04247FE0EE004BCE54 /* DoubleForm */ = {
+			isa = PBXGroup;
+			children = (
+				96113D24248059F2004BCE54 /* Factory */,
+				96113D1D2480507E004BCE54 /* Models */,
+				96113D06247FE0FE004BCE54 /* Presenters */,
+				96113D05247FE0F9004BCE54 /* Views */,
+			);
+			path = DoubleForm;
+			sourceTree = "<group>";
+		};
+		96113D05247FE0F9004BCE54 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				96113D07247FE10E004BCE54 /* DoubleFormView.swift */,
+				96113D09247FF75C004BCE54 /* DoubleFormView+Protocol.swift */,
+				96113D15248008A3004BCE54 /* DoubleFormView+TextDelegate.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		96113D06247FE0FE004BCE54 /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				96113D0B247FFBD6004BCE54 /* DoubleFormPresenterProtocol.swift */,
+				96113D0D247FFC1A004BCE54 /* DoubleFormPresenter.swift */,
+			);
+			path = Presenters;
+			sourceTree = "<group>";
+		};
+		96113D1724804C3A004BCE54 /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				96113D1824804C4C004BCE54 /* AuthScreenFactory.swift */,
+			);
+			path = Factory;
+			sourceTree = "<group>";
+		};
+		96113D1A24805000004BCE54 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		96113D1D2480507E004BCE54 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				96113D1E2480508E004BCE54 /* DoubleFormModelProtocol.swift */,
+				96113D20248059A9004BCE54 /* AuthFormModel.swift */,
+				96113D22248059D0004BCE54 /* ChangePasswordFormModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		96113D24248059F2004BCE54 /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				96113D2524805A09004BCE54 /* DoubleFormFactory.swift */,
+			);
+			path = Factory;
 			sourceTree = "<group>";
 		};
 		9626697B243CCCD100B65416 /* Framework */ = {
@@ -583,6 +715,7 @@
 		96CDD1AE2435204B00A7D2FF /* Platform */ = {
 			isa = PBXGroup;
 			children = (
+				96113D04247FE0EE004BCE54 /* DoubleForm */,
 				96CDD1B124361D1C00A7D2FF /* StoryCardView.swift */,
 				CA0D4D96243F0DB300376CC7 /* BubbleView.swift */,
 				CA920C7B244C66C600BBC461 /* CollectionView.swift */,
@@ -758,16 +891,19 @@
 			files = (
 				96A4192F2475D32700FE143B /* MessageCellConfigurator.swift in Sources */,
 				969271F5245A31F700979597 /* MessageView+Constants.swift in Sources */,
+				96113D0C247FFBD6004BCE54 /* DoubleFormPresenterProtocol.swift in Sources */,
 				CAD59A3B2435151600974C2D /* ViewController.swift in Sources */,
 				96A0397A24543966001EF1C6 /* AuthoredView.swift in Sources */,
 				96A0398A24586E06001EF1C6 /* UnauthoredView+LayoutDelegate.swift in Sources */,
 				969271E12458D2B000979597 /* HeaderViewAppearance.swift in Sources */,
 				9626697A243CCB1D00B65416 /* UIViewComponent.swift in Sources */,
+				96113D03247F19EF004BCE54 /* AuthScreenViewController.swift in Sources */,
 				96113CF1247F124B004BCE54 /* AuthMainScreenPresenter.swift in Sources */,
 				96113CB7247C2232004BCE54 /* CDChat+CoreDataClass.swift in Sources */,
 				96A0398024543B5E001EF1C6 /* AuthoredPresenter.swift in Sources */,
 				96113C4B2475FC51004BCE54 /* BaseLeftCellPresenter.swift in Sources */,
 				CA0D4D97243F0DB300376CC7 /* BubbleView.swift in Sources */,
+				96113D10247FFD2B004BCE54 /* AuthLoginScreenPresenter.swift in Sources */,
 				96113C492475FC26004BCE54 /* MessageCellPresenter.swift in Sources */,
 				969272122460605100979597 /* BaseCell+Constants.swift in Sources */,
 				96CDD1AB24351B7000A7D2FF /* UIColor+Hex.swift in Sources */,
@@ -789,6 +925,7 @@
 				96113C732479C2CC004BCE54 /* ChatLoader.swift in Sources */,
 				96113C702479BDE0004BCE54 /* ChatMessageLoader.swift in Sources */,
 				969271F9245DFC6B00979597 /* MessagePresenter.swift in Sources */,
+				96113D1F2480508E004BCE54 /* DoubleFormModelProtocol.swift in Sources */,
 				96113C762479C79D004BCE54 /* Nonlinearity.xcdatamodeld in Sources */,
 				96113CB1247AF183004BCE54 /* ChatStorage.swift in Sources */,
 				CAD59A372435151600974C2D /* AppDelegate.swift in Sources */,
@@ -797,7 +934,9 @@
 				CAD59A392435151600974C2D /* SceneDelegate.swift in Sources */,
 				96A4192C2475BE4200FE143B /* BaseMessageCell+Protocol.swift in Sources */,
 				CA920C7C244C66C600BBC461 /* CollectionView.swift in Sources */,
+				96113D08247FE10E004BCE54 /* DoubleFormView.swift in Sources */,
 				96113C6424788430004BCE54 /* ChatAuthorColors.swift in Sources */,
+				96113D0E247FFC1A004BCE54 /* DoubleFormPresenter.swift in Sources */,
 				96CDD1B0243520FE00A7D2FF /* MessageView.swift in Sources */,
 				968F0C80244251760052768E /* Queue.swift in Sources */,
 				969271E32458D41200979597 /* HeaderPresenterProtocol.swift in Sources */,
@@ -805,6 +944,8 @@
 				96113CFB247F187C004BCE54 /* Router+AuthMainRoutes.swift in Sources */,
 				962791742460B718009A047D /* ChatScreenView.swift in Sources */,
 				96113C5E24785837004BCE54 /* ChatService.swift in Sources */,
+				96113D1924804C4C004BCE54 /* AuthScreenFactory.swift in Sources */,
+				96113D21248059A9004BCE54 /* AuthFormModel.swift in Sources */,
 				969272092460585600979597 /* BaseLeftCell.swift in Sources */,
 				969271EF2458E28C00979597 /* ChatModel.swift in Sources */,
 				9626697D243CD39800B65416 /* String+Width.swift in Sources */,
@@ -826,16 +967,23 @@
 				969271ED2458E0A800979597 /* ChatScreenPresenter.swift in Sources */,
 				96113CCE247CF9DE004BCE54 /* ChatScreenPresenter+Protocol.swift in Sources */,
 				96CDD1B224361D1C00A7D2FF /* StoryCardView.swift in Sources */,
+				96113D16248008A4004BCE54 /* DoubleFormView+TextDelegate.swift in Sources */,
 				96113CB9247C2993004BCE54 /* HeaderView+Constants.swift in Sources */,
+				96113D12247FFE8B004BCE54 /* AuthScreenView+Protocol.swift in Sources */,
+				96113D0A247FF75C004BCE54 /* DoubleFormView+Protocol.swift in Sources */,
 				96113CF7247F1712004BCE54 /* Router+AuthMainScreen.swift in Sources */,
 				96113CEF247EFE6B004BCE54 /* AuthMainScreenViewController.swift in Sources */,
+				96113D2624805A09004BCE54 /* DoubleFormFactory.swift in Sources */,
 				96113C6224786396004BCE54 /* ChatAuthor.swift in Sources */,
+				96113D23248059D1004BCE54 /* ChangePasswordFormModel.swift in Sources */,
 				96279176246365C7009A047D /* ChatScreenView+Constants.swift in Sources */,
 				96113CF3247F12C1004BCE54 /* AuthMainScreenPresenter+Protocol.swift in Sources */,
+				96113D01247F19DB004BCE54 /* AuthScreenView.swift in Sources */,
 				96113CDE247D55E2004BCE54 /* ChatMessageCellPresenterFactory.swift in Sources */,
 				969271F12459BD5700979597 /* FooterPresenterProtocol.swift in Sources */,
 				9698FA78244E425300AE69CE /* FooterView.swift in Sources */,
 				96113CD5247D3A17004BCE54 /* UnauthoredView+Protocol.swift in Sources */,
+				96113D14247FFF25004BCE54 /* AuthScreenPresenter+Protocol.swift in Sources */,
 				96113C6A2479571E004BCE54 /* UIGradientView.swift in Sources */,
 				96113C5A247852E7004BCE54 /* ChatJSON.swift in Sources */,
 				96113CD7247D3BE2004BCE54 /* AuthoredView+Protocol.swift in Sources */,
