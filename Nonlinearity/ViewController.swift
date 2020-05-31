@@ -8,26 +8,32 @@
 import UIKit
 
 class ViewController: UIViewController {
-    var footbar = Footbar()
+    var footBarVC = FootBarVC()
     
-    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+            return .lightContent
+        }
+//
+//
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .yellow
-        self.view.addSubview(footbar)
+        view.backgroundColor = .white
+        self.setNeedsStatusBarAppearanceUpdate()
+        self.view.addSubview(footBarVC.view)
         
-        self.footbar.profile.addTarget(self, action: #selector(didTapProfile), for: .touchUpInside)
+        
+//        self.footbar.profile.addTarget(self, action: #selector(didTapProfile), for: .touchUpInside)
         
 //         Do any additional setup after loading the view.
     }
     
-    @objc func didTapProfile () -> Void {
-        let profileVC = ProfileView()
-        profileVC.modalPresentationStyle = .fullScreen
-        print("tap Profile")
-        self.present(profileVC, animated: true, completion: nil)
-    }
-    
+//    @objc func didTapProfile () -> Void {
+//        let profileVC = ProfileView()
+//        profileVC.modalPresentationStyle = .fullScreen
+//        print("tap Profile")
+//        self.present(profileVC, animated: true, completion: nil)
+//    }
+//
 }
 
 

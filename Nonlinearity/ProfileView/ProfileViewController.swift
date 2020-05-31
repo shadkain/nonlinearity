@@ -13,7 +13,7 @@ class ProfileView: UIViewController {
     var upperBlock = UpperBlock(frame: CGRect(), nickname: "hifromnorway")
     
     var mainBlock = MainBlock(frame: CGRect(x: 0, y: 87, width: 375, height: 725))
-    var footbar = Footbar()
+//    var footbar = Footbar()
     
     
     override func viewDidLoad() {
@@ -22,9 +22,9 @@ class ProfileView: UIViewController {
         
         self.view.addSubview(upperBlock)
         self.view.addSubview(mainBlock)
-        self.view.addSubview(footbar)
+//        self.view.addSubview(footbar)
         
-        self.footbar.history.addTarget(self, action: #selector(didTapHistory), for: .touchUpInside)
+//        self.footbar.history.addTarget(self, action: #selector(didTapHistory), for: .touchUpInside)
         
         constraint()
     
