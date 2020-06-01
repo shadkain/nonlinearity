@@ -747,7 +747,6 @@
 			isa = PBXGroup;
 			children = (
 				964B95DC248550AA00B2CA7D /* CoreData */,
-				964B95DA248550AA00B2CA7D /* Nonlinearity.xcdatamodeld */,
 				964B95B72485507E00B2CA7D /* Screens */,
 				964B95AB2485507D00B2CA7D /* Services */,
 				C6B69F4A247C2BC500744C63 /* Networking */,
@@ -760,6 +759,7 @@
 				CAD59A382435151600974C2D /* SceneDelegate.swift */,
 				CAD59A3A2435151600974C2D /* ViewController.swift */,
 				CAD59A3C2435151600974C2D /* Main.storyboard */,
+				964B95DA248550AA00B2CA7D /* Nonlinearity.xcdatamodeld */,
 				CAD59A3F2435151700974C2D /* Assets.xcassets */,
 				CAD59A442435151700974C2D /* Info.plist */,
 			);
