@@ -10,5 +10,17 @@ import Foundation
 
 struct Rubric: Codable {
     let title: String
-    let stories: [Story]
+    let stories: [StoryModel]
+    
+    enum CodingKeys: String, CodingKey {
+        case title
+        case stories
+    }
+    
+    init(from decoder: Decoder) throws {
+      let container = try decoder.container(keyedBy: CodingKeys.self)
+      title = try container.decode(String.self, forKey: .title)
+      stories = try container.decode([StoryModel].self, forKey: .stories)
+    }
+    
 }
