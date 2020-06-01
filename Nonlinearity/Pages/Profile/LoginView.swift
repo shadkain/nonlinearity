@@ -32,13 +32,11 @@ final class LoginView: UIView {
 
     private func setup() {
             nickname.placeholder = "Username"
-//        nickname.borderStyle = UITextField.BorderStyle.
             nickname.backgroundColor = UIColor.white
             nickname.textColor = UIColor.blue
             nickname.layer.cornerRadius = 9
             self.addSubview(nickname)
             
-            // Set UITextField placeholder text
             password.placeholder = "password"
             password.layer.cornerRadius = 9
             password.isSecureTextEntry = true
@@ -48,7 +46,7 @@ final class LoginView: UIView {
             password.backgroundColor = UIColor.white
             
             // Set UITextField text color
-            password.textColor = UIColor.blue
+            password.textColor = UIColor.purple
             
             
             // Add UITextField as a subview
