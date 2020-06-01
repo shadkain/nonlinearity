@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 final class LoginView: UIView {
+    private var errorLabel = UILabel(frame: CGRect(x: 30, y: 150, width: 300, height: 90))
     private let nickname = UITextField(frame: CGRect(x: 30, y: 250, width: 300, height: 40))
     private let password = UITextField(frame: CGRect(x: 30, y: 310, width: 300, height: 40))
     private let loginButton = UIButton(frame: CGRect(x: 50, y: 370, width: 250, height: 40))
@@ -18,9 +19,10 @@ final class LoginView: UIView {
     
     weak var vc: ProfileView?
     
-    var error :String?
+    var error: String
 
     override init(frame: CGRect) {
+        self.error = ""
         super.init(frame: frame)
         setup()
     }
@@ -30,10 +32,10 @@ final class LoginView: UIView {
     }
 
 
-    private func setup() {
+    func setup() {
             nickname.placeholder = "Username"
             nickname.backgroundColor = UIColor.white
-            nickname.textColor = UIColor.blue
+            nickname.textColor = UIColor.purple
             nickname.layer.cornerRadius = 9
             self.addSubview(nickname)
             
@@ -60,6 +62,15 @@ final class LoginView: UIView {
         
         self.addSubview(loginButton)
         
+        if error != "" {
+            self.errorLabel.font = UIFont.boldSystemFont(ofSize: 20)
+            self.errorLabel.text = error
+            self.errorLabel.textAlignment = .center
+            self.errorLabel.textColor = .red
+            self.errorLabel.numberOfLines = 0
+            self.addSubview(errorLabel)
+        }
+        
     }
     
     @objc
@@ -78,6 +89,10 @@ final class LoginView: UIView {
                   }
               } else {
                   self.error = "Неправильный логин или пароль"
+                    DispatchQueue.main.async {
+                        self.vc!.loginView.setup()
+                        print("error")
+                    }
               }
           }
      }

@@ -9,7 +9,6 @@
 import UIKit
 
 class ProfileView: UIViewController {
-    // TODO GET REAl NICKNAME
     
     var upperBlock = UpperBlock(frame: CGRect())
     var mainBlock = MainBlock(frame: CGRect(x: 0, y: 87, width: 375, height: 725))
