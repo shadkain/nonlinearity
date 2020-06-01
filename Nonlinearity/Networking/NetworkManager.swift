@@ -9,14 +9,18 @@
 import Foundation
 
 protocol NetworkManagerDescription {
-    func signup(user: User) -> Bool
-    func login(user: User) -> Bool
-    func getStory(id: Int, completion: ((Story?) -> Void)?)
+    func signup(user: User, completion: ((Bool) -> Void)?)
+    func login(user: User, completion: ((Bool) -> Void)?)
+    func getStory(id: Int, completion: ((StoryModel?) -> Void)?)
     func getRubrics(completion:(([Rubric]?)-> Void)?)
+    func getStoryDataJSON(storyPath: String, completion:((Data?)-> Void)?)
+    func getAvatarStoryData(avatarStoryPath: String, completion: ((Data?) -> Void)?)
+    func getAvatarUser(avatarPath: String, completion: ((Data?) -> Void)?)
+    func getProfile(completion: ((User?) -> Void)?)
+    func logout(completion: ((Bool?) -> Void)?)
 }
 
 final class NetworkManager: NetworkManagerDescription {
-    
     func getRubrics(completion: (([Rubric]?) -> Void)?) {
         let urlString = "\(baseUrl)/topStories"
         guard let fullUrl = URL(string: urlString) else {
@@ -46,11 +50,12 @@ final class NetworkManager: NetworkManagerDescription {
         }.resume()
     }
     
-    func signup(user: User) -> Bool {
+    func signup(user: User, completion: ((Bool) -> Void)?){
         var state: Bool = false
-        let urlString = "\(baseUrl)/signup"
+        let urlString = "\(baseUrl)/signup/"
         guard let fullUrl = URL(string: urlString) else {
-            return state
+            completion?(state)
+            return
         }
         
         let request = NSMutableURLRequest(url: fullUrl)
@@ -63,7 +68,8 @@ final class NetworkManager: NetworkManagerDescription {
             let jsonData = try encoder.encode(user)
             request.httpBody = jsonData
         } catch {
-            return state
+            completion?(state)
+            return
         }
             
         URLSession.shared.dataTask(with: request as URLRequest) {data, response, error in
@@ -72,12 +78,13 @@ final class NetworkManager: NetworkManagerDescription {
                 return
             }
             state = true
+            completion?(state)
         }.resume()
             
-            return state
+            return
         }
     
-    func getStory(id: Int, completion: ((Story?) -> Void)?) {
+    func getStory(id: Int, completion: ((StoryModel?) -> Void)?) {
         let urlString = "\(baseUrl)/getStory?id=\(id)"
       
         guard let fullUrl = URL(string: urlString) else {
@@ -98,7 +105,7 @@ final class NetworkManager: NetworkManagerDescription {
             }
             
             do {
-                let story = try self.decoder.decode(Story.self, from: data)
+                let story = try self.decoder.decode(StoryModel.self, from: data)
                 completion?(story)
             } catch let error {
                 print(error.localizedDescription)
@@ -111,11 +118,12 @@ final class NetworkManager: NetworkManagerDescription {
         
     }
     
-    func login(user: User) -> Bool {
+    func login(user: User, completion: ((Bool) -> Void)?) {
         var state = false
-        let urlString = "\(baseUrl)/login"
+        let urlString = "\(baseUrl)/signin/"
         guard let fullUrl = URL(string: urlString) else {
-            return state
+            completion?(state)
+            return
         }
         
         let request = NSMutableURLRequest(url: fullUrl)
@@ -128,7 +136,8 @@ final class NetworkManager: NetworkManagerDescription {
              let jsonData = try encoder.encode(user)
              request.httpBody = jsonData
          } catch {
-             return state
+             completion?(state)
+             return
          }
         
         URLSession.shared.dataTask(with: request as URLRequest) {data, response, error in
@@ -137,9 +146,145 @@ final class NetworkManager: NetworkManagerDescription {
                 return
             }
             state = true
+            completion?(state)
         }.resume()
+    }
+    
+    func getStoryDataJSON(storyPath: String, completion: ((Data?) -> Void)?) {
+        let urlString = "\(staticUrl)/stories/\(storyPath)"
+      
+        guard let fullUrl = URL(string: urlString) else {
+            completion?(nil)
+            return
+        }
+            
+        let task = URLSession.shared.dataTask(with: fullUrl) { (data, response, error) in
+            if let error = error {
+                print(error.localizedDescription)
+                completion?(nil)
+                return
+            }
         
-        return state
+            guard let data = data else {
+                completion?(nil)
+                return
+            }
+            
+            completion?(data)
+        }
+        
+        task.resume()
+    }
+    
+    func getAvatarStoryData(avatarStoryPath: String, completion: ((Data?) -> Void)?) {
+        let urlString = "\(staticUrl)/storyImage/\(avatarStoryPath)"
+      
+        guard let fullUrl = URL(string: urlString) else {
+            completion?(nil)
+            return
+        }
+            
+        let task = URLSession.shared.dataTask(with: fullUrl) { (data, response, error) in
+            if let error = error {
+                print(error.localizedDescription)
+                completion?(nil)
+                return
+            }
+        
+            guard let data = data else {
+                completion?(nil)
+                return
+            }
+            
+            completion?(data)
+        }
+        
+        task.resume()
+    }
+    
+    func getAvatarUser(avatarPath: String, completion: ((Data?) -> Void)?) {
+        let urlString = "\(staticUrl)/avatars/\(avatarPath)"
+      
+        guard let fullUrl = URL(string: urlString) else {
+            completion?(nil)
+            return
+        }
+            
+        let task = URLSession.shared.dataTask(with: fullUrl) { (data, response, error) in
+            if let error = error {
+                print(error.localizedDescription)
+                completion?(nil)
+                return
+            }
+        
+            guard let data = data else {
+                completion?(nil)
+                return
+            }
+            
+            completion?(data)
+        }
+        
+        task.resume()
+    }
+    
+    func getProfile(completion: ((User?) -> Void)?) {
+        let urlString = "\(baseUrl)/profile/"
+        
+          guard let fullUrl = URL(string: urlString) else {
+              completion?(nil)
+              return
+          }
+              
+          let task = URLSession.shared.dataTask(with: fullUrl) { (data, response, error) in
+              if let error = error {
+                  print(error.localizedDescription)
+                  completion?(nil)
+                  return
+              }
+          
+              guard let data = data else {
+                  completion?(nil)
+                  return
+              }
+              
+              do {
+                  let user = try self.decoder.decode(User.self, from: data)
+                  completion?(user)
+              } catch let error {
+                  print(error.localizedDescription)
+                  completion?(nil)
+                  return
+              }
+          }
+          
+          task.resume()
+          
+    }
+    
+    
+    func logout(completion: ((Bool?) -> Void)?) {
+        var state: Bool = false
+        let urlString = "\(baseUrl)/logout/"
+        guard let fullUrl = URL(string: urlString) else {
+            completion?(state)
+            return
+        }
+        
+        let request = NSMutableURLRequest(url: fullUrl)
+        request.httpMethod = "POST"
+            
+        URLSession.shared.dataTask(with: request as URLRequest) {data, response, error in
+            if let error = error {
+                print(error.localizedDescription)
+                completion?(state)
+                return
+            }
+            state = true
+            completion?(state)
+        }.resume()
+            
+        return
     }
     
     static let shared = NetworkManager()

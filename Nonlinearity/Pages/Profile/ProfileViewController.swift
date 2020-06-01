@@ -25,11 +25,37 @@ class ProfileView: UIViewController {
 //            print(story)
 //            return
 //        }
+//
+//        networkManager.getRubrics { (rubrics) in
+//            print(rubrics)
+//
+//        }
         
-        networkManager.getRubrics { (rubrics) in
-            print(rubrics)
-            
-        }
+//        var u = User()
+//        u.username = "hifro"
+//        u.password = "helloworld"
+//
+//        networkManager.login(user: u) { (state) in
+//             print(state)
+//        }
+////
+//        networkManager.getStoryDataJSON(storyPath: "test-story.json") { (data) in
+//            let str = String(decoding: data!, as: UTF8.self)
+//            print(str)
+//        }
+        
+
+//                networkManager.getAvatarStoryData(avatarStoryPath: "defaultAvatar.png"){ (data) in
+//                    print(data)
+//                }
+//
+//        networkManager.getProfile {(user) in
+//            print(user)
+//        }
+        
+//        networkManager.logout{(state) in
+//            print(state)
+//        }
 //
         
         self.view.addSubview(upperBlock)

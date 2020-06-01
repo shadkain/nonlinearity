@@ -59,6 +59,6 @@ struct StoryModel: Codable {
     genres = try? container.decode([String].self, forKey: .genres)
     editorChoice = try container.decode(Bool.self, forKey: .editorChoice)
     rating = try container.decode(Float64.self, forKey: .rating)
-    views = try container.decode(Int.self, forKey: .description)
+    views = try container.decode(Int.self, forKey: .views)
   }
 }
