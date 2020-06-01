@@ -38,4 +38,10 @@ class ChatBaseLeftMessageCell: ChatBaseMessageCell {
             messageView.leftAnchor.constraint(equalTo: avatarView.rightAnchor, constant: spacing.commonH),
         ])
     }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        avatarView.setGradientColors([])
+    }
 }
