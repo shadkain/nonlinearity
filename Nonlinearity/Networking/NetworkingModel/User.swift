@@ -9,20 +9,22 @@
 import Foundation
 
 struct User: Codable {
-    let id: Int64
-    let username: String
-    let password: String
-    let avatar: String
+    var id: Int64?
+    var username: String?
+    var password: String?
+    var avatar: String?
+    
+    var FavCategories: FavouritesCategories?
 }
 
 struct FavouritesCategories: Codable {
 
-    let drama: Int64
-    let romance: Int64
-    let comedy: Int64
-    let horror: Int64
-    let detective: Int64
-    let fantasy: Int64
-    let action: Int64
-    let realism: Int64
+    var drama: Int64
+    var romance: Int64
+    var comedy: Int64
+    var horror: Int64
+    var detective: Int64
+    var fantasy: Int64
+    var action: Int64
+    var realism: Int64
 }

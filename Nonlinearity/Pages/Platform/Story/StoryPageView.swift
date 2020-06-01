@@ -10,7 +10,6 @@ import UIKit
 
 class StoryPageView: UIViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle { .lightContent }
-    
     var story = Story(id: 1,
                       title: "Алые листья",
                       description: "Девочка живёт в заточении дома, ничего не зная об окружающем мире. Её единственным другом становится маленькое растение.",
@@ -47,17 +46,17 @@ class StoryPageView: UIViewController {
         
         editorChoiceSetup()
         
-        image.image = UIImage(named: story.image)
-        if story.rating > 8 {
+        image.image = UIImage(named: story.image!)
+        if story.rating! > 8 {
             image.setRate()
         }
-        if story.editorChoice {
+        if story.editorChoice! {
             image.setFirstRate()
             editorChoice.isHidden = false
         }
         
-        rating.text = story.rating
-        views.text = story.views
+        rating.text = story.rating!
+        views.text = story.views!
         
         titleStorySetup()
         authorSetup()
@@ -66,7 +65,7 @@ class StoryPageView: UIViewController {
         
         publishedDateSetup()
         
-        descriptionView.text = story.description
+        descriptionView.text = story.description!
 
         backView.backgroundColor = .hex(rgb: 0x191919)
         buttonSetup()

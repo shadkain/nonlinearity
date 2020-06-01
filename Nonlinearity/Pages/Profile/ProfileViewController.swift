@@ -13,22 +13,57 @@ class ProfileView: UIViewController {
     var upperBlock = UpperBlock(frame: CGRect(), nickname: "hifromnorway")
     
     var mainBlock = MainBlock(frame: CGRect(x: 0, y: 87, width: 375, height: 725))
-//    var footbar = Footbar()
+    
+    private let networkManager: NetworkManagerDescription = NetworkManager.shared
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.black
         
+//        networkManager.getStory(id: 1) {(story) in
+//            print(story)
+//            return
+//        }
+//
+//        networkManager.getRubrics { (rubrics) in
+//            print(rubrics)
+//
+//        }
+        
+//        var u = User()
+//        u.username = "hifro"
+//        u.password = "helloworld"
+//
+//        networkManager.login(user: u) { (state) in
+//             print(state)
+//        }
+////
+//        networkManager.getStoryDataJSON(storyPath: "test-story.json") { (data) in
+//            let str = String(decoding: data!, as: UTF8.self)
+//            print(str)
+//        }
+        
+
+//                networkManager.getAvatarStoryData(avatarStoryPath: "defaultAvatar.png"){ (data) in
+//                    print(data)
+//                }
+//
+//        networkManager.getProfile {(user) in
+//            print(user)
+//        }
+        
+//        networkManager.logout{(state) in
+//            print(state)
+//        }
+//
+        
         self.view.addSubview(upperBlock)
         self.view.addSubview(mainBlock)
-//        self.view.addSubview(footbar)
         
-//        self.footbar.history.addTarget(self, action: #selector(didTapHistory), for: .touchUpInside)
         
         constraint()
     
-        
         return
     }
     
