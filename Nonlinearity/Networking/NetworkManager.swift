@@ -177,9 +177,9 @@ final class NetworkManager: NetworkManagerDescription {
     }
     
     func getAvatarStoryData(avatarStoryPath: String, completion: ((Data?) -> Void)?) {
-        let urlString = "\(staticUrl)/storyImage/\(avatarStoryPath)"
+        //let urlString = "\(avatarStoryPath)"
       
-        guard let fullUrl = URL(string: urlString) else {
+        guard let fullUrl = URL(string: avatarStoryPath) else {
             completion?(nil)
             return
         }

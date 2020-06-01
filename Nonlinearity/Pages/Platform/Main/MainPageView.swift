@@ -15,6 +15,9 @@ class MainPageView: UIViewController {
     var tableAdapter = TableCardViewAdapter()
     var tabAdapter = TabsViewAdapter()
     var additionalSpace = UIView()
+    var storyCard = StoryCard()
+    
+    private let networkManager: NetworkManagerDescription = NetworkManager.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +26,10 @@ class MainPageView: UIViewController {
         //tabAdapter.setTable(newTable: tableAdapter)
         
         tableAdapter.vc = self
+        bubbleAdapter.vc = self
+        
+        tableAdapter.storyCard = storyCard
+        bubbleAdapter.storyCard = storyCard
         
         additionalSpace.backgroundColor = .hex(rgb: 0x252525)
         
@@ -37,10 +44,10 @@ class MainPageView: UIViewController {
     func setConstraint() {
         additionalSpace.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-             additionalSpace.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+             additionalSpace.topAnchor.constraint(equalTo: self.view.topAnchor),
              additionalSpace.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
              additionalSpace.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-             additionalSpace.heightAnchor.constraint(equalToConstant: 2),
+             additionalSpace.heightAnchor.constraint(equalToConstant: 30),
         ])
         
 //        tabAdapter.collectionView!.translatesAutoresizingMaskIntoConstraints = false
@@ -72,6 +79,16 @@ class MainPageView: UIViewController {
     
     func openStoryPage(id: Int) {
         let storyPageView = StoryPageView()
-        self.present(storyPageView, animated: true, completion: nil)
+        networkManager.getStory(id: id) { (story) in
+            storyPageView.story = story
+            
+            DispatchQueue.main.async {
+                storyPageView.dataLoaded()
+                self.view.window!.rootViewController!.present(storyPageView, animated: true, completion: nil)
+            }
+            
+            return
+        }
+        
     }
 }

@@ -17,6 +17,7 @@ class TableCardViewCell: UITableViewCell {
     var currentTypeOfTab: TypeOfTab?
     
     weak var vc: MainPageView?
+    private let networkManager: NetworkManagerDescription = NetworkManager.shared
     
     private var flowLayout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
     
@@ -56,7 +57,6 @@ class TableCardViewCell: UITableViewCell {
         labelView.text = storyCard!.getTitle(section: tag)
         labelView.font = UIFont(name: "Arial-BoldMT", size: 23)
         labelView.textColor = .hex(rgb: 0xC35EB9)
-        //labelView.backgroundColor = .hex(rgb: 0x191919)
     }
     
     override func prepareForReuse() {
@@ -84,20 +84,21 @@ extension TableCardViewCell: UICollectionViewDataSource {
         
         let sv = StoryCardView(frame: .zero)
         
-        sv.image = UIImage(named: card.imageName )
-        sv.nameLable.text = card.title
-        
-        if card.isFirstRated {
-            sv.setFirstRate()
+        networkManager.getAvatarStoryData(avatarStoryPath: card.image!) { (data) in
+            DispatchQueue.main.async {
+                if !data!.isEmpty {
+                    sv.image = UIImage(data: data!)
+                }
+            }
+            return
         }
-        if card.isRated {
+        
+        sv.nameLable.text = card.title
+        if card.rating! > 8 {
             sv.setRate()
         }
-        if card.isListenable {
-            sv.setListenable()
-        }
-        if card.isPlayable {
-            sv.setPlayable()
+        if card.editorChoice! {
+            sv.setFirstRate()
         }
         
         sv.translatesAutoresizingMaskIntoConstraints = false
@@ -116,9 +117,7 @@ extension TableCardViewCell: UICollectionViewDataSource {
 
 extension TableCardViewCell: UICollectionViewDelegate {
  
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-       print("User tapped on section \(tag) item \(indexPath.item)")
-        vc!.openStoryPage(id: 1)
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {        vc!.openStoryPage(id: storyCard!.getID(section: tag, index: indexPath.item))
     }
 }
 

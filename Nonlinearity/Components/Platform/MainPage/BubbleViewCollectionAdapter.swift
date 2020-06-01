@@ -12,6 +12,8 @@ class BubbleViewCollectionAdapter: UIViewComponent {
     private var bubbles = Bubbles()
     var collectionView: UICollectionView?
     private var flowLayout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+    var storyCard: StoryCard?
+    weak var vc: MainPageView?
     
     override func setup() {
         flowLayout.sectionInset = UIEdgeInsets(top: 20, left: 9, bottom: 5, right: 0)
@@ -66,6 +68,6 @@ extension BubbleViewCollectionAdapter: UICollectionViewDataSource {
 extension BubbleViewCollectionAdapter: UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-       print("User tapped on bubble \(indexPath.item)")
+        vc!.openStoryPage(id: storyCard!.getRandomID())
     }
 }

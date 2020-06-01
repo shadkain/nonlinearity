@@ -95,7 +95,6 @@ extension CardsCollectionViewAdapter: UICollectionViewDataSource {
 extension CardsCollectionViewAdapter: UICollectionViewDelegate {
  
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("User tapped on section \(tag) item \(indexPath.item)")
         vc!.openStoryPage(id: 1)
     }
 }

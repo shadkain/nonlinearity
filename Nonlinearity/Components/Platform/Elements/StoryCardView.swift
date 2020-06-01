@@ -66,7 +66,7 @@ class StoryCardView: UIViewComponent {
             imageView.heightAnchor.constraint(equalToConstant: 152),
             
             nameLable.topAnchor.constraint(equalTo: imageView.bottomAnchor),
-            nameLable.bottomAnchor.constraint(equalTo: bottomAnchor),
+            //nameLable.bottomAnchor.constraint(equalTo: bottomAnchor),
             nameLable.leadingAnchor.constraint(equalTo: leadingAnchor),
             nameLable.trailingAnchor.constraint(equalTo: trailingAnchor),
         ])

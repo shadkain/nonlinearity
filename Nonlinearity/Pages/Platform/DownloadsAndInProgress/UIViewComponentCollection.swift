@@ -49,7 +49,7 @@ class SimpleCollectionCardsViewController: UIViewController {
         let screenWidth = UIScreen.main.bounds.size.width
         
         NSLayoutConstraint.activate([
-             additionalSpace.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+             additionalSpace.topAnchor.constraint(equalTo: self.view.topAnchor),
              additionalSpace.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
              additionalSpace.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
              additionalSpace.heightAnchor.constraint(equalToConstant: screenWidth / 4.6),
@@ -75,8 +75,8 @@ class SimpleCollectionCardsViewController: UIViewController {
     }
     
     func openStoryPage(id: Int) {
-           let storyPageView = StoryPageView()
-           self.present(storyPageView, animated: true, completion: nil)
-       }
+        let storyPageView = StoryPageView()
+        self.view.window!.rootViewController!.present(storyPageView, animated: true, completion: nil)
+    }
 }
 

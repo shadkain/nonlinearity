@@ -10,17 +10,8 @@ import UIKit
 
 class StoryPageView: UIViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle { .lightContent }
-    var story = Story(id: 1,
-                      title: "Алые листья",
-                      description: "Девочка живёт в заточении дома, ничего не зная об окружающем мире. Её единственным другом становится маленькое растение.",
-//                     description: "Девочка живёт в заточении дома, ничего не зная об окружающем мире. Её единственным другом становится маленькое растение. Девочка живёт в заточении дома, ничего не зная об окружающем мире. Её единственным другом становится маленькое растение. Девочка живёт в заточении дома, ничего не зная об окружающем мире. Её единственным другом становится маленькое растение. Девочка живёт в заточении дома, ничего не зная об окружающем мире. Её единственным другом становится маленькое растение. Девочка живёт в заточении дома, ничего не зная об окружающем мире. Её единственным другом становится маленькое растение. Девочка живёт в заточении дома, ничего не зная об окружающем мире. Её единственным другом становится маленькое растение. Девочка живёт в заточении дома, ничего не зная об окружающем мире. Её единственным другом становится маленькое растение. Девочка живёт в заточении дома, ничего не зная об окружающем мире. Её единственным другом становится маленькое растение. ",
-                      image: "book",
-                      storyPath: "",
-                      author: "Александр Писарев",
-                      genres: ["хоррор", "триллер", "драма"],
-                      editorChoice: true,
-                      rating: 8.7,
-                      views: 1555)
+    
+    var story: StoryModel?
     
     let image = StoryImageView()
     let rating = RatingView()
@@ -39,33 +30,45 @@ class StoryPageView: UIViewController {
     
     let buttonRead = ButtonView()
     
+    private let networkManager: NetworkManagerDescription = NetworkManager.shared
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .hex(rgb: 0x252525)
         self.setNeedsStatusBarAppearanceUpdate()
         
+    }
+    
+    func dataLoaded() {
         editorChoiceSetup()
+        networkManager.getAvatarStoryData(avatarStoryPath: story!.image!) { (data) in
+            DispatchQueue.main.async {
+                if !data!.isEmpty {
+                    self.image.image = UIImage(data: data!)
+                }
+            }
+            return
+        }
         
-        image.image = UIImage(named: story.image!)
-        if story.rating! > 8 {
+        if story!.rating! > 8 {
             image.setRate()
         }
-        if story.editorChoice! {
+        if story!.editorChoice! {
             image.setFirstRate()
             editorChoice.isHidden = false
         }
         
-        rating.text = story.rating!
-        views.text = story.views!
+        rating.text = story!.rating!
+        views.text = story!.views!
         
         titleStorySetup()
         authorSetup()
         
-        genres.setGenres(newGenres: story.genres)
+        genres.setGenres(newGenres: story!.genres!)
         
         publishedDateSetup()
         
-        descriptionView.text = story.description!
+        descriptionView.text = story!.description!
 
         backView.backgroundColor = .hex(rgb: 0x191919)
         buttonSetup()
@@ -179,14 +182,14 @@ extension StoryPageView {
     }
     
     private func titleStorySetup() {
-        titleStory.text = story.title
+        titleStory.text = story!.title
         titleStory.textAlignment = .center
         titleStory.textColor = .hex(rgb: 0xF1F1F1)
         titleStory.font = .boldSystemFont(ofSize: 25)
     }
     
     private func authorSetup() {
-        author.text = story.author
+        author.text = story!.author
         author.textAlignment = .center
         author.textColor = .hex(rgb: 0x949494)
         author.font = .systemFont(ofSize: 17)

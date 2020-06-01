@@ -79,6 +79,5 @@ extension TabsViewAdapter: UICollectionViewDelegate {
         tabs.activateViewByIndex(index: indexPath.item)
         table!.currentTypeOfTab = TypeOfTab(rawValue: indexPath.item) ?? .main
         table!.tableView!.reloadData()
-        print("User tapped on tab \(indexPath.item)")
     }
 }

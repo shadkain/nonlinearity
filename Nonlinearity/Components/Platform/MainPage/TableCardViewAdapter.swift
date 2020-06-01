@@ -12,7 +12,7 @@ class TableCardViewAdapter: UIViewComponent {
     let customIdentifier = "CustomTableViewCell"
     var tableView: UITableView!
     
-    var storyCard = StoryCard()
+    var storyCard: StoryCard?
     var currentTypeOfTab: TypeOfTab = .main
     
     weak var vc: MainPageView?
@@ -58,7 +58,7 @@ extension TableCardViewAdapter: UITableViewDataSource {
             fatalError("Cell should be not nil")
         }
         tableViewCell.tag = indexPath.row
-        tableViewCell.storyCard = storyCard
+        tableViewCell.storyCard = storyCard!
         tableViewCell.vc = vc!
         tableViewCell.currentTypeOfTab = currentTypeOfTab
         tableViewCell.selectionStyle = .none
@@ -68,6 +68,6 @@ extension TableCardViewAdapter: UITableViewDataSource {
     
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return storyCard.getSectionsCount()
+        return storyCard!.getSectionsCount()
     }
 }
