@@ -13,10 +13,10 @@ final class UpperBlock: UIView {
     private let nicknameBlock = UILabel()
     private let settingsBlock = UIButton()
     private let settingsImage = UIImageView()
-    private let nickname : String
+    var nickname : String
     
-    init(frame: CGRect, nickname: String) {
-        self.nickname = nickname
+    override init(frame: CGRect) {
+        self.nickname = ""
         super.init(frame: frame)
         setup()
     }
@@ -25,6 +25,9 @@ final class UpperBlock: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func reload() {
+        setupNickname()
+    }
     
     private func setupNickname() -> Void {
         self.nicknameBlock.font =  UIFont.systemFont(ofSize: 24)

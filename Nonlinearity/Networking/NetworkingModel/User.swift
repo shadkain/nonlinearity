@@ -10,7 +10,7 @@ import Foundation
 
 struct User: Codable {
     var id: Int64?
-    var username: String?
+    var username: String
     var password: String?
     var avatar: String?
     

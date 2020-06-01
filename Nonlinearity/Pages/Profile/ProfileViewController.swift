@@ -10,16 +10,24 @@ import UIKit
 
 class ProfileView: UIViewController {
     // TODO GET REAl NICKNAME
-    var upperBlock = UpperBlock(frame: CGRect(), nickname: "hifromnorway")
     
+    var upperBlock = UpperBlock(frame: CGRect())
     var mainBlock = MainBlock(frame: CGRect(x: 0, y: 87, width: 375, height: 725))
+    
+    var signup = SignUp(frame: CGRect(x: 0, y: 87, width: 375, height: 725))
+    var loginView = LoginView(frame: CGRect(x: 0, y: 87, width: 375, height: 725))
     
     private let networkManager: NetworkManagerDescription = NetworkManager.shared
     
+    var isSignUp = false
+    var isLogin = false
+    
+    var u : User?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .hex(rgb: 0x191919)
+        
         
 //        networkManager.getStory(id: 1) {(story) in
 //            print(story)
@@ -56,14 +64,43 @@ class ProfileView: UIViewController {
 //        networkManager.logout{(state) in
 //            print(state)
 //        }
-//
         
-        self.view.addSubview(upperBlock)
-        self.view.addSubview(mainBlock)
-        
-        
-        constraint()
+        reload()
     
+        return
+    }
+    
+    func reload() {
+        if (!isSignUp) {
+            signup.vc = self
+            self.view.addSubview(signup)
+        } else {
+            if (!isLogin) {
+                loginView.vc = self
+                self.view.addSubview(loginView)
+                
+            } else {
+                for subview in self.view.subviews {
+                    subview.removeFromSuperview()
+                }
+                
+                
+                networkManager.getProfile {(user) in
+                    self.u? = user!
+                    self.upperBlock.nickname = user!.username
+                    print(user)
+                    DispatchQueue.main.async {
+                        self.upperBlock.reload()
+                        print("reload nickname")
+                    }
+                }
+                self.view.addSubview(self.upperBlock)
+                self.view.addSubview(self.mainBlock)
+
+                self.constraint()
+
+            }
+        }
         return
     }
     
