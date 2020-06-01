@@ -30,7 +30,7 @@ final class UpperBlock: UIView {
         self.nicknameBlock.font =  UIFont.systemFont(ofSize: 24)
         self.nicknameBlock.text = self.nickname
         self.nicknameBlock.textAlignment = .center
-        self.nicknameBlock.textColor = .white
+        self.nicknameBlock.textColor = .hex(rgb: 0xE1E3E6)
         self.nicknameBlock.backgroundColor = UIColor(netHex:0x252525)
         return
     }
@@ -41,7 +41,7 @@ final class UpperBlock: UIView {
         self.settingsImage.image = UIImage(systemName: "gear")
         self.settingsImage.frame = CGRect(x: 0, y: 0, width: size, height: size)
         self.settingsBlock.addSubview(settingsImage)
-        self.settingsBlock.tintColor = .white
+        self.settingsBlock.tintColor = .hex(rgb: 0xE1E3E6)
         return
     }
  

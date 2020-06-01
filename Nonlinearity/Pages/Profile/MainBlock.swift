@@ -38,7 +38,7 @@ class MainBlock: UIView {
         self.titleBlock.font = UIFont.boldSystemFont(ofSize: 20)
         self.titleBlock.text = "Ваш титул 'Франкештейн'"
         self.titleBlock.textAlignment = .center
-        self.titleBlock.textColor = UIColor(netHex: 0x7297CE)
+        self.titleBlock.textColor = .hex(rgb: 0x7297CE)
     }
     
     private func setupDesc() -> Void {
@@ -47,14 +47,14 @@ class MainBlock: UIView {
         self.descBlock.font = UIFont.systemFont(ofSize: 15)
         self.descBlock.text = "В последнее время вы увлекаетесь ужасами и фантастикой"
         self.descBlock.textAlignment = .center
-        self.descBlock.textColor = UIColor.white
+        self.descBlock.textColor = .hex(rgb: 0xE1E3E6)
     }
     
     private func setupOffer() -> Void {
         self.offerBlock.font = UIFont.systemFont(ofSize: 15)
         self.offerBlock.text = "Предлагаем посмотреть подборку историй по вашим интересам"
         self.offerBlock.textAlignment = .center
-        self.offerBlock.textColor = UIColor.white
+        self.offerBlock.textColor = .hex(rgb: 0xE1E3E6)
         self.offerBlock.lineBreakMode = .byWordWrapping
         self.offerBlock.numberOfLines = 0
     }

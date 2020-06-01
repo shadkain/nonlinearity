@@ -19,7 +19,7 @@ class ProfileView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.black
+        view.backgroundColor = .hex(rgb: 0x191919)
         
 //        networkManager.getStory(id: 1) {(story) in
 //            print(story)

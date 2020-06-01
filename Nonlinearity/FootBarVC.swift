@@ -23,21 +23,21 @@ class FootBarVC: UITabBarController {
         super.viewDidLoad()
         
         let historyVC = MainPageView()
-        historyVC.tabBarItem = UITabBarItem(title: "History", image: historyIV.image, tag: 0)
+        historyVC.tabBarItem = UITabBarItem(title: "Главная", image: historyIV.image, tag: 0)
         
-        let InProgressVC = InProgressPageView()
-        InProgressVC.tabBarItem = UITabBarItem(title: "In progress", image: myDeskIV.image, tag: 1)
+//        let InProgressVC = InProgressPageView()
+//        InProgressVC.tabBarItem = UITabBarItem(title: "In progress", image: myDeskIV.image, tag: 1)
     
-        let downoadsVC = DownloadsPageView()
-        downoadsVC.tabBarItem = UITabBarItem(title: "Downoloads", image: downloadsIV.image, tag: 2)
+//        let downoadsVC = DownloadsPageView()
+//        downoadsVC.tabBarItem = UITabBarItem(title: "Downoloads", image: downloadsIV.image, tag: 2)
               
         
        let profileVC = ProfileView()
-        profileVC.tabBarItem = UITabBarItem(title: "Profile", image: profileIV.image, tag: 3)
+        profileVC.tabBarItem = UITabBarItem(title: "Профиль", image: profileIV.image, tag: 1)
         
   
 
-        let tabBarList = [historyVC, InProgressVC, downoadsVC, profileVC]
+        let tabBarList = [historyVC, profileVC]
         viewControllers = tabBarList
         
     }
