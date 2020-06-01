@@ -30,6 +30,8 @@ final class AuthScreenView: UIScreenView {
         }
         
         backButtonView.image = .init(imageLiteralResourceName: "back-arrow-dark")
+        backButtonView.removeFromSuperview()
+        
         
         [colorRect, authFormView, loginErrorLabel, passwordErrorLabel, backButtonView, submitButtonView].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false

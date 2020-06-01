@@ -576,6 +576,7 @@
 		96113D1A24805000004BCE54 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				96113D20248059A9004BCE54 /* AuthFormModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -584,7 +585,6 @@
 			isa = PBXGroup;
 			children = (
 				96113D1E2480508E004BCE54 /* DoubleFormModelProtocol.swift */,
-				96113D20248059A9004BCE54 /* AuthFormModel.swift */,
 				96113D22248059D0004BCE54 /* ChangePasswordFormModel.swift */,
 			);
 			path = Models;
