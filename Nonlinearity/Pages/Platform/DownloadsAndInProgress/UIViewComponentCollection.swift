@@ -24,6 +24,7 @@ class SimpleCollectionCardsViewController: UIViewController {
         
         initHeader()
         addCollection()
+        cardsAdapter.vc = self
         
         [additionalSpace, labelView, cardsAdapter.collectionView!].forEach {
             view.addSubview($0!)
@@ -72,5 +73,10 @@ class SimpleCollectionCardsViewController: UIViewController {
              cardsAdapter.collectionView!.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
         ])
     }
+    
+    func openStoryPage(id: Int) {
+           let storyPageView = StoryPageView()
+           self.present(storyPageView, animated: true, completion: nil)
+       }
 }
 

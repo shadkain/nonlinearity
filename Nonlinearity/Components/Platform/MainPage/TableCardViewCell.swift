@@ -16,6 +16,8 @@ class TableCardViewCell: UITableViewCell {
     
     var currentTypeOfTab: TypeOfTab?
     
+    weak var vc: MainPageView?
+    
     private var flowLayout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
     
     func initCell () {
@@ -116,6 +118,7 @@ extension TableCardViewCell: UICollectionViewDelegate {
  
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
        print("User tapped on section \(tag) item \(indexPath.item)")
+        vc!.openStoryPage(id: 1)
     }
 }
 

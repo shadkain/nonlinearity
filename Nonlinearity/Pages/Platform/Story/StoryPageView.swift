@@ -13,7 +13,7 @@ class StoryPageView: UIViewController {
     var story = Story(id: 1,
                       title: "Алые листья",
                       description: "Девочка живёт в заточении дома, ничего не зная об окружающем мире. Её единственным другом становится маленькое растение.",
-//                      description: "Девочка живёт в заточении дома, ничего не зная об окружающем мире. Её единственным другом становится маленькое растение. Девочка живёт в заточении дома, ничего не зная об окружающем мире. Её единственным другом становится маленькое растение. Девочка живёт в заточении дома, ничего не зная об окружающем мире. Её единственным другом становится маленькое растение. Девочка живёт в заточении дома, ничего не зная об окружающем мире. Её единственным другом становится маленькое растение. Девочка живёт в заточении дома, ничего не зная об окружающем мире. Её единственным другом становится маленькое растение. Девочка живёт в заточении дома, ничего не зная об окружающем мире. Её единственным другом становится маленькое растение. Девочка живёт в заточении дома, ничего не зная об окружающем мире. Её единственным другом становится маленькое растение. Девочка живёт в заточении дома, ничего не зная об окружающем мире. Её единственным другом становится маленькое растение. ",
+//                     description: "Девочка живёт в заточении дома, ничего не зная об окружающем мире. Её единственным другом становится маленькое растение. Девочка живёт в заточении дома, ничего не зная об окружающем мире. Её единственным другом становится маленькое растение. Девочка живёт в заточении дома, ничего не зная об окружающем мире. Её единственным другом становится маленькое растение. Девочка живёт в заточении дома, ничего не зная об окружающем мире. Её единственным другом становится маленькое растение. Девочка живёт в заточении дома, ничего не зная об окружающем мире. Её единственным другом становится маленькое растение. Девочка живёт в заточении дома, ничего не зная об окружающем мире. Её единственным другом становится маленькое растение. Девочка живёт в заточении дома, ничего не зная об окружающем мире. Её единственным другом становится маленькое растение. Девочка живёт в заточении дома, ничего не зная об окружающем мире. Её единственным другом становится маленькое растение. ",
                       image: "book",
                       storyPath: "",
                       author: "Александр Писарев",
@@ -34,6 +34,8 @@ class StoryPageView: UIViewController {
     
     let publishedDate = UILabel()
     let descriptionView = DescriptionView()
+    
+    let backView = UIView()
     
     let buttonRead = ButtonView()
     
@@ -65,9 +67,10 @@ class StoryPageView: UIViewController {
         
         descriptionView.text = story.description!
 
+        backView.backgroundColor = .hex(rgb: 0x191919)
         buttonSetup()
         
-        [image, rating, views, editorChoice, titleStory, author, genres, publishedDate, descriptionView, buttonRead].forEach {
+        [image, rating, views, editorChoice, titleStory, author, genres, publishedDate, descriptionView, backView, buttonRead].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
             view.addSubview($0)
         }
@@ -143,6 +146,13 @@ class StoryPageView: UIViewController {
             descriptionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             descriptionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             descriptionView.heightAnchor.constraint(equalToConstant: descriptionView.getHeight())
+        ])
+        
+        NSLayoutConstraint.activate([
+            backView.topAnchor.constraint(equalTo: descriptionView.bottomAnchor, constant: 75),
+            backView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            backView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            backView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
         ])
         
         let anchorsButton = (UIScreen.main.bounds.size.width - 200) / 2

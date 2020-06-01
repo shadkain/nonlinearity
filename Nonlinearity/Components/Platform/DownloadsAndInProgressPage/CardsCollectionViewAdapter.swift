@@ -12,6 +12,8 @@ class CardsCollectionViewAdapter: UIViewComponent {
     var storyCard: StoryCardCollection?
     var collectionView: UICollectionView?
     
+    weak var vc: SimpleCollectionCardsViewController?
+    
     private var flowLayout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
     
     override func setup() {
@@ -93,6 +95,7 @@ extension CardsCollectionViewAdapter: UICollectionViewDataSource {
 extension CardsCollectionViewAdapter: UICollectionViewDelegate {
  
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-       print("User tapped on section \(tag) item \(indexPath.item)")
+        print("User tapped on section \(tag) item \(indexPath.item)")
+        vc!.openStoryPage(id: 1)
     }
 }

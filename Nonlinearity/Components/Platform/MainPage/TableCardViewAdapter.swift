@@ -15,6 +15,8 @@ class TableCardViewAdapter: UIViewComponent {
     var storyCard = StoryCard()
     var currentTypeOfTab: TypeOfTab = .main
     
+    weak var vc: MainPageView?
+    
     override func setup() {
         tableView = UITableView(frame: frame)
         
@@ -57,6 +59,7 @@ extension TableCardViewAdapter: UITableViewDataSource {
         }
         tableViewCell.tag = indexPath.row
         tableViewCell.storyCard = storyCard
+        tableViewCell.vc = vc!
         tableViewCell.currentTypeOfTab = currentTypeOfTab
         tableViewCell.selectionStyle = .none
         tableViewCell.initCell()

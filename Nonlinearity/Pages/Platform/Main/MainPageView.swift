@@ -22,6 +22,8 @@ class MainPageView: UIViewController {
         
         //tabAdapter.setTable(newTable: tableAdapter)
         
+        tableAdapter.vc = self
+        
         additionalSpace.backgroundColor = .hex(rgb: 0x252525)
         
         view.addSubview(additionalSpace)
@@ -66,5 +68,10 @@ class MainPageView: UIViewController {
              tableAdapter.tableView!.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
              tableAdapter.tableView!.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
         ])
+    }
+    
+    func openStoryPage(id: Int) {
+        let storyPageView = StoryPageView()
+        self.present(storyPageView, animated: true, completion: nil)
     }
 }
