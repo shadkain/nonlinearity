@@ -1,5 +1,5 @@
 //
-//  String.swift
+//  String+width.swift
 //  Nonlinearity
 //
 //  Created by Святослав Кряжев on 07.04.2020.
