@@ -26,11 +26,17 @@ final class AuthScreenView: UIScreenView {
             $0.font = .systemFont(ofSize: 18, weight: .bold)
             $0.textAlignment = .left
             $0.textColor = .init(hex: 0xCE7272)
-            $0.text = "ты лох"
         }
         
         backButtonView.image = .init(imageLiteralResourceName: "back-arrow-dark")
-        backButtonView.removeFromSuperview()
+        
+        submitButtonView.font = .systemFont(ofSize: 18, weight: .black)
+        submitButtonView.textAlignment = .center
+        submitButtonView.textColor = .init(hex: 0xF1F1F1)
+        submitButtonView.text = "Войти"
+        submitButtonView.layer.backgroundColor = UIColor(hex: 0x575757).cgColor
+        submitButtonView.layer.cornerRadius = 17
+        submitButtonView.isUserInteractionEnabled = true
         
         
         [colorRect, authFormView, loginErrorLabel, passwordErrorLabel, backButtonView, submitButtonView].forEach {
@@ -62,6 +68,11 @@ final class AuthScreenView: UIScreenView {
             
             backButtonView.leftAnchor.constraint(equalTo: leftAnchor, constant: 30),
             backButtonView.topAnchor.constraint(equalTo: topAnchor, constant: 45),
+            
+            submitButtonView.leftAnchor.constraint(equalTo: colorRect.leftAnchor, constant: 24),
+            submitButtonView.rightAnchor.constraint(equalTo: colorRect.rightAnchor, constant: -24),
+            submitButtonView.centerYAnchor.constraint(equalTo: colorRect.bottomAnchor),
+            submitButtonView.heightAnchor.constraint(equalToConstant: 51),
         ])
     }
     
