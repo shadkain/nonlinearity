@@ -25,6 +25,9 @@
 		C64DFA4C247C2AD3007F8DED /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64DFA47247C2AD3007F8DED /* Profile.swift */; };
 		C64DFA4D247C2AD3007F8DED /* UpperBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64DFA48247C2AD3007F8DED /* UpperBlock.swift */; };
 		C64DFA4E247C2AD3007F8DED /* CircleSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64DFA49247C2AD3007F8DED /* CircleSystem.swift */; };
+		C66A18E72485169E00556752 /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66A18E62485169E00556752 /* Rating.swift */; };
+		C66A18E92485188F00556752 /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66A18E82485188F00556752 /* SignupView.swift */; };
+		C66A18EB24852A8000556752 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66A18EA24852A8000556752 /* LoginView.swift */; };
 		C6B69F48247C2B6F00744C63 /* FootBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B69F47247C2B6F00744C63 /* FootBarVC.swift */; };
 		C6B69F54247C2BC500744C63 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B69F4C247C2BC500744C63 /* User.swift */; };
 		C6B69F55247C2BC500744C63 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B69F4D247C2BC500744C63 /* Story.swift */; };
@@ -82,6 +85,9 @@
 		C64DFA47247C2AD3007F8DED /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		C64DFA48247C2AD3007F8DED /* UpperBlock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpperBlock.swift; sourceTree = "<group>"; };
 		C64DFA49247C2AD3007F8DED /* CircleSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleSystem.swift; sourceTree = "<group>"; };
+		C66A18E62485169E00556752 /* Rating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
+		C66A18E82485188F00556752 /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
+		C66A18EA24852A8000556752 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		C6B69F47247C2B6F00744C63 /* FootBarVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FootBarVC.swift; sourceTree = "<group>"; };
 		C6B69F4C247C2BC500744C63 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C6B69F4D247C2BC500744C63 /* Story.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
@@ -237,6 +243,8 @@
 				C64DFA47247C2AD3007F8DED /* Profile.swift */,
 				C64DFA46247C2AD3007F8DED /* ProfileViewController.swift */,
 				C64DFA48247C2AD3007F8DED /* UpperBlock.swift */,
+				C66A18E82485188F00556752 /* SignupView.swift */,
+				C66A18EA24852A8000556752 /* LoginView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -257,6 +265,7 @@
 				CAB9861A2484F6B800B38D3B /* Heading.swift */,
 				C6B69F4D247C2BC500744C63 /* Story.swift */,
 				C6B69F4E247C2BC500744C63 /* Rubric.swift */,
+				C66A18E62485169E00556752 /* Rating.swift */,
 			);
 			path = NetworkingModel;
 			sourceTree = "<group>";
@@ -527,9 +536,11 @@
 				CA127C2C24752E6A004394D3 /* CardsCollectionViewAdapter.swift in Sources */,
 				C64DFA4D247C2AD3007F8DED /* UpperBlock.swift in Sources */,
 				CA77635A247D6D9F00EA768F /* ViewsView.swift in Sources */,
+				C66A18E92485188F00556752 /* SignupView.swift in Sources */,
 				9626697D243CD39800B65416 /* String.swift in Sources */,
 				C6B69F54247C2BC500744C63 /* User.swift in Sources */,
 				CA920C9A244DA92F00BBC461 /* Bubbles.swift in Sources */,
+				C66A18E72485169E00556752 /* Rating.swift in Sources */,
 				C64DFA4B247C2AD3007F8DED /* ProfileViewController.swift in Sources */,
 				96CDD1B224361D1C00A7D2FF /* StoryCardView.swift in Sources */,
 				CA920CA624503D3800BBC461 /* BubbleViewCollectionAdapter.swift in Sources */,
@@ -542,6 +553,7 @@
 				C64DFA4C247C2AD3007F8DED /* Profile.swift in Sources */,
 				CA920CA2244DF28C00BBC461 /* TableCardViewCell.swift in Sources */,
 				CA06FF87245770EB00C33921 /* TabsViewAdapter.swift in Sources */,
+				C66A18EB24852A8000556752 /* LoginView.swift in Sources */,
 				968F0CB52446E8180052768E /* MessageCell.swift in Sources */,
 				C6B69F55247C2BC500744C63 /* Story.swift in Sources */,
 			);

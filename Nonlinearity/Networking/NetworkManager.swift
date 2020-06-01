@@ -51,10 +51,10 @@ final class NetworkManager: NetworkManagerDescription {
     }
     
     func signup(user: User, completion: ((Bool) -> Void)?){
-        var state: Bool = false
+        
         let urlString = "\(baseUrl)/signup/"
         guard let fullUrl = URL(string: urlString) else {
-            completion?(state)
+            completion?(false)
             return
         }
         
@@ -68,7 +68,7 @@ final class NetworkManager: NetworkManagerDescription {
             let jsonData = try encoder.encode(user)
             request.httpBody = jsonData
         } catch {
-            completion?(state)
+            completion?(false)
             return
         }
             
@@ -77,8 +77,7 @@ final class NetworkManager: NetworkManagerDescription {
                 print(error.localizedDescription)
                 return
             }
-            state = true
-            completion?(state)
+            completion?(true)
         }.resume()
             
             return
@@ -143,7 +142,15 @@ final class NetworkManager: NetworkManagerDescription {
         URLSession.shared.dataTask(with: request as URLRequest) {data, response, error in
             if let error = error {
                 print(error.localizedDescription)
+                completion?(false)
                 return
+            }
+            if let httpResponse = response as? HTTPURLResponse {
+                print(httpResponse.statusCode)
+                if httpResponse.statusCode != 200 {
+                    completion?(false)
+                    return
+                }
             }
             state = true
             completion?(state)
@@ -272,7 +279,7 @@ final class NetworkManager: NetworkManagerDescription {
         }
         
         let request = NSMutableURLRequest(url: fullUrl)
-        request.httpMethod = "POST"
+        request.httpMethod = "GET"
             
         URLSession.shared.dataTask(with: request as URLRequest) {data, response, error in
             if let error = error {
@@ -286,7 +293,41 @@ final class NetworkManager: NetworkManagerDescription {
             
         return
     }
-    
+//
+//    func rateStory(ratingModel: RatingModel, completion: ((Bool?) -> Void)?) {
+//        var state: Bool = false
+//        let urlString = "\(baseUrl)/rateStory/"
+//        guard let fullUrl = URL(string: urlString) else {
+//            completion?(state)
+//            return
+//        }
+//
+//        let request = NSMutableURLRequest(url: fullUrl)
+//
+//        request.httpMethod = "POST"
+//        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+//        request.addValue("application/json", forHTTPHeaderField: "Accept")
+//
+//        do {
+//            let jsonData = try encoder.encode(user)
+//            request.httpBody = jsonData
+//        } catch {
+//            completion?(state)
+//            return
+//        }
+//
+//        URLSession.shared.dataTask(with: request as URLRequest) {data, response, error in
+//            if let error = error {
+//                print(error.localizedDescription)
+//                return
+//            }
+//            state = true
+//            completion?(state)
+//        }.resume()
+//
+//            return
+//    }
+
     static let shared = NetworkManager()
     
     private init() {}
