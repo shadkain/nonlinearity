@@ -14,6 +14,7 @@ final class ChatScreenView: UIScreenView {
     let tableView = UITableView()
     
     var presenter: ChatScreenPresenterProtocol!
+    var vc: UIViewController!
     
     override func setup() {
         self.backgroundColor = .hex(rgb: 0x191919)

@@ -207,11 +207,31 @@ extension StoryPageView {
         buttonRead.layer.cornerRadius = 17
         buttonRead.setTitle("Читать", for: .normal)
         buttonRead.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
-
     }
     
     @objc
     private func buttonAction(sender: UIButton!) {
-      print("Button tapped")
+        networkManager.getStoryDataJSON(storyPath: story!.storyPath!) { [self] data in
+            let str = String(decoding: data!, as: UTF8.self)
+            print(str)
+            
+            DispatchQueue.main.async {
+                let chatView = ChatScreenViewController()
+                let chatJSON = try! JSONDecoder().decode(ChatJSON.self, from: data!)
+                let chatModel = ChatLoader().load(from: chatJSON)!
+                chatModel.title = self.story!.title!
+                
+                let presenter = ChatScreenPresenter(model: chatModel, view: chatView.screenView)
+                
+                chatView.modalPresentationStyle = .fullScreen
+                chatView.modalTransitionStyle = .crossDissolve
+                
+                self.dismiss(animated: false, completion: nil)
+                self.view.window!.rootViewController!.present(chatView, animated: false, completion: nil)
+//                self.present(chatView, animated: true, completion: nil)
+                
+                presenter.show()
+            }
+        }
     }
 }

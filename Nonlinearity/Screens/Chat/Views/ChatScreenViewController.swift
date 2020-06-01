@@ -12,5 +12,11 @@ final class ChatScreenViewController: UIScreenViewController {
     let screenView = ChatScreenView()
     override var requiredScreenView: UIScreenView { screenView }
     
+    override func loadView() {
+        super.loadView()
+        
+        screenView.vc = self
+    }
+    
     override var prefersStatusBarHidden: Bool { true }
 }

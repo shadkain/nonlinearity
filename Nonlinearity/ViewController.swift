@@ -12,14 +12,14 @@ class ViewController: UIViewController {
     
     var footBarVC = FootBarVC()
         
-        override var preferredStatusBarStyle: UIStatusBarStyle {
-                return .lightContent
-            }
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
     
-        override func viewDidLoad() {
-            super.viewDidLoad()
-            view.backgroundColor = .white
-            self.setNeedsStatusBarAppearanceUpdate()
-            self.view.addSubview(footBarVC.view)
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .white
+        self.setNeedsStatusBarAppearanceUpdate()
+        self.view.addSubview(footBarVC.view)
     }
 }

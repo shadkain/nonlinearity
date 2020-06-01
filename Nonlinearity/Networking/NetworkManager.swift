@@ -158,9 +158,7 @@ final class NetworkManager: NetworkManagerDescription {
     }
     
     func getStoryDataJSON(storyPath: String, completion: ((Data?) -> Void)?) {
-        let urlString = "\(staticUrl)/stories/\(storyPath)"
-      
-        guard let fullUrl = URL(string: urlString) else {
+        guard let fullUrl = URL(string: storyPath) else {
             completion?(nil)
             return
         }

@@ -21,6 +21,7 @@ protocol ChatScreenViewProtocol: class {
     
     func reload()
     func scrollToBottom()
+    func goBack()
 }
 
 extension ChatScreenView: ChatScreenViewProtocol {
@@ -43,5 +44,9 @@ extension ChatScreenView: ChatScreenViewProtocol {
     func scrollToBottom() {
         let indexPath = IndexPath(row: presenter.messagesCount-1, section: 0)
         tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
+    }
+    
+    func goBack() {
+        vc.dismiss(animated: true, completion: nil)
     }
 }

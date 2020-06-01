@@ -17,7 +17,7 @@ enum ChatMessageRole {
 }
 
 final class ChatModel {
-    let title: String
+    var title: String
     private let firstPerson: ChatAuthor
     private let companions: [ChatAuthor]
     private let flow: [ChatMessage]

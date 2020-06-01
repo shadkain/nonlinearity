@@ -62,6 +62,7 @@ extension ChatScreenPresenter: ChatScreenPresenterProtocol, ChatHeaderPresenterP
     }
     
     func didTapBackButton() {
+        view.goBack()
         print("did tap back")
     }
     
