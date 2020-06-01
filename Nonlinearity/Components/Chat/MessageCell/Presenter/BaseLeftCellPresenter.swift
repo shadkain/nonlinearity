@@ -22,7 +22,6 @@ class ChatBaseLeftMessageCellPresenter: ChatMessageCellPresenter {
         
         view.setLocation(location)
         
-        view.showAvatar = showingAvatar
         if showingAvatar {
             view.setAvatarColors(
                 first: model.author.colors.first.rawValue,
@@ -30,5 +29,6 @@ class ChatBaseLeftMessageCellPresenter: ChatMessageCellPresenter {
             )
             view.setAvatarText(model.author.initials)
         }
+        view.showAvatar = showingAvatar
     }
 }
